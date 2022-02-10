@@ -3,7 +3,6 @@ import { graphql } from "gatsby";
 import Layout from "../components/layout";
 
 const Post = ({ path, data }) => {
-  console.log(path);
   const {
     frontmatter: { title, date, tags },
     html,

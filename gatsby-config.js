@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
     title: `Yennylog`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    description: `Yenny's blog`,
+    author: `@yennyheo`,
     siteUrl: `https://gatsbystarterdefaultsource.gatsbyjs.io/`,
   },
   plugins: [
@@ -42,5 +42,6 @@ module.exports = {
       },
     },
     `gatsby-transformer-remark`,
+    `gatsby-plugin-styled-components`,
   ],
 };

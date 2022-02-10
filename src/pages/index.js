@@ -1,40 +1,29 @@
 import * as React from "react";
 import { Link, graphql } from "gatsby";
-import { StaticImage } from "gatsby-plugin-image";
 
 import Layout from "../components/layout";
 import Seo from "../components/seo";
+import Profile from "../components/profile";
+import Styled from "../styledComponents/index.styled";
 
 const IndexPage = ({ data }) => {
   const { totalCount, edges } = data.allMarkdownRemark;
   return (
     <Layout>
       <Seo title="Home" />
-      <h1>Hi people</h1>
-      <p>Welcome to your new Gatsby site.</p>
-      <p>Now go build something great.</p>
-      {edges.map(({ node }) => (
-        <div key={node.id}>
-          <Link to={node.fields.slug}>
-            <h3>{node.frontmatter.title}</h3>
-            <p>{node.excerpt}</p>
-          </Link>
-        </div>
-      ))}
-      <StaticImage
-        src="../images/gatsby-astronaut.png"
-        width={300}
-        quality={95}
-        formats={["auto", "webp", "avif"]}
-        alt="A Gatsby astronaut"
-        style={{ marginBottom: `1.45rem` }}
-      />
-      <p>
-        <Link to="/page-2/">Go to page 2</Link> <br />
-        <Link to="/using-typescript/">Go to "Using TypeScript"</Link> <br />
-        <Link to="/using-ssr">Go to "Using SSR"</Link> <br />
-        <Link to="/using-dsg">Go to "Using DSG"</Link>
-      </p>
+      <Styled.Container>
+        <Profile />
+        <Styled.Posts>
+          {edges.map(({ node }) => (
+            <div key={node.id}>
+              <Link to={node.fields.slug}>
+                <h3>{node.frontmatter.title}</h3>
+                <p>{node.excerpt}</p>
+              </Link>
+            </div>
+          ))}
+        </Styled.Posts>
+      </Styled.Container>
     </Layout>
   );
 };

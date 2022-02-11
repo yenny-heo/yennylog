@@ -4,12 +4,12 @@ const Posts = styled.div`
   justify-content: start;
 `;
 
-const Container = styled.div`
+const PostContainer = styled.div`
   display: flex;
-  margin: 0 0 20px 0;
+  margin: 0 0 50px 0;
 `;
 
-const Post = styled.div`
+const PostLink = styled.div`
   padding-left: 20px;
   &:hover {
     text-decoration: underline;
@@ -28,8 +28,8 @@ const PostDescription = styled.p``;
 
 const Styled = {
   Posts,
-  Container,
-  Post,
+  PostContainer,
+  PostLink,
   PostTitle,
   PostDescription,
 };

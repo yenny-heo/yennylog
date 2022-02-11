@@ -17,6 +17,7 @@ const Month = styled.div`
   line-height: 20px;
   font-size: 12px;
   color: #fff;
+  font-weight: bold;
 `;
 
 const Date = styled.div`

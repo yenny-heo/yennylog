@@ -1,11 +1,12 @@
 import React from "react";
 import Styled from "./DateCalendar.styled";
 
-const DateCalendar = ({ DDMMMYYYY }) => {
+const DateCalendar = ({ ddmmmyyyy }) => {
+  const [dd, mmm, yyyy] = ddmmmyyyy.split(" ");
   return (
     <Styled.Container>
-      <Styled.Month>MAR</Styled.Month>
-      <Styled.Date>22</Styled.Date>
+      <Styled.Month>{mmm.toUpperCase()}</Styled.Month>
+      <Styled.Date>{dd}</Styled.Date>
     </Styled.Container>
   );
 };

@@ -8,26 +8,28 @@ import DateCalendar from "@/components/Atoms/DateCalendar/DateCalendar";
 
 const IndexPage = ({ data }) => {
   const { totalCount, edges } = data.allMarkdownRemark;
-  console.log(edges);
   return (
     <Layout>
       <Seo title="Home" />
       <Styled.Posts>
-        {edges.map(({ node }) => (
-          <div key={node.id}>
-            <Link to={node.fields.slug}>
-              <Styled.Container>
-                <DateCalendar />
-                <Styled.Post>
-                  <Styled.PostTitle>{node.frontmatter.title}</Styled.PostTitle>
-                  <Styled.PostDescription>
-                    {node.frontmatter.description}
-                  </Styled.PostDescription>
-                </Styled.Post>
-              </Styled.Container>
-            </Link>
-          </div>
-        ))}
+        {edges.map(({ node }) => {
+          const { title, description, date } = node.frontmatter;
+          return (
+            <div key={node.id}>
+              <Styled.PostContainer>
+                <DateCalendar ddmmmyyyy={date} />
+                <Styled.PostLink>
+                  <Link to={node.fields.slug}>
+                    <Styled.PostTitle>{title}</Styled.PostTitle>
+                    <Styled.PostDescription>
+                      {description}
+                    </Styled.PostDescription>
+                  </Link>
+                </Styled.PostLink>
+              </Styled.PostContainer>
+            </div>
+          );
+        })}
       </Styled.Posts>
     </Layout>
   );

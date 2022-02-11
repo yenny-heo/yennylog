@@ -1,9 +1,9 @@
 import * as React from "react";
-import PropTypes from "prop-types";
 import { useStaticQuery, graphql } from "gatsby";
-import Header from "./header";
-import Styled from "./layout.styled";
-import "../css/global.css";
+import PropTypes from "prop-types";
+import Profile from "./Profile";
+import Styled from "./Layout.styled";
+import "@/css/global.css";
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -15,14 +15,12 @@ const Layout = ({ children }) => {
       }
     }
   `);
-
+  const { title = "Yennylog" } = data.site.siteMetadata;
   return (
-    <>
-      <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
-      <Styled.Container>
-        <main>{children}</main>
-      </Styled.Container>
-    </>
+    <Styled.Container>
+      <Styled.Content>{children}</Styled.Content>
+      <Profile title={title} />
+    </Styled.Container>
   );
 };
 

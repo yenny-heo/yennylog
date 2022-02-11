@@ -1,6 +1,18 @@
 const { createFilePath } = require(`gatsby-source-filesystem`);
 const path = require("path");
 
+exports.onCreateWebpackConfig = ({ getConfig, actions }) => {
+  const output = getConfig().output || {};
+  actions.setWebpackConfig({
+    output,
+    resolve: {
+      alias: {
+        "@": path.resolve(__dirname, "src"),
+      },
+    },
+  });
+};
+
 exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions;
   if (node.internal.type === `MarkdownRemark`) {

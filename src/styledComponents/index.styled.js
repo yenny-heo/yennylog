@@ -6,14 +6,11 @@ const Posts = styled.div`
 
 const PostContainer = styled.div`
   display: flex;
-  margin: 0 0 50px 0;
+  margin: 0 0 70px 0;
 `;
 
 const PostLink = styled.div`
   padding-left: 20px;
-  &:hover {
-    text-decoration: underline;
-  }
 `;
 
 const PostTitle = styled.div`
@@ -24,7 +21,9 @@ const PostTitle = styled.div`
   margin-bottom: 10px;
 `;
 
-const PostDescription = styled.p``;
+const PostDescription = styled.p`
+  margin-bottom: 10px;
+`;
 
 const Styled = {
   Posts,

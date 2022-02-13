@@ -4,7 +4,7 @@ import { Link, graphql } from "gatsby";
 import Layout from "@/components/Layouts";
 import Seo from "@/components/seo";
 import Styled from "@/styledComponents/index.styled";
-import DateCalendar from "@/components/Atoms/DateCalendar/DateCalendar";
+import { DateCalendar, Tag } from "@/components/Atoms";
 
 const IndexPage = ({ data }) => {
   const { totalCount, edges } = data.allMarkdownRemark;
@@ -13,7 +13,8 @@ const IndexPage = ({ data }) => {
       <Seo title="Home" />
       <Styled.Posts>
         {edges.map(({ node }) => {
-          const { title, description, date } = node.frontmatter;
+          const { title, description, date, tags } = node.frontmatter;
+          console.log(tags);
           return (
             <div key={node.id}>
               <Styled.PostContainer>
@@ -25,6 +26,9 @@ const IndexPage = ({ data }) => {
                       {description}
                     </Styled.PostDescription>
                   </Link>
+                  {tags.map(tag => (
+                    <Tag key={tag}>{tag}</Tag>
+                  ))}
                 </Styled.PostLink>
               </Styled.PostContainer>
             </div>
@@ -46,6 +50,7 @@ export const query = graphql`
             title
             date(formatString: "DD MMM YYYY")
             description
+            tags
           }
           fields {
             slug

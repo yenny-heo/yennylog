@@ -2,7 +2,7 @@
 title: "테스트"
 slug: "/test"
 date: "2022-02-09"
-tags: ["test"]
+tags: ["test", "고구마"]
 description: "고구마를 맛있게 먹는 방법을 알아보자"
 ---
 

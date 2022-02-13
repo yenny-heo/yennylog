@@ -10,13 +10,12 @@ const Post = ({ path, data }) => {
   return (
     <Layout>
       <div>
-        <div>Hello Blog</div>
         <div>
           <h1>{title}</h1>
           <div>{date}</div>
           <div>
             {tags.map(tag => (
-              <span>{tag}</span>
+              <span key={tag}>{tag}</span>
             ))}
           </div>
           <div dangerouslySetInnerHTML={{ __html: html }} />

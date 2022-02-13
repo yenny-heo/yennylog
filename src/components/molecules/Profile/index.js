@@ -1,6 +1,6 @@
 import * as React from "react";
 import Styled from "./Profile.styled";
-import profileSrc from "@/images/Almost.jpg";
+import profileSrc from "@/images/profile.jpg";
 import { Link } from "gatsby";
 
 const Profile = ({ title }) => {

@@ -1,7 +1,7 @@
 import * as React from "react";
 import { useStaticQuery, graphql } from "gatsby";
 import PropTypes from "prop-types";
-import Profile from "./Profile";
+import { Profile } from "@/components";
 import Styled from "./Layout.styled";
 import "@/css/global.css";
 

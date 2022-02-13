@@ -1,8 +1,14 @@
 import styled from "styled-components";
 
 const Container = styled.div`
-  width: 250px;
+  position: sticky;
+  top: 100px;
   height: 500px;
+  @media only screen and (max-width: 700px) {
+    position: relative;
+    top: 0px;
+    height: 400px;
+  }
 `;
 
 const Profile = styled.div`

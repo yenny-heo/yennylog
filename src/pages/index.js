@@ -1,10 +1,9 @@
 import * as React from "react";
-import { Link, graphql } from "gatsby";
+import { graphql } from "gatsby";
 
-import Layout from "@/components/Layouts";
+import { Layout, PostCard } from "@/components";
 import Seo from "@/components/seo";
 import Styled from "@/styledComponents/index.styled";
-import { DateCalendar, Tag } from "@/components/Atoms";
 
 const IndexPage = ({ data }) => {
   const { totalCount, edges } = data.allMarkdownRemark;
@@ -12,28 +11,9 @@ const IndexPage = ({ data }) => {
     <Layout>
       <Seo title="Home" />
       <Styled.Posts>
-        {edges.map(({ node }) => {
-          const { title, description, date, tags } = node.frontmatter;
-          console.log(tags);
-          return (
-            <div key={node.id}>
-              <Styled.PostContainer>
-                <DateCalendar ddmmmyyyy={date} />
-                <Styled.PostLink>
-                  <Link to={node.fields.slug}>
-                    <Styled.PostTitle>{title}</Styled.PostTitle>
-                    <Styled.PostDescription>
-                      {description}
-                    </Styled.PostDescription>
-                  </Link>
-                  {tags.map(tag => (
-                    <Tag key={tag}>{tag}</Tag>
-                  ))}
-                </Styled.PostLink>
-              </Styled.PostContainer>
-            </div>
-          );
-        })}
+        {edges.map(({ node }) => (
+          <PostCard key={node.id} node={node} />
+        ))}
       </Styled.Posts>
     </Layout>
   );

@@ -19,12 +19,13 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
     const relativeFilePath = createFilePath({
       node,
       getNode,
-      basePath: `post`,
+      basePath: `posts`,
     });
+    console.log(relativeFilePath);
     createNodeField({
       node,
       name: `slug`,
-      value: `/post${relativeFilePath}`,
+      value: `/posts${relativeFilePath}`,
     });
   }
 };
@@ -47,7 +48,7 @@ exports.createPages = async ({ graphql, actions }) => {
   result.data.allMarkdownRemark.edges.forEach(({ node }) => {
     createPage({
       path: node.fields.slug,
-      component: path.resolve(`./src/templates/post.js`),
+      component: path.resolve(`./src/components/templates/Post/index.js`),
       context: {
         slug: node.fields.slug,
       },

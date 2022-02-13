@@ -1,6 +1,8 @@
 import React from "react";
 import { graphql } from "gatsby";
-import Layout from "@/components/Layouts";
+import Seo from "@/components/seo";
+import { Layout } from "@/components";
+import Styled from "./Post.styled";
 
 const Post = ({ path, data }) => {
   const {
@@ -9,16 +11,17 @@ const Post = ({ path, data }) => {
   } = data.markdownRemark;
   return (
     <Layout>
+      <Seo title="Post" />
       <div>
         <div>
-          <h1>{title}</h1>
+          <Styled.Title>{title}</Styled.Title>
           <div>{date}</div>
           <div>
             {tags.map(tag => (
               <span key={tag}>{tag}</span>
             ))}
           </div>
-          <div dangerouslySetInnerHTML={{ __html: html }} />
+          <Styled.Content dangerouslySetInnerHTML={{ __html: html }} />
         </div>
       </div>
     </Layout>

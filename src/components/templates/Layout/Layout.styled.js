@@ -18,7 +18,12 @@ const Content = styled.main`
     width: auto;
   }
 `;
+const Panel = styled.span`
+  min-width: 200px;
+  max-width: 200px;
+  margin: 0 auto;
+`;
 
-const Styled = { Container, Content };
+const Styled = { Container, Content, Panel };
 
 export default Styled;

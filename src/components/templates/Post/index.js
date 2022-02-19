@@ -1,16 +1,17 @@
 import React from "react";
 import { graphql } from "gatsby";
 import Seo from "@/components/seo";
-import { Layout } from "@/components";
+import { Layout, TableOfContents } from "@/components";
 import Styled from "./Post.styled";
 
 const Post = ({ path, data }) => {
   const {
     frontmatter: { title, date, tags },
     html,
+    tableOfContents,
   } = data.markdownRemark;
   return (
-    <Layout>
+    <Layout tableOfContents={tableOfContents}>
       <Seo title="Post" />
       <div>
         <div>
@@ -21,7 +22,10 @@ const Post = ({ path, data }) => {
               <span key={tag}>{tag}</span>
             ))}
           </div>
-          <Styled.Content dangerouslySetInnerHTML={{ __html: html }} />
+          <Styled.Content
+            id={"post-content"}
+            dangerouslySetInnerHTML={{ __html: html }}
+          />
         </div>
       </div>
     </Layout>
@@ -37,6 +41,7 @@ export const query = graphql`
         date
         tags
       }
+      tableOfContents
     }
   }
 `;

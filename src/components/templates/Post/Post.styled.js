@@ -6,6 +6,7 @@ const Title = styled.h1`
 `;
 
 const Content = styled.main`
+  padding: 0 0 100px 0;
   article,
   aside,
   details,

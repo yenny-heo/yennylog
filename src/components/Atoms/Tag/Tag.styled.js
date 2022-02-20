@@ -6,6 +6,8 @@ const Conatiner = styled.span`
   font-family: sans-serif;
   font-size: 14px;
   color: #000;
+  height: 20px;
+  border-radius: 10px;
   & + & {
     margin-left: 5px;
   }

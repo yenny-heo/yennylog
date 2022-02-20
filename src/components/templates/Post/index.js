@@ -1,8 +1,7 @@
 import React from "react";
 import { graphql } from "gatsby";
 import Seo from "@/components/seo";
-import { Layout, TableOfContents } from "@/components";
-import Styled from "./Post.styled";
+import { Layout, PostContent } from "@/components";
 
 const Post = ({ path, data }) => {
   const {
@@ -13,21 +12,7 @@ const Post = ({ path, data }) => {
   return (
     <Layout tableOfContents={tableOfContents}>
       <Seo title="Post" />
-      <div>
-        <div>
-          <Styled.Title>{title}</Styled.Title>
-          <div>{date}</div>
-          <div>
-            {tags.map(tag => (
-              <span key={tag}>{tag}</span>
-            ))}
-          </div>
-          <Styled.Content
-            id={"post-content"}
-            dangerouslySetInnerHTML={{ __html: html }}
-          />
-        </div>
-      </div>
+      <PostContent title={title} date={date} tags={tags} html={html} />
     </Layout>
   );
 };

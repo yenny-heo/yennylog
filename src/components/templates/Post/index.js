@@ -12,7 +12,13 @@ const Post = ({ path, data }) => {
   return (
     <Layout tableOfContents={tableOfContents}>
       <Seo title="Post" />
-      <PostContent title={title} date={date} tags={tags} html={html} />
+      <PostContent
+        path={path}
+        title={title}
+        date={date}
+        tags={tags}
+        html={html}
+      />
     </Layout>
   );
 };

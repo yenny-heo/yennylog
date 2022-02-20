@@ -1,8 +1,9 @@
 import React from "react";
 import Styled from "./PostContent.styled";
 import { Tag } from "@/components";
+import { Disqus } from "gatsby-plugin-disqus";
 
-const PostContent = ({ title, tags, date, html }) => {
+const PostContent = ({ path, title, tags, date, html }) => {
   return (
     <div>
       <Styled.Title>{title}</Styled.Title>
@@ -17,6 +18,13 @@ const PostContent = ({ title, tags, date, html }) => {
       <Styled.Content
         id={"post-content"}
         dangerouslySetInnerHTML={{ __html: html }}
+      />
+      <Disqus
+        config={{
+          url: `https://yenny-heo.github.io/yennylog${path}`,
+          identifier: path,
+          title: title,
+        }}
       />
     </div>
   );

@@ -18,7 +18,9 @@ const Date = styled.div`
 `;
 
 const Content = styled.main`
-  padding: 0 0 400px 0;
+  padding: 0 0 200px 0;
+  margin: 0 0 100px 0;
+  border-bottom: 1px solid #ccc;
 
   article,
   aside,

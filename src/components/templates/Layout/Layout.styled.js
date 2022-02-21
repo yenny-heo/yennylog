@@ -1,4 +1,13 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
+
+const fadein = keyframes`
+ from {
+   opacity: 0;
+ }
+ to {
+   opacity: 1;
+ }
+`;
 
 const Container = styled.div`
   display: flex;
@@ -10,6 +19,7 @@ const Container = styled.div`
     flex-direction: column-reverse;
     padding-top: 50px;
   }
+  animation: ${fadein} 0.5s 1 linear;
 `;
 
 const Content = styled.main`

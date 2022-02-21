@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "yennylog",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "Tech blog by yenny",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "yenny <aldald73@naver.com>",
   "dependencies": {
     "babel-plugin-styled-components": "^2.0.2",
     "gatsby": "^4.7.1",
@@ -30,10 +30,6 @@
     "gh-pages": "^3.2.3",
     "prettier": "^2.5.1"
   },
-  "keywords": [
-    "gatsby"
-  ],
-  "license": "0BSD",
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
@@ -43,12 +39,5 @@
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
-  },
-  "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
   }
 }

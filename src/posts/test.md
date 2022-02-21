@@ -1,7 +1,8 @@
 ---
 title: "Electron App과 C++ 게임 클라이언트 간의 통신이 가능할까?"
 date: "2022-02-09"
-tags: ["electron", "c++", "TCP"]
+tags: ["Electron", "C++"]
+type: "TECH"
 description: "TCP/IP 프로토콜로 통신하는 방법"
 ---
 

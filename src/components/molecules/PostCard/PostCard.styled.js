@@ -18,6 +18,7 @@ const PostTitle = styled.div`
 `;
 
 const PostDescription = styled.p`
+  font-size: 16px;
   margin-bottom: 10px;
 `;
 

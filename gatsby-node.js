@@ -21,7 +21,6 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
       getNode,
       basePath: `posts`,
     });
-    console.log(relativeFilePath);
     createNodeField({
       node,
       name: `slug`,

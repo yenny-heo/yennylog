@@ -1,7 +1,8 @@
 ---
 title: "Lorem Ipsum"
 date: "2022-02-09"
-tags: ["lorem"]
+tags: ["ETC"]
+type: "LIFE"
 description: "심심해서 만든 블로그"
 ---
 

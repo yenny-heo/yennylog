@@ -11,7 +11,7 @@ const Profile = ({ title }) => {
         <Styled.Title>
           <Link to="/">{title}</Link>
         </Styled.Title>
-        <Styled.Description>Frontend Developer</Styled.Description>
+        <Styled.Description>Front-end Developer</Styled.Description>
         <Styled.Description>Simple is Best 😗</Styled.Description>
       </Styled.Profile>
     </Styled.Container>

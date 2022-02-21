@@ -1,7 +1,8 @@
 ---
-title: "JavaScript 비동기 처리"
+title: "[JS] JavaScript 비동기 처리"
 date: "2022-02-20"
-tags: ["JavaScript", "Async"]
+tags: ["JavaScript"]
+type: "TECH"
 description: "for await ... of의 정확한 사용법은 무엇일까"
 ---
 

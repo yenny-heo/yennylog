@@ -16,12 +16,14 @@ const ProfileImage = styled.img`
   width: 150px;
   height: 150px;
   border-radius: 75px;
-  margin: 0 0 100px 0;
+  margin: 0 0 90px 0;
 `;
 
 const Title = styled.div`
-  font-size: 20px;
+  font-family: "pacifico";
+  font-size: 27px;
   font-weight: bold;
+  margin: 0 0 20px 0;
 `;
 
 const Description = styled.div`

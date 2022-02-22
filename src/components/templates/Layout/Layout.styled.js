@@ -23,7 +23,7 @@ const Container = styled.div`
 `;
 
 const Content = styled.main`
-  width: 710px;
+  width: calc(100% - 200px);
   @media only screen and (max-width: 710px) {
     width: auto;
   }

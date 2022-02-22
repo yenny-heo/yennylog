@@ -11,6 +11,7 @@ const Tab = styled.button`
   font-size: 15px;
   padding: 2px 0;
   box-sizing: border-box;
+  color: #424242;
   ${props =>
     props.active &&
     `

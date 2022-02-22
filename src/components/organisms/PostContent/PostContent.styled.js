@@ -415,7 +415,6 @@ const Content = styled.main`
     border-radius: 3px;
     overflow: auto;
     word-wrap: normal;
-    white-space: pre-wrap;
     padding: 1.45rem;
   }
   table {

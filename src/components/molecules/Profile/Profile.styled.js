@@ -30,6 +30,27 @@ const Description = styled.div`
   font-size: 15px;
 `;
 
-const Styled = { Container, ProfileImage, Profile, Title, Description };
+const Icons = styled.div`
+  margin: 10px 0 0 0;
+`;
+
+const Icon = styled.a`
+  display: inline-block;
+  width: 17px;
+  height: 17px;
+  & + & {
+    margin-left: 5px;
+  }
+`;
+
+const Styled = {
+  Container,
+  ProfileImage,
+  Profile,
+  Title,
+  Description,
+  Icons,
+  Icon,
+};
 
 export default Styled;

@@ -6,6 +6,7 @@ const Container = styled.div`
 `;
 
 const Post = styled.div`
+  width: 100%;
   padding-left: 20px;
 `;
 

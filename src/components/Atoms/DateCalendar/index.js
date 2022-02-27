@@ -5,8 +5,13 @@ const DateCalendar = ({ ddmmmyyyy }) => {
   const [dd, mmm, yyyy] = ddmmmyyyy.split(" ");
   return (
     <Styled.Container>
-      <Styled.Month>{mmm.toUpperCase()}</Styled.Month>
-      <Styled.Date>{dd}</Styled.Date>
+      <Styled.Year>
+        &#123;<span>{yyyy}</span>&#125;
+      </Styled.Year>
+      <Styled.Calendar>
+        <Styled.Month>{mmm.toUpperCase()}</Styled.Month>
+        <Styled.Date>{dd}</Styled.Date>
+      </Styled.Calendar>
     </Styled.Container>
   );
 };

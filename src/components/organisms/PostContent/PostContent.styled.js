@@ -601,6 +601,13 @@ const Content = styled.main`
       font-size: 100%;
     }
   }
+  span {
+    padding: 0 !important;
+    img {
+      position: relative !important;
+      height: auto !important;
+    }
+  }
 `;
 
 const Styled = { Title, Content, Desc, Date };

@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { navigate } from "gatsby";
 
 const initializeTabs = tabs => {
   return tabs.map(item => ({ ...item, active: false }));
@@ -14,6 +15,7 @@ const TabsHooks = ({ group }) => {
     let newTabs = initializeTabs([...tabs]);
     setTabs(newTabs);
     setCurrentTab(index);
+    navigate("/");
   };
 
   return { tabs, onChangeTab, currentTab };

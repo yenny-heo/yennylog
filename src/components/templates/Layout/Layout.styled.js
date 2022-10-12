@@ -28,12 +28,23 @@ const Content = styled.main`
     width: auto;
   }
 `;
+
 const Panel = styled.span`
   min-width: 200px;
   max-width: 200px;
   margin: 0 auto;
 `;
 
-const Styled = { Container, Content, Panel };
+const Tags = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 50px;
+  span {
+    cursor: pointer;
+    margin-bottom: 5px;
+  }
+`;
+
+const Styled = { Container, Content, Panel, Tags };
 
 export default Styled;

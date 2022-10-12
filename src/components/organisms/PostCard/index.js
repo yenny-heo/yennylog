@@ -1,6 +1,6 @@
 import React from "react";
 import Styled from "./PostCard.styled";
-import { DateCalendar, Tags } from "@/components";
+import { DateCalendar, PostTags } from "@/components";
 import { Link } from "gatsby";
 
 const PostCard = ({ node }) => {
@@ -13,7 +13,7 @@ const PostCard = ({ node }) => {
           <Styled.PostTitle>{title}</Styled.PostTitle>
           <Styled.PostDescription>{description}</Styled.PostDescription>
         </Link>
-        <Tags tags={tags} />
+        <PostTags tags={tags} />
       </Styled.Post>
     </Styled.Container>
   );

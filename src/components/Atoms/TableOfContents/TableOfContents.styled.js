@@ -30,8 +30,9 @@ const Container = styled.div`
     color: #3b3b3b;
     padding: 2px 3px;
     border-radius: 2px;
+    transition: background-color 0.5s;
     &.active {
-      background: #ddd6f3;
+      background-color: #ddd6f3;
       color: #3b3b3b;
     }
   }

@@ -1,23 +1,55 @@
 import React, { useEffect, useState } from "react";
-import { graphql } from "gatsby";
+import { graphql, navigate } from "gatsby";
 
 import { Layout, PostCard, Tabs } from "@/components";
 import Seo from "@/components/seo";
 import Styled from "@/styledComponents/index.styled";
 import TabsHooks from "@/hooks/tabs.hooks";
+import withLocation from "@/hoc/withLocation";
 
-const IndexPage = ({ data }) => {
+const IndexPage = ({ data, location }) => {
   const { totalCount, edges, group } = data.allMarkdownRemark;
   const { tabs, onChangeTab, currentTab } = TabsHooks({ group });
   const [currentEdges, setCurrentEdges] = useState([]);
+  const [tagObjs, setTagObjs] = useState([]);
+  const [currentTag, setCurrentTag] = useState("");
+
   useEffect(() => {
-    const newEdges = edges.filter(
-      edge => edge.node.frontmatter.type === tabs[currentTab]?.tag
-    );
-    setCurrentEdges(newEdges);
-  }, [currentTab]);
+    const params = new URLSearchParams(location.search);
+    setCurrentTag(params.get("tag"));
+  }, [location.search]);
+
+  useEffect(() => {
+    const newTags = [];
+    const filteredByTab = edges.filter(edge => {
+      const { type } = edge.node.frontmatter;
+      return type === tabs[currentTab]?.tag;
+    });
+    const filteredByTag = filteredByTab.filter(edge => {
+      const { tags } = edge.node.frontmatter;
+      newTags.push(...tags);
+      return !currentTag || tags.includes(currentTag);
+    });
+    const tagNameSet = [...new Set(newTags)];
+    const tagObjs = [];
+    tagNameSet.forEach(tagName => {
+      const tagCount = newTags.filter(newTag => tagName === newTag).length;
+      tagObjs.push({
+        name: tagName,
+        count: tagCount,
+      });
+    });
+
+    setCurrentEdges(filteredByTag);
+    setTagObjs(tagObjs);
+  }, [currentTab, currentTag]);
+
+  const onClickTag = tag => {
+    navigate(`/?tag=${encodeURIComponent(tag)}`);
+  };
+
   return (
-    <Layout>
+    <Layout tagsInfo={{ tagObjs, currentTag, onClickTag }}>
       <Seo title="Home" />
       <Styled.Posts>
         <Tabs tabs={tabs} onChangeTab={onChangeTab} currentTab={currentTab} />
@@ -58,4 +90,4 @@ export const query = graphql`
   }
 `;
 
-export default IndexPage;
+export default withLocation(IndexPage);

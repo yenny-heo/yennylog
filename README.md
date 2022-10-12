@@ -19,7 +19,7 @@
 ## 😆Execute
 
 ```bash
-$ gatsby develop
+$ npm run develop
 ```
 
 ## 😎Deploy

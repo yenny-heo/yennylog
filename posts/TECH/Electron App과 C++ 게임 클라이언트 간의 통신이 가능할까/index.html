@@ -188,82 +188,119 @@ data-styled.g32[id="Layoutstyled__Panel-sc-4cofie-2"]{content:"cnvVtG,"}/*!sc*/
 @-webkit-keyframes jBcSpD{from{opacity:0;}to{opacity:1;}}/*!sc*/
 @keyframes jBcSpD{from{opacity:0;}to{opacity:1;}}/*!sc*/
 data-styled.g36[id="sc-keyframes-jBcSpD"]{content:"jBcSpD,"}/*!sc*/
-</style><link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,500,700,900|Pacifico&amp;display=swap" rel="stylesheet"/><link as="script" rel="preload" href="/yennylog/webpack-runtime-c259f2aa5ea5d4716c6c.js"/><link as="script" rel="preload" href="/yennylog/framework-14ea8820be20f166adcd.js"/><link as="script" rel="preload" href="/yennylog/app-69d0d2c8f26237f3989e.js"/><link as="script" rel="preload" href="/yennylog/commons-816912fc8d63bf8ace4a.js"/><link as="fetch" rel="preload" href="/yennylog/page-data/posts/TECH/[JS] JavaScript 비동기 처리/page-data.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/yennylog/page-data/sq/d/3649515864.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/yennylog/page-data/sq/d/63159454.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/yennylog/page-data/app-data.json" crossorigin="anonymous"/></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><article class="Layoutstyled__MainContainer-sc-4cofie-0 fdrCQb"><main class="Layoutstyled__Content-sc-4cofie-1 gTmxuL"><div><h1 class="PostContentstyled__Title-sc-1qxszda-0 eATdtX">[JS] JavaScript 비동기 처리</h1><div class="PostContentstyled__Desc-sc-1qxszda-1 blzRC"><div class="PostContentstyled__Date-sc-1qxszda-2 cCpNwt">2022-02-20</div><div class="PostTagsstyled__Container-sc-p99ysc-0 djQUuF"><span class="PostTagsstyled__HashTag-sc-p99ysc-1 hkUnpp">#</span><span class="Tagstyled__Conatiner-sc-j85x7m-0 eTNAkN">JavaScript</span></div></div><main id="post-content" class="PostContentstyled__Content-sc-1qxszda-3 bpBEvc"><h1 id="잘못된-정보" style="position:relative;"><a href="#%EC%9E%98%EB%AA%BB%EB%90%9C-%EC%A0%95%EB%B3%B4" aria-label="잘못된 정보 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>잘못된 정보</h1>
-<blockquote>
-<p>문제: for await ... of는 반복문 내에서 일어나는 모든 비동기 구문을 기다려주는 구문이다 ?</p>
-</blockquote>
-<p>검색을 해보면 위와 같이 설명하는 글이 매우매우 많지만, 대부분 <strong>잘못된 정보</strong>이다.</p>
-<p>for await ... of는 비동기 구문을 기다려주는게 아니라, 단순히 <strong>비동기 열거</strong>를 위해 사용하는 구문이다.</p>
-<p>(출처: <a href="https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Statements/for-await...of">https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Statements/for-await...of</a>)</p>
-<p>다음과 같이 Promise 객체를 반환하는 함수가 있다고 할 때,</p>
-<pre><code class="language-jsx">const getPromisedObject = id => {
-  return new Promise(resolve => {
-    setTimeout(() => resolve({ message: "success", id }), 2000);
+</style><link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,500,700,900|Pacifico&amp;display=swap" rel="stylesheet"/><link as="script" rel="preload" href="/yennylog/webpack-runtime-c259f2aa5ea5d4716c6c.js"/><link as="script" rel="preload" href="/yennylog/framework-14ea8820be20f166adcd.js"/><link as="script" rel="preload" href="/yennylog/app-69d0d2c8f26237f3989e.js"/><link as="script" rel="preload" href="/yennylog/commons-816912fc8d63bf8ace4a.js"/><link as="fetch" rel="preload" href="/yennylog/page-data/posts/TECH/Electron App과 C++ 게임 클라이언트 간의 통신이 가능할까/page-data.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/yennylog/page-data/sq/d/3649515864.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/yennylog/page-data/sq/d/63159454.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/yennylog/page-data/app-data.json" crossorigin="anonymous"/></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><article class="Layoutstyled__MainContainer-sc-4cofie-0 fdrCQb"><main class="Layoutstyled__Content-sc-4cofie-1 gTmxuL"><div><h1 class="PostContentstyled__Title-sc-1qxszda-0 eATdtX">Electron App과 C++ 게임 클라이언트 간의 통신이 가능할까?</h1><div class="PostContentstyled__Desc-sc-1qxszda-1 blzRC"><div class="PostContentstyled__Date-sc-1qxszda-2 cCpNwt">2022-02-09</div><div class="PostTagsstyled__Container-sc-p99ysc-0 djQUuF"><span class="PostTagsstyled__HashTag-sc-p99ysc-1 hkUnpp">#</span><span class="Tagstyled__Conatiner-sc-j85x7m-0 eTNAkN">Electron</span><span class="Tagstyled__Conatiner-sc-j85x7m-0 eTNAkN">C++</span></div></div><main id="post-content" class="PostContentstyled__Content-sc-1qxszda-3 bpBEvc"><p>C++ 게임 클라이언트 ↔ Electron App 간의 통신을 시나리오로 잡았다.</p>
+<p>게임 클라이언트와 일렉트론 앱이 어떤 방식으로 통신을 할지는 아직 명확하지가 않아서 우선은 ‘양방향’에 초점을 맞추고 서로 데이터를 주고 받을 수 있는지에 대해 확인을 해보았다.</p>
+<h2 id="tcpip-socket" style="position:relative;"><a href="#tcpip-socket" aria-label="tcpip socket permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>TCP/IP Socket</h2>
+<p>통신을 하는 방법은 TCP/IP 소켓 프로그래밍을 이용해보기로 했다.</p>
+<p>Server 소켓과 Client 소켓을 만들고, 같은 IP 주소, port를 통해 두 소켓을 연결하여 통신하는 방식이다.</p>
+<p>이때 서버와 클라이언트는 유일한 IP주소와 port 조합을 가져야 한다.</p>
+<h2 id="electron---server" style="position:relative;"><a href="#electron---server" aria-label="electron   server permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Electron - Server</h2>
+<p>일렉트론은 <code>node</code> 기반이기 때문에, <code>node</code>의 <code>net</code> 모듈로 서버를 열어보기로 했다.</p>
+<p>7777번 host에 서버를 열었다. 서버는 클라이언트로부터 데이터를 받고, 그 데이터를 그대로 보내준다.</p>
+<pre><code class="language-jsx">var server = net.createServer(function (client) {
+    client.setEncoding("utf8");
+    client.setTimeout(500);
+    client.on("data", function (data) {
+      for (var i = 0; i &#x3C; sockets.length; i++) {
+        sockets[i].write(`Hi, I'm server and received "${data}"`);
+      }
+    });
+    client.on("error", function () {
+      console.log("error");
+    });
+    client.on("close", function () {
+      sockets.pop();
+      console.log("client close");
+    });
+    client.on("timeout", function () {});
+    sockets.push(client);
   });
-};
+
+  server.on("error", function (error) {});
+  server.listen(7777, function () {
+    var serverInfo = server.address();
+    var serverInfoJson = JSON.stringify(serverInfo);
+    console.log("listen server : " + serverInfoJson);
+    server.on("close", function () {
+      console.log("server closed.");
+    });
+    server.on("connection", function () {
+      console.log("connected!!!");
+    });
+  });
+});
 </code></pre>
-<p>비동기 루프문을 위해 아래와 같이 코드를 작성하는 것은 올바르지 않다.</p>
-<pre><code class="language-jsx">const getPromisedObjects = async () => {
-  const resArray = [];
-  for await (let id of [1, 2, 3]) {
-    const res = await getPromisedObject(id);
-    resArray.push(res);
-  }
-  console.log(resArray);
-};
+<h2 id="c---client" style="position:relative;"><a href="#c---client" aria-label="c   client permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>C++ - Client</h2>
+<p>C++에서는 소켓 프로그래밍을 위한 헤더 winsock2.h를 추가하여 클라이언트를 생성하였다.</p>
+<p>IP: 127.0.0.1, port: 7777로 소켓을 연결하여 메시지를 입력해서 서버에 전송하고, 서버로부터 데이터를 받아 출력해준다.</p>
+<pre><code class="language-jsx">#define _WINSOCK_DEPRECATED_NO_WARNINGS
+#include&#x3C;iostream>
+#include&#x3C;string>
+#include&#x3C;winsock2.h>
+
+using namespace std;
+void ShowErrorMessage(string message)
+{
+	cout &#x3C;&#x3C; "[오류발생]: " &#x3C;&#x3C; message &#x3C;&#x3C; '\n';
+	system("pause");
+	exit(1);
+}
+
+int main()
+{
+	WSADATA wsaData;
+	SOCKET clientSocket;
+	SOCKADDR_IN serverAddress;
+	int serverPort = 7777;
+	char received[256];
+	string sent;
+	if (WSAStartup(MAKEWORD(2, 2), &#x26;wsaData) != 0) // Initialize Winsock
+		ShowErrorMessage("WSAStartup()");
+	clientSocket = socket(PF_INET, SOCK_STREAM, 0); // Create TCP Client Socket
+	if (clientSocket == INVALID_SOCKET)
+		ShowErrorMessage("socket()");
+	memset(&#x26;serverAddress, 0, sizeof(serverAddress));
+	serverAddress.sin_family = AF_INET;
+	serverAddress.sin_addr.s_addr = inet_addr("127.0.0.1");
+	serverAddress.sin_port = htons(serverPort);
+
+	if (connect(clientSocket, (SOCKADDR*)&#x26;serverAddress, sizeof(serverAddress)) == SOCKET_ERROR)
+		ShowErrorMessage("connect()");
+	cout &#x3C;&#x3C; "[현재상태] connect()\n";
+	while (1) { // Send and receive message from server repeatedly
+		cout &#x3C;&#x3C; "[메시지전송]: ";
+		getline(cin, sent);
+		if (sent == "") continue;
+		send(clientSocket, sent.c_str(), sent.length(), 0);
+		int length = recv(clientSocket, received, sizeof(received), 0);
+		received[length] = '\0';
+		if (strcmp(received, "[exit]") == 0) {
+			cout &#x3C;&#x3C; "[서버종료]\n";
+			break;
+		}
+		cout &#x3C;&#x3C; "[서버메시지]: " &#x3C;&#x3C; received &#x3C;&#x3C; '\n';
+	}
+	closesocket(clientSocket);
+	WSACleanup();
+	system("pause");
+	return 0;
+}
 </code></pre>
-<h1 id="비동기-처리-방법" style="position:relative;"><a href="#%EB%B9%84%EB%8F%99%EA%B8%B0-%EC%B2%98%EB%A6%AC-%EB%B0%A9%EB%B2%95" aria-label="비동기 처리 방법 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>비동기 처리 방법</h1>
-<h2 id="비동기-작업-순차처리" style="position:relative;"><a href="#%EB%B9%84%EB%8F%99%EA%B8%B0-%EC%9E%91%EC%97%85-%EC%88%9C%EC%B0%A8%EC%B2%98%EB%A6%AC" aria-label="비동기 작업 순차처리 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>비동기 작업 순차처리</h2>
-<blockquote>
-<p>for, for ... of 를 사용</p>
-</blockquote>
-<p><strong>for</strong>문과 <strong>for ... of</strong> 문 내부에서 await 구문을 사용하기만 하더라도 비동기 처리가 순차적으로 이루어진다.</p>
-<pre><code class="language-jsx">const getPromisedObjects = async () => {
-  const resArray = [];
-  for (let id of [1, 2, 3]) {
-    const res = await getPromisedObject(id);
-    resArray.push(res);
-  }
-  console.log(resArray);
-};
-</code></pre>
-<h2 id="비동기-작업-병렬처리" style="position:relative;"><a href="#%EB%B9%84%EB%8F%99%EA%B8%B0-%EC%9E%91%EC%97%85-%EB%B3%91%EB%A0%AC%EC%B2%98%EB%A6%AC" aria-label="비동기 작업 병렬처리 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>비동기 작업 병렬처리</h2>
-<blockquote>
-<p>Promise.all 를 사용</p>
-</blockquote>
-<p>순서가 중요하지 않은 비동기 작업의 병렬 처리를 하고 싶다면 <strong>Promise.all</strong>을 사용하면 된다.</p>
-<p>순차처리에서는 2초 * 3 = 6초가 걸렸지만, 병렬처리로는 2초 뒤 작업이 끝난다.</p>
-<pre><code class="language-jsx">const getPromisedObjects = async () => {
-  const promises = [1, 2, 3].map(id => getPromisedObject(id));
-  const resArray = await Promise.all(promises);
-  console.log(resArray);
-};
-</code></pre>
-<h2 id="for-await--of는-언제-사용할까" style="position:relative;"><a href="#for-await--of%EB%8A%94-%EC%96%B8%EC%A0%9C-%EC%82%AC%EC%9A%A9%ED%95%A0%EA%B9%8C" aria-label="for await  of는 언제 사용할까 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>for await ... of는 언제 사용할까?</h2>
-<blockquote>
-<p>for await (variable of iterable) {
-statement
-}</p>
-</blockquote>
-<p>비동기 열거형 처리를 위해 사용한다. <em>iterable</em>에 비동기 열거형이 들어가지 않는다면 사용할 필요가 없다.</p>
-<pre><code class="language-jsx">const getPromisedObjects = async () => {
-  const resArray = [];
-  const promises = [1, 2, 3].map(id => getPromisedObject(id));
-  for await (let res of promises) {
-    resArray.push(res);
-  }
-  console.log(resArray);
-};
-</code></pre></main><div id="disqus_thread"></div></div></main><aside class="Layoutstyled__Panel-sc-4cofie-2 cnvVtG"><div class="Profilestyled__Container-sc-1ym8p9l-0 eZmvvK"><div class="Profilestyled__Profile-sc-1ym8p9l-1 OdiFH"><img src="/yennylog/static/profile-e0f92f3d92dcb600702efc5d572c3e0d.jpg" class="Profilestyled__ProfileImage-sc-1ym8p9l-2 jaNxoU"/><div class="Profilestyled__Title-sc-1ym8p9l-3 qcNGx"><a href="/yennylog/">Yennylog</a></div><div class="Profilestyled__Description-sc-1ym8p9l-4 hIROjv">Front-end Developer</div><div class="Profilestyled__Description-sc-1ym8p9l-4 hIROjv">Simple is Best 😗</div><div class="Profilestyled__Icons-sc-1ym8p9l-5 czEFdA"><a href="https://github.com/yenny-heo" target="_blank" class="Profilestyled__Icon-sc-1ym8p9l-6 eZTnHc"><img src="data:image/svg+xml;base64,PHN2ZyByb2xlPSJpbWciIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48dGl0bGU+R2l0SHViPC90aXRsZT48cGF0aCBkPSJNMTIgLjI5N2MtNi42MyAwLTEyIDUuMzczLTEyIDEyIDAgNS4zMDMgMy40MzggOS44IDguMjA1IDExLjM4NS42LjExMy44Mi0uMjU4LjgyLS41NzcgMC0uMjg1LS4wMS0xLjA0LS4wMTUtMi4wNC0zLjMzOC43MjQtNC4wNDItMS42MS00LjA0Mi0xLjYxQzQuNDIyIDE4LjA3IDMuNjMzIDE3LjcgMy42MzMgMTcuN2MtMS4wODctLjc0NC4wODQtLjcyOS4wODQtLjcyOSAxLjIwNS4wODQgMS44MzggMS4yMzYgMS44MzggMS4yMzYgMS4wNyAxLjgzNSAyLjgwOSAxLjMwNSAzLjQ5NS45OTguMTA4LS43NzYuNDE3LTEuMzA1Ljc2LTEuNjA1LTIuNjY1LS4zLTUuNDY2LTEuMzMyLTUuNDY2LTUuOTMgMC0xLjMxLjQ2NS0yLjM4IDEuMjM1LTMuMjItLjEzNS0uMzAzLS41NC0xLjUyMy4xMDUtMy4xNzYgMCAwIDEuMDA1LS4zMjIgMy4zIDEuMjMuOTYtLjI2NyAxLjk4LS4zOTkgMy0uNDA1IDEuMDIuMDA2IDIuMDQuMTM4IDMgLjQwNSAyLjI4LTEuNTUyIDMuMjg1LTEuMjMgMy4yODUtMS4yMy42NDUgMS42NTMuMjQgMi44NzMuMTIgMy4xNzYuNzY1Ljg0IDEuMjMgMS45MSAxLjIzIDMuMjIgMCA0LjYxLTIuODA1IDUuNjI1LTUuNDc1IDUuOTIuNDIuMzYuODEgMS4wOTYuODEgMi4yMiAwIDEuNjA2LS4wMTUgMi44OTYtLjAxNSAzLjI4NiAwIC4zMTUuMjEuNjkuODI1LjU3QzIwLjU2NSAyMi4wOTIgMjQgMTcuNTkyIDI0IDEyLjI5N2MwLTYuNjI3LTUuMzczLTEyLTEyLTEyIi8+PC9zdmc+" alt="github"/></a><a href="https://www.linkedin.com/in/yeeunheo/" target="_blank" class="Profilestyled__Icon-sc-1ym8p9l-6 eZTnHc"><img src="data:image/svg+xml;base64,PHN2ZyByb2xlPSJpbWciIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48dGl0bGU+TGlua2VkSW48L3RpdGxlPjxwYXRoIGQ9Ik0yMC40NDcgMjAuNDUyaC0zLjU1NHYtNS41NjljMC0xLjMyOC0uMDI3LTMuMDM3LTEuODUyLTMuMDM3LTEuODUzIDAtMi4xMzYgMS40NDUtMi4xMzYgMi45Mzl2NS42NjdIOS4zNTFWOWgzLjQxNHYxLjU2MWguMDQ2Yy40NzctLjkgMS42MzctMS44NSAzLjM3LTEuODUgMy42MDEgMCA0LjI2NyAyLjM3IDQuMjY3IDUuNDU1djYuMjg2ek01LjMzNyA3LjQzM2MtMS4xNDQgMC0yLjA2My0uOTI2LTIuMDYzLTIuMDY1IDAtMS4xMzguOTItMi4wNjMgMi4wNjMtMi4wNjMgMS4xNCAwIDIuMDY0LjkyNSAyLjA2NCAyLjA2MyAwIDEuMTM5LS45MjUgMi4wNjUtMi4wNjQgMi4wNjV6bTEuNzgyIDEzLjAxOUgzLjU1NVY5aDMuNTY0djExLjQ1MnpNMjIuMjI1IDBIMS43NzFDLjc5MiAwIDAgLjc3NCAwIDEuNzI5djIwLjU0MkMwIDIzLjIyNy43OTIgMjQgMS43NzEgMjRoMjAuNDUxQzIzLjIgMjQgMjQgMjMuMjI3IDI0IDIyLjI3MVYxLjcyOUMyNCAuNzc0IDIzLjIgMCAyMi4yMjIgMGguMDAzeiIvPjwvc3ZnPg==" alt="linkedin"/></a></div></div></div><div id="table-of-contents" class="TableOfContentsstyled__Container-sc-1bqa7f6-0 hahUY"><div><ul>
-<li>
-<p><a href="#%EC%9E%98%EB%AA%BB%EB%90%9C-%EC%A0%95%EB%B3%B4">잘못된 정보</a></p>
-</li>
-<li>
-<p><a href="#%EB%B9%84%EB%8F%99%EA%B8%B0-%EC%B2%98%EB%A6%AC-%EB%B0%A9%EB%B2%95">비동기 처리 방법</a></p>
-<ul>
-<li><a href="#%EB%B9%84%EB%8F%99%EA%B8%B0-%EC%9E%91%EC%97%85-%EC%88%9C%EC%B0%A8%EC%B2%98%EB%A6%AC">비동기 작업 순차처리</a></li>
-<li><a href="#%EB%B9%84%EB%8F%99%EA%B8%B0-%EC%9E%91%EC%97%85-%EB%B3%91%EB%A0%AC%EC%B2%98%EB%A6%AC">비동기 작업 병렬처리</a></li>
-<li><a href="#for-await--of%EB%8A%94-%EC%96%B8%EC%A0%9C-%EC%82%AC%EC%9A%A9%ED%95%A0%EA%B9%8C">for await ... of는 언제 사용할까?</a></li>
-</ul>
-</li>
-</ul></div></div></aside></article><footer class="Footerstyled__Footer-sc-d5gfxx-0 iCrcCy">@ designed by <strong>Yenny</strong></footer></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/posts/TECH/[JS] JavaScript 비동기 처리/";window.___webpackCompilationHash="d9d2a374f982c69c6be1";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"polyfill":["/polyfill-a512b52161349d1b7698.js"],"app":["/app-69d0d2c8f26237f3989e.js"],"component---src-components-templates-post-index-js":[],"component---src-pages-404-js":["/component---src-pages-404-js-23f804810ed3ecfe2f1b.js"],"component---src-pages-index-js":["/component---src-pages-index-js-e6c9291acd24c50ac4b4.js"],"component---src-pages-using-ssr-js":["/component---src-pages-using-ssr-js-a38a8034bf45bcc57dfd.js"]};/*]]>*/</script><script src="/yennylog/polyfill-a512b52161349d1b7698.js" nomodule=""></script><script src="/yennylog/commons-816912fc8d63bf8ace4a.js" async=""></script><script src="/yennylog/app-69d0d2c8f26237f3989e.js" async=""></script><script src="/yennylog/framework-14ea8820be20f166adcd.js" async=""></script><script src="/yennylog/webpack-runtime-c259f2aa5ea5d4716c6c.js" async=""></script></body></html>
+<h2 id="연결하기" style="position:relative;"><a href="#%EC%97%B0%EA%B2%B0%ED%95%98%EA%B8%B0" aria-label="연결하기 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>연결하기</h2>
+<p>이제 준비는 다 되었다. Server를 먼저 열고, 그다음 Client를 열어 연결해주면 된다.</p>
+<p>Electron App의 모습 (Server)</p>
+<p>C++ 콘솔창의 모습 (Client)</p>
+<p>성공적으로 연결된 것을 확인할 수 있었다. 그렇다면 데이터를 주고 받아보자.</p>
+<p>양방향 통신 또한 아주 잘 되는 모습이었다.</p>
+<p>결론은, <strong>Electron 앱과 C++ 게임 클라이언트는 TCP/IP 소켓 통신을 통해 데이터를 주고받을 수 있다.</strong></p>
+<p><strong>+</strong></p>
+<p>찾아본 결과 gRPC (google Remote Procedure Cell) 로도 통신이 가능하다고 합니다.</p>
+<h2 id="참조" style="position:relative;"><a href="#%EC%B0%B8%EC%A1%B0" aria-label="참조 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>참조</h2>
+<p><a href="https://ryeom2.tistory.com/117">https://ryeom2.tistory.com/117</a></p>
+<p><a href="https://stackoverflow.com/questions/41674063/is-it-possible-to-create-a-tcp-client-with-electron">https://stackoverflow.com/questions/41674063/is-it-possible-to-create-a-tcp-client-with-electron</a></p></main><div id="disqus_thread"></div></div></main><aside class="Layoutstyled__Panel-sc-4cofie-2 cnvVtG"><div class="Profilestyled__Container-sc-1ym8p9l-0 eZmvvK"><div class="Profilestyled__Profile-sc-1ym8p9l-1 OdiFH"><img src="/yennylog/static/profile-e0f92f3d92dcb600702efc5d572c3e0d.jpg" class="Profilestyled__ProfileImage-sc-1ym8p9l-2 jaNxoU"/><div class="Profilestyled__Title-sc-1ym8p9l-3 qcNGx"><a href="/yennylog/">Yennylog</a></div><div class="Profilestyled__Description-sc-1ym8p9l-4 hIROjv">Front-end Developer</div><div class="Profilestyled__Description-sc-1ym8p9l-4 hIROjv">Simple is Best 😗</div><div class="Profilestyled__Icons-sc-1ym8p9l-5 czEFdA"><a href="https://github.com/yenny-heo" target="_blank" class="Profilestyled__Icon-sc-1ym8p9l-6 eZTnHc"><img src="data:image/svg+xml;base64,PHN2ZyByb2xlPSJpbWciIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48dGl0bGU+R2l0SHViPC90aXRsZT48cGF0aCBkPSJNMTIgLjI5N2MtNi42MyAwLTEyIDUuMzczLTEyIDEyIDAgNS4zMDMgMy40MzggOS44IDguMjA1IDExLjM4NS42LjExMy44Mi0uMjU4LjgyLS41NzcgMC0uMjg1LS4wMS0xLjA0LS4wMTUtMi4wNC0zLjMzOC43MjQtNC4wNDItMS42MS00LjA0Mi0xLjYxQzQuNDIyIDE4LjA3IDMuNjMzIDE3LjcgMy42MzMgMTcuN2MtMS4wODctLjc0NC4wODQtLjcyOS4wODQtLjcyOSAxLjIwNS4wODQgMS44MzggMS4yMzYgMS44MzggMS4yMzYgMS4wNyAxLjgzNSAyLjgwOSAxLjMwNSAzLjQ5NS45OTguMTA4LS43NzYuNDE3LTEuMzA1Ljc2LTEuNjA1LTIuNjY1LS4zLTUuNDY2LTEuMzMyLTUuNDY2LTUuOTMgMC0xLjMxLjQ2NS0yLjM4IDEuMjM1LTMuMjItLjEzNS0uMzAzLS41NC0xLjUyMy4xMDUtMy4xNzYgMCAwIDEuMDA1LS4zMjIgMy4zIDEuMjMuOTYtLjI2NyAxLjk4LS4zOTkgMy0uNDA1IDEuMDIuMDA2IDIuMDQuMTM4IDMgLjQwNSAyLjI4LTEuNTUyIDMuMjg1LTEuMjMgMy4yODUtMS4yMy42NDUgMS42NTMuMjQgMi44NzMuMTIgMy4xNzYuNzY1Ljg0IDEuMjMgMS45MSAxLjIzIDMuMjIgMCA0LjYxLTIuODA1IDUuNjI1LTUuNDc1IDUuOTIuNDIuMzYuODEgMS4wOTYuODEgMi4yMiAwIDEuNjA2LS4wMTUgMi44OTYtLjAxNSAzLjI4NiAwIC4zMTUuMjEuNjkuODI1LjU3QzIwLjU2NSAyMi4wOTIgMjQgMTcuNTkyIDI0IDEyLjI5N2MwLTYuNjI3LTUuMzczLTEyLTEyLTEyIi8+PC9zdmc+" alt="github"/></a><a href="https://www.linkedin.com/in/yeeunheo/" target="_blank" class="Profilestyled__Icon-sc-1ym8p9l-6 eZTnHc"><img src="data:image/svg+xml;base64,PHN2ZyByb2xlPSJpbWciIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48dGl0bGU+TGlua2VkSW48L3RpdGxlPjxwYXRoIGQ9Ik0yMC40NDcgMjAuNDUyaC0zLjU1NHYtNS41NjljMC0xLjMyOC0uMDI3LTMuMDM3LTEuODUyLTMuMDM3LTEuODUzIDAtMi4xMzYgMS40NDUtMi4xMzYgMi45Mzl2NS42NjdIOS4zNTFWOWgzLjQxNHYxLjU2MWguMDQ2Yy40NzctLjkgMS42MzctMS44NSAzLjM3LTEuODUgMy42MDEgMCA0LjI2NyAyLjM3IDQuMjY3IDUuNDU1djYuMjg2ek01LjMzNyA3LjQzM2MtMS4xNDQgMC0yLjA2My0uOTI2LTIuMDYzLTIuMDY1IDAtMS4xMzguOTItMi4wNjMgMi4wNjMtMi4wNjMgMS4xNCAwIDIuMDY0LjkyNSAyLjA2NCAyLjA2MyAwIDEuMTM5LS45MjUgMi4wNjUtMi4wNjQgMi4wNjV6bTEuNzgyIDEzLjAxOUgzLjU1NVY5aDMuNTY0djExLjQ1MnpNMjIuMjI1IDBIMS43NzFDLjc5MiAwIDAgLjc3NCAwIDEuNzI5djIwLjU0MkMwIDIzLjIyNy43OTIgMjQgMS43NzEgMjRoMjAuNDUxQzIzLjIgMjQgMjQgMjMuMjI3IDI0IDIyLjI3MVYxLjcyOUMyNCAuNzc0IDIzLjIgMCAyMi4yMjIgMGguMDAzeiIvPjwvc3ZnPg==" alt="linkedin"/></a></div></div></div><div id="table-of-contents" class="TableOfContentsstyled__Container-sc-1bqa7f6-0 hahUY"><div><ul>
+<li><a href="#tcpip-socket">TCP/IP Socket</a></li>
+<li><a href="#electron---server">Electron - Server</a></li>
+<li><a href="#c---client">C++ - Client</a></li>
+<li><a href="#%EC%97%B0%EA%B2%B0%ED%95%98%EA%B8%B0">연결하기</a></li>
+<li><a href="#%EC%B0%B8%EC%A1%B0">참조</a></li>
+</ul></div></div></aside></article><footer class="Footerstyled__Footer-sc-d5gfxx-0 iCrcCy">@ designed by <strong>Yenny</strong></footer></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/posts/TECH/Electron App과 C++ 게임 클라이언트 간의 통신이 가능할까/";window.___webpackCompilationHash="d9d2a374f982c69c6be1";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"polyfill":["/polyfill-a512b52161349d1b7698.js"],"app":["/app-69d0d2c8f26237f3989e.js"],"component---src-components-templates-post-index-js":[],"component---src-pages-404-js":["/component---src-pages-404-js-23f804810ed3ecfe2f1b.js"],"component---src-pages-index-js":["/component---src-pages-index-js-e6c9291acd24c50ac4b4.js"],"component---src-pages-using-ssr-js":["/component---src-pages-using-ssr-js-a38a8034bf45bcc57dfd.js"]};/*]]>*/</script><script src="/yennylog/polyfill-a512b52161349d1b7698.js" nomodule=""></script><script src="/yennylog/commons-816912fc8d63bf8ace4a.js" async=""></script><script src="/yennylog/app-69d0d2c8f26237f3989e.js" async=""></script><script src="/yennylog/framework-14ea8820be20f166adcd.js" async=""></script><script src="/yennylog/webpack-runtime-c259f2aa5ea5d4716c6c.js" async=""></script></body></html>

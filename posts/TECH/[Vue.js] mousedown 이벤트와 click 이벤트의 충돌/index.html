@@ -188,82 +188,60 @@ data-styled.g32[id="Layoutstyled__Panel-sc-4cofie-2"]{content:"cnvVtG,"}/*!sc*/
 @-webkit-keyframes jBcSpD{from{opacity:0;}to{opacity:1;}}/*!sc*/
 @keyframes jBcSpD{from{opacity:0;}to{opacity:1;}}/*!sc*/
 data-styled.g36[id="sc-keyframes-jBcSpD"]{content:"jBcSpD,"}/*!sc*/
-</style><link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,500,700,900|Pacifico&amp;display=swap" rel="stylesheet"/><link as="script" rel="preload" href="/yennylog/webpack-runtime-c259f2aa5ea5d4716c6c.js"/><link as="script" rel="preload" href="/yennylog/framework-14ea8820be20f166adcd.js"/><link as="script" rel="preload" href="/yennylog/app-69d0d2c8f26237f3989e.js"/><link as="script" rel="preload" href="/yennylog/commons-816912fc8d63bf8ace4a.js"/><link as="fetch" rel="preload" href="/yennylog/page-data/posts/TECH/[JS] JavaScript 비동기 처리/page-data.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/yennylog/page-data/sq/d/3649515864.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/yennylog/page-data/sq/d/63159454.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/yennylog/page-data/app-data.json" crossorigin="anonymous"/></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><article class="Layoutstyled__MainContainer-sc-4cofie-0 fdrCQb"><main class="Layoutstyled__Content-sc-4cofie-1 gTmxuL"><div><h1 class="PostContentstyled__Title-sc-1qxszda-0 eATdtX">[JS] JavaScript 비동기 처리</h1><div class="PostContentstyled__Desc-sc-1qxszda-1 blzRC"><div class="PostContentstyled__Date-sc-1qxszda-2 cCpNwt">2022-02-20</div><div class="PostTagsstyled__Container-sc-p99ysc-0 djQUuF"><span class="PostTagsstyled__HashTag-sc-p99ysc-1 hkUnpp">#</span><span class="Tagstyled__Conatiner-sc-j85x7m-0 eTNAkN">JavaScript</span></div></div><main id="post-content" class="PostContentstyled__Content-sc-1qxszda-3 bpBEvc"><h1 id="잘못된-정보" style="position:relative;"><a href="#%EC%9E%98%EB%AA%BB%EB%90%9C-%EC%A0%95%EB%B3%B4" aria-label="잘못된 정보 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>잘못된 정보</h1>
-<blockquote>
-<p>문제: for await ... of는 반복문 내에서 일어나는 모든 비동기 구문을 기다려주는 구문이다 ?</p>
-</blockquote>
-<p>검색을 해보면 위와 같이 설명하는 글이 매우매우 많지만, 대부분 <strong>잘못된 정보</strong>이다.</p>
-<p>for await ... of는 비동기 구문을 기다려주는게 아니라, 단순히 <strong>비동기 열거</strong>를 위해 사용하는 구문이다.</p>
-<p>(출처: <a href="https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Statements/for-await...of">https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Statements/for-await...of</a>)</p>
-<p>다음과 같이 Promise 객체를 반환하는 함수가 있다고 할 때,</p>
-<pre><code class="language-jsx">const getPromisedObject = id => {
-  return new Promise(resolve => {
-    setTimeout(() => resolve({ message: "success", id }), 2000);
-  });
-};
+</style><link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,500,700,900|Pacifico&amp;display=swap" rel="stylesheet"/><link as="script" rel="preload" href="/yennylog/webpack-runtime-c259f2aa5ea5d4716c6c.js"/><link as="script" rel="preload" href="/yennylog/framework-14ea8820be20f166adcd.js"/><link as="script" rel="preload" href="/yennylog/app-69d0d2c8f26237f3989e.js"/><link as="script" rel="preload" href="/yennylog/commons-816912fc8d63bf8ace4a.js"/><link as="fetch" rel="preload" href="/yennylog/page-data/posts/TECH/[Vue.js] mousedown 이벤트와 click 이벤트의 충돌/page-data.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/yennylog/page-data/sq/d/3649515864.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/yennylog/page-data/sq/d/63159454.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/yennylog/page-data/app-data.json" crossorigin="anonymous"/></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><article class="Layoutstyled__MainContainer-sc-4cofie-0 fdrCQb"><main class="Layoutstyled__Content-sc-4cofie-1 gTmxuL"><div><h1 class="PostContentstyled__Title-sc-1qxszda-0 eATdtX">[Vue.js] mousedown 이벤트와 click 이벤트의 충돌</h1><div class="PostContentstyled__Desc-sc-1qxszda-1 blzRC"><div class="PostContentstyled__Date-sc-1qxszda-2 cCpNwt">2022-02-21</div><div class="PostTagsstyled__Container-sc-p99ysc-0 djQUuF"><span class="PostTagsstyled__HashTag-sc-p99ysc-1 hkUnpp">#</span><span class="Tagstyled__Conatiner-sc-j85x7m-0 eTNAkN">Vue.js</span><span class="Tagstyled__Conatiner-sc-j85x7m-0 eTNAkN">Bug</span></div></div><main id="post-content" class="PostContentstyled__Content-sc-1qxszda-3 bpBEvc"><h1 id="문제-발생" style="position:relative;"><a href="#%EB%AC%B8%EC%A0%9C-%EB%B0%9C%EC%83%9D" aria-label="문제 발생 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>문제 발생</h1>
+<p>Vue를 웹뷰로 포팅해서 보여주는 프로젝트를 진행중이다.</p>
+<p>헤더는 <code>mousedown</code> 이벤트에 창을 이동할 수 있는 핸들러(<code>moveWindow</code>)가 있었고, 헤더 안의 버튼에는 창을 닫는 <code>click</code>이벤트가 달려있었다.</p>
+<p>그런데 창 닫기 버튼을 클릭해도 <code>click</code> 이벤트가 트리거되지 않았다.</p>
+<p>당연히 자식 이벤트인 <code>click</code>, 부모 이벤트인 <code>mousedown</code> 이벤트가 차례대로 호출될 줄 알았지만 <code>mousedown</code>이벤트만 발생되었다.</p>
+<pre><code class="language-jsx">&#x3C;div class="gameHeader" @mousedown="moveWindow">
+    &#x3C;div class="toolbar">
+      &#x3C;button
+        type="button"
+        @click="minimizeWindow"
+        @keydown.prevent
+        class="btMin"
+      >
+...
 </code></pre>
-<p>비동기 루프문을 위해 아래와 같이 코드를 작성하는 것은 올바르지 않다.</p>
-<pre><code class="language-jsx">const getPromisedObjects = async () => {
-  const resArray = [];
-  for await (let id of [1, 2, 3]) {
-    const res = await getPromisedObject(id);
-    resArray.push(res);
-  }
-  console.log(resArray);
-};
-</code></pre>
-<h1 id="비동기-처리-방법" style="position:relative;"><a href="#%EB%B9%84%EB%8F%99%EA%B8%B0-%EC%B2%98%EB%A6%AC-%EB%B0%A9%EB%B2%95" aria-label="비동기 처리 방법 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>비동기 처리 방법</h1>
-<h2 id="비동기-작업-순차처리" style="position:relative;"><a href="#%EB%B9%84%EB%8F%99%EA%B8%B0-%EC%9E%91%EC%97%85-%EC%88%9C%EC%B0%A8%EC%B2%98%EB%A6%AC" aria-label="비동기 작업 순차처리 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>비동기 작업 순차처리</h2>
-<blockquote>
-<p>for, for ... of 를 사용</p>
-</blockquote>
-<p><strong>for</strong>문과 <strong>for ... of</strong> 문 내부에서 await 구문을 사용하기만 하더라도 비동기 처리가 순차적으로 이루어진다.</p>
-<pre><code class="language-jsx">const getPromisedObjects = async () => {
-  const resArray = [];
-  for (let id of [1, 2, 3]) {
-    const res = await getPromisedObject(id);
-    resArray.push(res);
-  }
-  console.log(resArray);
-};
-</code></pre>
-<h2 id="비동기-작업-병렬처리" style="position:relative;"><a href="#%EB%B9%84%EB%8F%99%EA%B8%B0-%EC%9E%91%EC%97%85-%EB%B3%91%EB%A0%AC%EC%B2%98%EB%A6%AC" aria-label="비동기 작업 병렬처리 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>비동기 작업 병렬처리</h2>
-<blockquote>
-<p>Promise.all 를 사용</p>
-</blockquote>
-<p>순서가 중요하지 않은 비동기 작업의 병렬 처리를 하고 싶다면 <strong>Promise.all</strong>을 사용하면 된다.</p>
-<p>순차처리에서는 2초 * 3 = 6초가 걸렸지만, 병렬처리로는 2초 뒤 작업이 끝난다.</p>
-<pre><code class="language-jsx">const getPromisedObjects = async () => {
-  const promises = [1, 2, 3].map(id => getPromisedObject(id));
-  const resArray = await Promise.all(promises);
-  console.log(resArray);
-};
-</code></pre>
-<h2 id="for-await--of는-언제-사용할까" style="position:relative;"><a href="#for-await--of%EB%8A%94-%EC%96%B8%EC%A0%9C-%EC%82%AC%EC%9A%A9%ED%95%A0%EA%B9%8C" aria-label="for await  of는 언제 사용할까 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>for await ... of는 언제 사용할까?</h2>
-<blockquote>
-<p>for await (variable of iterable) {
-statement
-}</p>
-</blockquote>
-<p>비동기 열거형 처리를 위해 사용한다. <em>iterable</em>에 비동기 열거형이 들어가지 않는다면 사용할 필요가 없다.</p>
-<pre><code class="language-jsx">const getPromisedObjects = async () => {
-  const resArray = [];
-  const promises = [1, 2, 3].map(id => getPromisedObject(id));
-  for await (let res of promises) {
-    resArray.push(res);
-  }
-  console.log(resArray);
-};
-</code></pre></main><div id="disqus_thread"></div></div></main><aside class="Layoutstyled__Panel-sc-4cofie-2 cnvVtG"><div class="Profilestyled__Container-sc-1ym8p9l-0 eZmvvK"><div class="Profilestyled__Profile-sc-1ym8p9l-1 OdiFH"><img src="/yennylog/static/profile-e0f92f3d92dcb600702efc5d572c3e0d.jpg" class="Profilestyled__ProfileImage-sc-1ym8p9l-2 jaNxoU"/><div class="Profilestyled__Title-sc-1ym8p9l-3 qcNGx"><a href="/yennylog/">Yennylog</a></div><div class="Profilestyled__Description-sc-1ym8p9l-4 hIROjv">Front-end Developer</div><div class="Profilestyled__Description-sc-1ym8p9l-4 hIROjv">Simple is Best 😗</div><div class="Profilestyled__Icons-sc-1ym8p9l-5 czEFdA"><a href="https://github.com/yenny-heo" target="_blank" class="Profilestyled__Icon-sc-1ym8p9l-6 eZTnHc"><img src="data:image/svg+xml;base64,PHN2ZyByb2xlPSJpbWciIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48dGl0bGU+R2l0SHViPC90aXRsZT48cGF0aCBkPSJNMTIgLjI5N2MtNi42MyAwLTEyIDUuMzczLTEyIDEyIDAgNS4zMDMgMy40MzggOS44IDguMjA1IDExLjM4NS42LjExMy44Mi0uMjU4LjgyLS41NzcgMC0uMjg1LS4wMS0xLjA0LS4wMTUtMi4wNC0zLjMzOC43MjQtNC4wNDItMS42MS00LjA0Mi0xLjYxQzQuNDIyIDE4LjA3IDMuNjMzIDE3LjcgMy42MzMgMTcuN2MtMS4wODctLjc0NC4wODQtLjcyOS4wODQtLjcyOSAxLjIwNS4wODQgMS44MzggMS4yMzYgMS44MzggMS4yMzYgMS4wNyAxLjgzNSAyLjgwOSAxLjMwNSAzLjQ5NS45OTguMTA4LS43NzYuNDE3LTEuMzA1Ljc2LTEuNjA1LTIuNjY1LS4zLTUuNDY2LTEuMzMyLTUuNDY2LTUuOTMgMC0xLjMxLjQ2NS0yLjM4IDEuMjM1LTMuMjItLjEzNS0uMzAzLS41NC0xLjUyMy4xMDUtMy4xNzYgMCAwIDEuMDA1LS4zMjIgMy4zIDEuMjMuOTYtLjI2NyAxLjk4LS4zOTkgMy0uNDA1IDEuMDIuMDA2IDIuMDQuMTM4IDMgLjQwNSAyLjI4LTEuNTUyIDMuMjg1LTEuMjMgMy4yODUtMS4yMy42NDUgMS42NTMuMjQgMi44NzMuMTIgMy4xNzYuNzY1Ljg0IDEuMjMgMS45MSAxLjIzIDMuMjIgMCA0LjYxLTIuODA1IDUuNjI1LTUuNDc1IDUuOTIuNDIuMzYuODEgMS4wOTYuODEgMi4yMiAwIDEuNjA2LS4wMTUgMi44OTYtLjAxNSAzLjI4NiAwIC4zMTUuMjEuNjkuODI1LjU3QzIwLjU2NSAyMi4wOTIgMjQgMTcuNTkyIDI0IDEyLjI5N2MwLTYuNjI3LTUuMzczLTEyLTEyLTEyIi8+PC9zdmc+" alt="github"/></a><a href="https://www.linkedin.com/in/yeeunheo/" target="_blank" class="Profilestyled__Icon-sc-1ym8p9l-6 eZTnHc"><img src="data:image/svg+xml;base64,PHN2ZyByb2xlPSJpbWciIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48dGl0bGU+TGlua2VkSW48L3RpdGxlPjxwYXRoIGQ9Ik0yMC40NDcgMjAuNDUyaC0zLjU1NHYtNS41NjljMC0xLjMyOC0uMDI3LTMuMDM3LTEuODUyLTMuMDM3LTEuODUzIDAtMi4xMzYgMS40NDUtMi4xMzYgMi45Mzl2NS42NjdIOS4zNTFWOWgzLjQxNHYxLjU2MWguMDQ2Yy40NzctLjkgMS42MzctMS44NSAzLjM3LTEuODUgMy42MDEgMCA0LjI2NyAyLjM3IDQuMjY3IDUuNDU1djYuMjg2ek01LjMzNyA3LjQzM2MtMS4xNDQgMC0yLjA2My0uOTI2LTIuMDYzLTIuMDY1IDAtMS4xMzguOTItMi4wNjMgMi4wNjMtMi4wNjMgMS4xNCAwIDIuMDY0LjkyNSAyLjA2NCAyLjA2MyAwIDEuMTM5LS45MjUgMi4wNjUtMi4wNjQgMi4wNjV6bTEuNzgyIDEzLjAxOUgzLjU1NVY5aDMuNTY0djExLjQ1MnpNMjIuMjI1IDBIMS43NzFDLjc5MiAwIDAgLjc3NCAwIDEuNzI5djIwLjU0MkMwIDIzLjIyNy43OTIgMjQgMS43NzEgMjRoMjAuNDUxQzIzLjIgMjQgMjQgMjMuMjI3IDI0IDIyLjI3MVYxLjcyOUMyNCAuNzc0IDIzLjIgMCAyMi4yMjIgMGguMDAzeiIvPjwvc3ZnPg==" alt="linkedin"/></a></div></div></div><div id="table-of-contents" class="TableOfContentsstyled__Container-sc-1bqa7f6-0 hahUY"><div><ul>
+<h1 id="원인" style="position:relative;"><a href="#%EC%9B%90%EC%9D%B8" aria-label="원인 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>원인</h1>
+<p>이벤트가 발생되는 순서는 <code>mousedown</code> => <code>mouseup</code> => <code>click</code> 순서대로 실행된다.</p>
+<p>따라서 <code>mousedown</code>이 먼저 실행된 것은 순서가 맞다.</p>
+<p><code>click</code>이 실행되지 않은 이유는, <code>mousedown</code>이벤트에 <code>drag</code> 핸들러가 붙어있기 때문이었다.</p>
+<p><code>drag</code> 이벤트가 트리거되는 조건은</p>
+<ol>
 <li>
-<p><a href="#%EC%9E%98%EB%AA%BB%EB%90%9C-%EC%A0%95%EB%B3%B4">잘못된 정보</a></p>
+<p>mouse movement</p>
 </li>
 <li>
-<p><a href="#%EB%B9%84%EB%8F%99%EA%B8%B0-%EC%B2%98%EB%A6%AC-%EB%B0%A9%EB%B2%95">비동기 처리 방법</a></p>
+<p>mouse up</p>
+</li>
+</ol>
+<p><code>click</code> 이벤트가 트리거되는 조건은</p>
+<ol>
+<li>
+<p>no mouse movement</p>
+</li>
+<li>
+<p>mouse up</p>
+</li>
+</ol>
+<p>버튼이 눌러진(<code>mousedown</code>) 시점에서 이 동작이 <code>click</code>인지, <code>drag</code>인지 알 수 없기 때문에,</p>
+<p><code>mousedown</code> => <code>drag</code> 이벤트만 실행 된 것이다.</p>
+<h1 id="해결-방법" style="position:relative;"><a href="#%ED%95%B4%EA%B2%B0-%EB%B0%A9%EB%B2%95" aria-label="해결 방법 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>해결 방법</h1>
+<p>click 이벤트를 가지는 자식 컴포넌트에 <code>data-event="click"</code> 속성을 주었고,</p>
+<p><code>moveWindow</code> 이벤트가 트리거 됐을 때 <code>data-event</code>가 <code>click</code>인 경우에는 <code>drag</code>를 실행하지 않도록 <code>return</code> 해주었다.</p>
+<h2 id="참조" style="position:relative;"><a href="#%EC%B0%B8%EC%A1%B0" aria-label="참조 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>참조</h2>
+<p><a href="https://qdmana.com/2021/08/20210802141021395W.html">https://qdmana.com/2021/08/20210802141021395W.html</a></p></main><div id="disqus_thread"></div></div></main><aside class="Layoutstyled__Panel-sc-4cofie-2 cnvVtG"><div class="Profilestyled__Container-sc-1ym8p9l-0 eZmvvK"><div class="Profilestyled__Profile-sc-1ym8p9l-1 OdiFH"><img src="/yennylog/static/profile-e0f92f3d92dcb600702efc5d572c3e0d.jpg" class="Profilestyled__ProfileImage-sc-1ym8p9l-2 jaNxoU"/><div class="Profilestyled__Title-sc-1ym8p9l-3 qcNGx"><a href="/yennylog/">Yennylog</a></div><div class="Profilestyled__Description-sc-1ym8p9l-4 hIROjv">Front-end Developer</div><div class="Profilestyled__Description-sc-1ym8p9l-4 hIROjv">Simple is Best 😗</div><div class="Profilestyled__Icons-sc-1ym8p9l-5 czEFdA"><a href="https://github.com/yenny-heo" target="_blank" class="Profilestyled__Icon-sc-1ym8p9l-6 eZTnHc"><img src="data:image/svg+xml;base64,PHN2ZyByb2xlPSJpbWciIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48dGl0bGU+R2l0SHViPC90aXRsZT48cGF0aCBkPSJNMTIgLjI5N2MtNi42MyAwLTEyIDUuMzczLTEyIDEyIDAgNS4zMDMgMy40MzggOS44IDguMjA1IDExLjM4NS42LjExMy44Mi0uMjU4LjgyLS41NzcgMC0uMjg1LS4wMS0xLjA0LS4wMTUtMi4wNC0zLjMzOC43MjQtNC4wNDItMS42MS00LjA0Mi0xLjYxQzQuNDIyIDE4LjA3IDMuNjMzIDE3LjcgMy42MzMgMTcuN2MtMS4wODctLjc0NC4wODQtLjcyOS4wODQtLjcyOSAxLjIwNS4wODQgMS44MzggMS4yMzYgMS44MzggMS4yMzYgMS4wNyAxLjgzNSAyLjgwOSAxLjMwNSAzLjQ5NS45OTguMTA4LS43NzYuNDE3LTEuMzA1Ljc2LTEuNjA1LTIuNjY1LS4zLTUuNDY2LTEuMzMyLTUuNDY2LTUuOTMgMC0xLjMxLjQ2NS0yLjM4IDEuMjM1LTMuMjItLjEzNS0uMzAzLS41NC0xLjUyMy4xMDUtMy4xNzYgMCAwIDEuMDA1LS4zMjIgMy4zIDEuMjMuOTYtLjI2NyAxLjk4LS4zOTkgMy0uNDA1IDEuMDIuMDA2IDIuMDQuMTM4IDMgLjQwNSAyLjI4LTEuNTUyIDMuMjg1LTEuMjMgMy4yODUtMS4yMy42NDUgMS42NTMuMjQgMi44NzMuMTIgMy4xNzYuNzY1Ljg0IDEuMjMgMS45MSAxLjIzIDMuMjIgMCA0LjYxLTIuODA1IDUuNjI1LTUuNDc1IDUuOTIuNDIuMzYuODEgMS4wOTYuODEgMi4yMiAwIDEuNjA2LS4wMTUgMi44OTYtLjAxNSAzLjI4NiAwIC4zMTUuMjEuNjkuODI1LjU3QzIwLjU2NSAyMi4wOTIgMjQgMTcuNTkyIDI0IDEyLjI5N2MwLTYuNjI3LTUuMzczLTEyLTEyLTEyIi8+PC9zdmc+" alt="github"/></a><a href="https://www.linkedin.com/in/yeeunheo/" target="_blank" class="Profilestyled__Icon-sc-1ym8p9l-6 eZTnHc"><img src="data:image/svg+xml;base64,PHN2ZyByb2xlPSJpbWciIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48dGl0bGU+TGlua2VkSW48L3RpdGxlPjxwYXRoIGQ9Ik0yMC40NDcgMjAuNDUyaC0zLjU1NHYtNS41NjljMC0xLjMyOC0uMDI3LTMuMDM3LTEuODUyLTMuMDM3LTEuODUzIDAtMi4xMzYgMS40NDUtMi4xMzYgMi45Mzl2NS42NjdIOS4zNTFWOWgzLjQxNHYxLjU2MWguMDQ2Yy40NzctLjkgMS42MzctMS44NSAzLjM3LTEuODUgMy42MDEgMCA0LjI2NyAyLjM3IDQuMjY3IDUuNDU1djYuMjg2ek01LjMzNyA3LjQzM2MtMS4xNDQgMC0yLjA2My0uOTI2LTIuMDYzLTIuMDY1IDAtMS4xMzguOTItMi4wNjMgMi4wNjMtMi4wNjMgMS4xNCAwIDIuMDY0LjkyNSAyLjA2NCAyLjA2MyAwIDEuMTM5LS45MjUgMi4wNjUtMi4wNjQgMi4wNjV6bTEuNzgyIDEzLjAxOUgzLjU1NVY5aDMuNTY0djExLjQ1MnpNMjIuMjI1IDBIMS43NzFDLjc5MiAwIDAgLjc3NCAwIDEuNzI5djIwLjU0MkMwIDIzLjIyNy43OTIgMjQgMS43NzEgMjRoMjAuNDUxQzIzLjIgMjQgMjQgMjMuMjI3IDI0IDIyLjI3MVYxLjcyOUMyNCAuNzc0IDIzLjIgMCAyMi4yMjIgMGguMDAzeiIvPjwvc3ZnPg==" alt="linkedin"/></a></div></div></div><div id="table-of-contents" class="TableOfContentsstyled__Container-sc-1bqa7f6-0 hahUY"><div><ul>
+<li>
+<p><a href="#%EB%AC%B8%EC%A0%9C-%EB%B0%9C%EC%83%9D">문제 발생</a></p>
+</li>
+<li>
+<p><a href="#%EC%9B%90%EC%9D%B8">원인</a></p>
+</li>
+<li>
+<p><a href="#%ED%95%B4%EA%B2%B0-%EB%B0%A9%EB%B2%95">해결 방법</a></p>
 <ul>
-<li><a href="#%EB%B9%84%EB%8F%99%EA%B8%B0-%EC%9E%91%EC%97%85-%EC%88%9C%EC%B0%A8%EC%B2%98%EB%A6%AC">비동기 작업 순차처리</a></li>
-<li><a href="#%EB%B9%84%EB%8F%99%EA%B8%B0-%EC%9E%91%EC%97%85-%EB%B3%91%EB%A0%AC%EC%B2%98%EB%A6%AC">비동기 작업 병렬처리</a></li>
-<li><a href="#for-await--of%EB%8A%94-%EC%96%B8%EC%A0%9C-%EC%82%AC%EC%9A%A9%ED%95%A0%EA%B9%8C">for await ... of는 언제 사용할까?</a></li>
+<li><a href="#%EC%B0%B8%EC%A1%B0">참조</a></li>
 </ul>
 </li>
-</ul></div></div></aside></article><footer class="Footerstyled__Footer-sc-d5gfxx-0 iCrcCy">@ designed by <strong>Yenny</strong></footer></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/posts/TECH/[JS] JavaScript 비동기 처리/";window.___webpackCompilationHash="d9d2a374f982c69c6be1";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"polyfill":["/polyfill-a512b52161349d1b7698.js"],"app":["/app-69d0d2c8f26237f3989e.js"],"component---src-components-templates-post-index-js":[],"component---src-pages-404-js":["/component---src-pages-404-js-23f804810ed3ecfe2f1b.js"],"component---src-pages-index-js":["/component---src-pages-index-js-e6c9291acd24c50ac4b4.js"],"component---src-pages-using-ssr-js":["/component---src-pages-using-ssr-js-a38a8034bf45bcc57dfd.js"]};/*]]>*/</script><script src="/yennylog/polyfill-a512b52161349d1b7698.js" nomodule=""></script><script src="/yennylog/commons-816912fc8d63bf8ace4a.js" async=""></script><script src="/yennylog/app-69d0d2c8f26237f3989e.js" async=""></script><script src="/yennylog/framework-14ea8820be20f166adcd.js" async=""></script><script src="/yennylog/webpack-runtime-c259f2aa5ea5d4716c6c.js" async=""></script></body></html>
+</ul></div></div></aside></article><footer class="Footerstyled__Footer-sc-d5gfxx-0 iCrcCy">@ designed by <strong>Yenny</strong></footer></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/posts/TECH/[Vue.js] mousedown 이벤트와 click 이벤트의 충돌/";window.___webpackCompilationHash="d9d2a374f982c69c6be1";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"polyfill":["/polyfill-a512b52161349d1b7698.js"],"app":["/app-69d0d2c8f26237f3989e.js"],"component---src-components-templates-post-index-js":[],"component---src-pages-404-js":["/component---src-pages-404-js-23f804810ed3ecfe2f1b.js"],"component---src-pages-index-js":["/component---src-pages-index-js-e6c9291acd24c50ac4b4.js"],"component---src-pages-using-ssr-js":["/component---src-pages-using-ssr-js-a38a8034bf45bcc57dfd.js"]};/*]]>*/</script><script src="/yennylog/polyfill-a512b52161349d1b7698.js" nomodule=""></script><script src="/yennylog/commons-816912fc8d63bf8ace4a.js" async=""></script><script src="/yennylog/app-69d0d2c8f26237f3989e.js" async=""></script><script src="/yennylog/framework-14ea8820be20f166adcd.js" async=""></script><script src="/yennylog/webpack-runtime-c259f2aa5ea5d4716c6c.js" async=""></script></body></html>

@@ -6,7 +6,9 @@ const PostTags = ({ tags }) => {
     <Styled.Container>
       <Styled.HashTag>#</Styled.HashTag>
       {tags.map(tag => (
-        <Tag key={tag}>{tag}</Tag>
+        <Tag key={tag} name={tag}>
+          {tag}
+        </Tag>
       ))}
     </Styled.Container>
   );

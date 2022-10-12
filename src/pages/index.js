@@ -3,7 +3,6 @@ import { graphql, navigate } from "gatsby";
 
 import { Layout, PostCard, Tabs } from "@/components";
 import Seo from "@/components/seo";
-import Styled from "@/styledComponents/index.styled";
 import TabsHooks from "@/hooks/tabs.hooks";
 import withLocation from "@/hoc/withLocation";
 
@@ -44,12 +43,8 @@ const IndexPage = ({ data, location }) => {
     setTagObjs(tagObjs);
   }, [currentTab, currentTag]);
 
-  const onClickTag = tag => {
-    navigate(`/?tag=${encodeURIComponent(tag)}`);
-  };
-
   return (
-    <Layout tagsInfo={{ tagObjs, currentTag, onClickTag }}>
+    <Layout tagsInfo={{ tagObjs, currentTag }}>
       <Seo title="Home" />
       <Tabs tabs={tabs} onChangeTab={onChangeTab} currentTab={currentTab} />
       {currentEdges.map(({ node }) => (

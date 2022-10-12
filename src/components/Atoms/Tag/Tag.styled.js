@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const Conatiner = styled.span`
+const Conatiner = styled.button`
   display: flex;
   align-self: center;
   width: fit-content;
@@ -14,13 +14,18 @@ const Conatiner = styled.span`
   border-radius: 10px;
   white-space: nowrap;
   transition: background-color 0.5s;
+  border: none;
+  cursor: pointer;
   & + & {
     margin-left: 5px;
+  }
+  &:hover {
+    background-color: #bbb;
   }
   ${({ isActive }) =>
     isActive &&
     `
-      background-color: #333;
+      background-color: #333 !important;
       color: #ddd6f3;
     `}
 `;

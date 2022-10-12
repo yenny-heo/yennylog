@@ -39,8 +39,7 @@ const Tags = styled.div`
   display: flex;
   flex-wrap: wrap;
   margin-top: 50px;
-  span {
-    cursor: pointer;
+  button {
     margin: 0 0 5px 5px;
   }
 `;

@@ -51,12 +51,10 @@ const IndexPage = ({ data, location }) => {
   return (
     <Layout tagsInfo={{ tagObjs, currentTag, onClickTag }}>
       <Seo title="Home" />
-      <Styled.Posts>
-        <Tabs tabs={tabs} onChangeTab={onChangeTab} currentTab={currentTab} />
-        {currentEdges.map(({ node }) => (
-          <PostCard key={node.id} node={node} />
-        ))}
-      </Styled.Posts>
+      <Tabs tabs={tabs} onChangeTab={onChangeTab} currentTab={currentTab} />
+      {currentEdges.map(({ node }) => (
+        <PostCard key={node.id} node={node} />
+      ))}
     </Layout>
   );
 };

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const Container = styled.div`
+const Container = styled.nav`
   margin: 0 0 30px 0;
 `;
 

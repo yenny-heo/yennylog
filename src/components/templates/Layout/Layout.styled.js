@@ -9,12 +9,12 @@ const fadein = keyframes`
  }
 `;
 
-const Container = styled.div`
+const MainContainer = styled.article`
   display: flex;
   justify-content: space-between;
   margin: 0 auto;
   max-width: 960px;
-  padding: 200px 1.0875rem 1.45rem;
+  padding: 200px 1.0875rem 0;
   @media only screen and (max-width: 700px) {
     flex-direction: column-reverse;
     padding-top: 50px;
@@ -29,7 +29,7 @@ const Content = styled.main`
   }
 `;
 
-const Panel = styled.span`
+const Panel = styled.aside`
   min-width: 200px;
   max-width: 200px;
   margin: 0 auto;
@@ -41,10 +41,10 @@ const Tags = styled.div`
   margin-top: 50px;
   span {
     cursor: pointer;
-    margin-bottom: 5px;
+    margin: 0 0 5px 5px;
   }
 `;
 
-const Styled = { Container, Content, Panel, Tags };
+const Styled = { MainContainer, Content, Panel, Tags };
 
 export default Styled;

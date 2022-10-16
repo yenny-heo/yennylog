@@ -189,82 +189,84 @@ data-styled.g32[id="Layoutstyled__Panel-sc-4cofie-2"]{content:"cnvVtG,"}/*!sc*/
 @-webkit-keyframes jBcSpD{from{opacity:0;}to{opacity:1;}}/*!sc*/
 @keyframes jBcSpD{from{opacity:0;}to{opacity:1;}}/*!sc*/
 data-styled.g34[id="sc-keyframes-jBcSpD"]{content:"jBcSpD,"}/*!sc*/
-</style><link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,500,700,900|Pacifico&amp;display=swap" rel="stylesheet"/><link as="script" rel="preload" href="/yennylog/webpack-runtime-5963448ad31dcb6ebef9.js"/><link as="script" rel="preload" href="/yennylog/framework-14ea8820be20f166adcd.js"/><link as="script" rel="preload" href="/yennylog/76d8c668-77f1a98ce0b2e436fbce.js"/><link as="script" rel="preload" href="/yennylog/app-3e96fe19a870f3b416cc.js"/><link as="script" rel="preload" href="/yennylog/commons-28c1e233404e33770f74.js"/><link as="fetch" rel="preload" href="/yennylog/page-data/posts/TECH/[JS] JavaScript 비동기 처리/page-data.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/yennylog/page-data/sq/d/3649515864.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/yennylog/page-data/sq/d/63159454.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/yennylog/page-data/app-data.json" crossorigin="anonymous"/></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><article class="Layoutstyled__MainContainer-sc-4cofie-0 fdrCQb"><main class="Layoutstyled__Content-sc-4cofie-1 gTmxuL"><div><h1 class="PostContentstyled__Title-sc-1qxszda-0 eATdtX">[JS] JavaScript 비동기 처리</h1><div class="PostContentstyled__Desc-sc-1qxszda-1 blzRC"><div class="PostContentstyled__Date-sc-1qxszda-2 cCpNwt">2022-02-20</div><div class="PostTagsstyled__Container-sc-p99ysc-0 djQUuF"><span class="PostTagsstyled__HashTag-sc-p99ysc-1 hkUnpp">#</span><button name="JavaScript" class="Tagstyled__Conatiner-sc-j85x7m-0 eTNAkN">JavaScript</button></div></div><main id="post-content" class="PostContentstyled__Content-sc-1qxszda-3 bpBEvc"><h1 id="잘못된-정보" style="position:relative;"><a href="#%EC%9E%98%EB%AA%BB%EB%90%9C-%EC%A0%95%EB%B3%B4" aria-label="잘못된 정보 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>잘못된 정보</h1>
-<blockquote>
-<p>문제: for await ... of는 반복문 내에서 일어나는 모든 비동기 구문을 기다려주는 구문이다 ?</p>
-</blockquote>
-<p>검색을 해보면 위와 같이 설명하는 글이 매우매우 많지만, 대부분 <strong>잘못된 정보</strong>이다.</p>
-<p>for await ... of는 비동기 구문을 기다려주는게 아니라, 단순히 <strong>비동기 열거</strong>를 위해 사용하는 구문이다.</p>
-<p>(출처: <a href="https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Statements/for-await...of">https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Statements/for-await...of</a>)</p>
-<p>다음과 같이 Promise 객체를 반환하는 함수가 있다고 할 때,</p>
-<pre><code class="language-jsx">const getPromisedObject = id => {
-  return new Promise(resolve => {
-    setTimeout(() => resolve({ message: "success", id }), 2000);
-  });
+</style><link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,500,700,900|Pacifico&amp;display=swap" rel="stylesheet"/><link as="script" rel="preload" href="/yennylog/webpack-runtime-5963448ad31dcb6ebef9.js"/><link as="script" rel="preload" href="/yennylog/framework-14ea8820be20f166adcd.js"/><link as="script" rel="preload" href="/yennylog/76d8c668-77f1a98ce0b2e436fbce.js"/><link as="script" rel="preload" href="/yennylog/app-3e96fe19a870f3b416cc.js"/><link as="script" rel="preload" href="/yennylog/commons-28c1e233404e33770f74.js"/><link as="fetch" rel="preload" href="/yennylog/page-data/posts/TECH/[React] gatsby에서 recoil 사용하기/page-data.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/yennylog/page-data/sq/d/3649515864.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/yennylog/page-data/sq/d/63159454.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/yennylog/page-data/app-data.json" crossorigin="anonymous"/></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><article class="Layoutstyled__MainContainer-sc-4cofie-0 fdrCQb"><main class="Layoutstyled__Content-sc-4cofie-1 gTmxuL"><div><h1 class="PostContentstyled__Title-sc-1qxszda-0 eATdtX">[React] Gatsby에서 Recoil 사용하기</h1><div class="PostContentstyled__Desc-sc-1qxszda-1 blzRC"><div class="PostContentstyled__Date-sc-1qxszda-2 cCpNwt">2022-10-16</div><div class="PostTagsstyled__Container-sc-p99ysc-0 djQUuF"><span class="PostTagsstyled__HashTag-sc-p99ysc-1 hkUnpp">#</span><button name="React" class="Tagstyled__Conatiner-sc-j85x7m-0 eTNAkN">React</button><button name="Gatsby" class="Tagstyled__Conatiner-sc-j85x7m-0 eTNAkN">Gatsby</button></div></div><main id="post-content" class="PostContentstyled__Content-sc-1qxszda-3 bpBEvc"><h1 id="설치" style="position:relative;"><a href="#%EC%84%A4%EC%B9%98" aria-label="설치 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>설치</h1>
+<p>우선 <a href="https://recoiljs.org/ko/docs/introduction/getting-started/">Recoil</a>을 설치한다.</p>
+<pre><code class="language-html">$ npm install recoil
+</code></pre>
+<h1 id="전역-wrapping" style="position:relative;"><a href="#%EC%A0%84%EC%97%AD-wrapping" aria-label="전역 wrapping permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>전역 Wrapping</h1>
+<p>Recoil을 사용하려면, 최상위 엘리먼트를 <code>RecoilRoot</code> 로 감싸주어야 한다.</p>
+<p>그런데 Gatsby에서는 React와는 다르게 최상위 루트 컴포넌트인 <code>index.js</code> 파일이 없다.</p>
+<p>Gatsby 문서에 따르면 <code>gatsby-browser.js</code> 파일을 사용하면, <strong>추가 구성 요소로 래핑</strong>할 수 있다고 나와있다.</p>
+<p>모든 페이지들을 래핑하려면, <code>wrapPageElement</code> 함수가 필요하다. 이 함수는 <strong>페이지가 변경되어도 언마운트 되지 않는다</strong>.</p>
+<pre><code class="language-jsx">//gatsby-browser.js
+/**
+ * Implement Gatsby's Browser APIs in this file.
+ *
+ * See: https://www.gatsbyjs.com/docs/browser-apis/
+ */
+
+// You can delete this file if you're not using it
+import React from "react";
+import { RecoilRoot } from "recoil";
+
+export const wrapPageElement = ({ element, props }) => {
+  return &#x3C;RecoilRoot {...props}>{element}&#x3C;/RecoilRoot>;
 };
 </code></pre>
-<p>비동기 루프문을 위해 아래와 같이 코드를 작성하는 것은 올바르지 않다.</p>
-<pre><code class="language-jsx">const getPromisedObjects = async () => {
-  const resArray = [];
-  for await (let id of [1, 2, 3]) {
-    const res = await getPromisedObject(id);
-    resArray.push(res);
-  }
-  console.log(resArray);
+<h1 id="상태관리" style="position:relative;"><a href="#%EC%83%81%ED%83%9C%EA%B4%80%EB%A6%AC" aria-label="상태관리 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>상태관리</h1>
+<p>래핑해주었다면, 이제 Recoil을 사용할 수 있다!</p>
+<p>나는 간단하게 탭의 상태를 전역적으로 관리하고 싶었기에, Recoil의 <code>selector</code> 는 사용하지 않았다.</p>
+<pre><code class="language-jsx">// state/index.js
+import { atom } from "recoil";
+
+const tabState = atom({
+  key: "tabState",
+  default: "TECH",
+});
+
+export { tabState };
+</code></pre>
+<p>컴포넌트단에서는 <code>useRecoilState</code> 와 정의해 둔 state를 통해 값을 가져오고, 변경시킬 수 있다.</p>
+<p>useState와 사용법이 똑같다.</p>
+<pre><code class="language-jsx">// hooks/tabs.hooks.js
+import { useRecoilState } from "recoil";
+import { tabState } from "@/state";
+const TabsHooks = ({}) => {
+  const [tab, setTab] = useRecoilState(tabState);
+  // ...
 };
 </code></pre>
-<h1 id="비동기-처리-방법" style="position:relative;"><a href="#%EB%B9%84%EB%8F%99%EA%B8%B0-%EC%B2%98%EB%A6%AC-%EB%B0%A9%EB%B2%95" aria-label="비동기 처리 방법 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>비동기 처리 방법</h1>
-<h2 id="비동기-작업-순차처리" style="position:relative;"><a href="#%EB%B9%84%EB%8F%99%EA%B8%B0-%EC%9E%91%EC%97%85-%EC%88%9C%EC%B0%A8%EC%B2%98%EB%A6%AC" aria-label="비동기 작업 순차처리 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>비동기 작업 순차처리</h2>
+<h1 id="ssr" style="position:relative;"><a href="#ssr" aria-label="ssr permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>SSR</h1>
+<p>공식문서에 다음과 같이 나와있다.</p>
 <blockquote>
-<p>for, for ... of 를 사용</p>
+<p><code>wrapPageElement</code> 함수는 Server-Side Rendering(SSR) API에도 존재한다.
+SSR을 통해 생성된 페이지가 브라우저에서 Hydrate 된 이후에도 동일하도록,
+일반적으로 <code>gatsby-ssr.js</code> 과 <code>gatsby-browser.js</code> 에 동일한 구성요소를 구현해야만 한다.</p>
 </blockquote>
-<p><strong>for</strong>문과 <strong>for ... of</strong> 문 내부에서 await 구문을 사용하기만 하더라도 비동기 처리가 순차적으로 이루어진다.</p>
-<pre><code class="language-jsx">const getPromisedObjects = async () => {
-  const resArray = [];
-  for (let id of [1, 2, 3]) {
-    const res = await getPromisedObject(id);
-    resArray.push(res);
-  }
-  console.log(resArray);
+<p>즉, 서버 사이드 렌더링을 통해 생성된 HTML과, 클라이언트 사이드에서 이 HTML과 번들링 된 JS를 매칭시킬 때 (<strong>Hydrate</strong>) 두 요소가 동일해야 하기 때문에 동일한 코드를 작성해주라는 말인 것 같다.</p>
+<pre><code class="language-jsx">//gatsby-ssr.js
+/**
+ * Implement Gatsby's SSR (Server Side Rendering) APIs in this file.
+ *
+ * See: https://www.gatsbyjs.com/docs/ssr-apis/
+ */
+
+// You can delete this file if you're not using it
+import React from "react";
+import { RecoilRoot } from "recoil";
+
+export const wrapPageElement = ({ element, props }) => {
+  return &#x3C;RecoilRoot {...props}>{element}&#x3C;/RecoilRoot>;
 };
 </code></pre>
-<h2 id="비동기-작업-병렬처리" style="position:relative;"><a href="#%EB%B9%84%EB%8F%99%EA%B8%B0-%EC%9E%91%EC%97%85-%EB%B3%91%EB%A0%AC%EC%B2%98%EB%A6%AC" aria-label="비동기 작업 병렬처리 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>비동기 작업 병렬처리</h2>
-<blockquote>
-<p>Promise.all 를 사용</p>
-</blockquote>
-<p>순서가 중요하지 않은 비동기 작업의 병렬 처리를 하고 싶다면 <strong>Promise.all</strong>을 사용하면 된다.</p>
-<p>순차처리에서는 2초 * 3 = 6초가 걸렸지만, 병렬처리로는 2초 뒤 작업이 끝난다.</p>
-<pre><code class="language-jsx">const getPromisedObjects = async () => {
-  const promises = [1, 2, 3].map(id => getPromisedObject(id));
-  const resArray = await Promise.all(promises);
-  console.log(resArray);
-};
-</code></pre>
-<h2 id="for-await--of는-언제-사용할까" style="position:relative;"><a href="#for-await--of%EB%8A%94-%EC%96%B8%EC%A0%9C-%EC%82%AC%EC%9A%A9%ED%95%A0%EA%B9%8C" aria-label="for await  of는 언제 사용할까 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>for await ... of는 언제 사용할까?</h2>
-<blockquote>
-<p>for await (variable of iterable) {
-statement
-}</p>
-</blockquote>
-<p>비동기 열거형 처리를 위해 사용한다. <em>iterable</em>에 비동기 열거형이 들어가지 않는다면 사용할 필요가 없다.</p>
-<pre><code class="language-jsx">const getPromisedObjects = async () => {
-  const resArray = [];
-  const promises = [1, 2, 3].map(id => getPromisedObject(id));
-  for await (let res of promises) {
-    resArray.push(res);
-  }
-  console.log(resArray);
-};
-</code></pre></main><div id="disqus_thread"></div></div></main><aside class="Layoutstyled__Panel-sc-4cofie-2 cnvVtG"><div class="Profilestyled__Container-sc-1ym8p9l-0 eZmvvK"><div class="Profilestyled__Profile-sc-1ym8p9l-1 OdiFH"><img src="/yennylog/static/profile-e0f92f3d92dcb600702efc5d572c3e0d.jpg" class="Profilestyled__ProfileImage-sc-1ym8p9l-2 jaNxoU"/><div class="Profilestyled__Title-sc-1ym8p9l-3 qcNGx"><a href="/yennylog/">Yennylog</a></div><div class="Profilestyled__Description-sc-1ym8p9l-4 hIROjv">Front-end Developer</div><div class="Profilestyled__Description-sc-1ym8p9l-4 hIROjv">Simple is Best 😗</div><div class="Profilestyled__Icons-sc-1ym8p9l-5 czEFdA"><a href="https://github.com/yenny-heo" target="_blank" class="Profilestyled__Icon-sc-1ym8p9l-6 eZTnHc"><img src="data:image/svg+xml;base64,PHN2ZyByb2xlPSJpbWciIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48dGl0bGU+R2l0SHViPC90aXRsZT48cGF0aCBkPSJNMTIgLjI5N2MtNi42MyAwLTEyIDUuMzczLTEyIDEyIDAgNS4zMDMgMy40MzggOS44IDguMjA1IDExLjM4NS42LjExMy44Mi0uMjU4LjgyLS41NzcgMC0uMjg1LS4wMS0xLjA0LS4wMTUtMi4wNC0zLjMzOC43MjQtNC4wNDItMS42MS00LjA0Mi0xLjYxQzQuNDIyIDE4LjA3IDMuNjMzIDE3LjcgMy42MzMgMTcuN2MtMS4wODctLjc0NC4wODQtLjcyOS4wODQtLjcyOSAxLjIwNS4wODQgMS44MzggMS4yMzYgMS44MzggMS4yMzYgMS4wNyAxLjgzNSAyLjgwOSAxLjMwNSAzLjQ5NS45OTguMTA4LS43NzYuNDE3LTEuMzA1Ljc2LTEuNjA1LTIuNjY1LS4zLTUuNDY2LTEuMzMyLTUuNDY2LTUuOTMgMC0xLjMxLjQ2NS0yLjM4IDEuMjM1LTMuMjItLjEzNS0uMzAzLS41NC0xLjUyMy4xMDUtMy4xNzYgMCAwIDEuMDA1LS4zMjIgMy4zIDEuMjMuOTYtLjI2NyAxLjk4LS4zOTkgMy0uNDA1IDEuMDIuMDA2IDIuMDQuMTM4IDMgLjQwNSAyLjI4LTEuNTUyIDMuMjg1LTEuMjMgMy4yODUtMS4yMy42NDUgMS42NTMuMjQgMi44NzMuMTIgMy4xNzYuNzY1Ljg0IDEuMjMgMS45MSAxLjIzIDMuMjIgMCA0LjYxLTIuODA1IDUuNjI1LTUuNDc1IDUuOTIuNDIuMzYuODEgMS4wOTYuODEgMi4yMiAwIDEuNjA2LS4wMTUgMi44OTYtLjAxNSAzLjI4NiAwIC4zMTUuMjEuNjkuODI1LjU3QzIwLjU2NSAyMi4wOTIgMjQgMTcuNTkyIDI0IDEyLjI5N2MwLTYuNjI3LTUuMzczLTEyLTEyLTEyIi8+PC9zdmc+" alt="github"/></a><a href="https://www.linkedin.com/in/yeeunheo/" target="_blank" class="Profilestyled__Icon-sc-1ym8p9l-6 eZTnHc"><img src="data:image/svg+xml;base64,PHN2ZyByb2xlPSJpbWciIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48dGl0bGU+TGlua2VkSW48L3RpdGxlPjxwYXRoIGQ9Ik0yMC40NDcgMjAuNDUyaC0zLjU1NHYtNS41NjljMC0xLjMyOC0uMDI3LTMuMDM3LTEuODUyLTMuMDM3LTEuODUzIDAtMi4xMzYgMS40NDUtMi4xMzYgMi45Mzl2NS42NjdIOS4zNTFWOWgzLjQxNHYxLjU2MWguMDQ2Yy40NzctLjkgMS42MzctMS44NSAzLjM3LTEuODUgMy42MDEgMCA0LjI2NyAyLjM3IDQuMjY3IDUuNDU1djYuMjg2ek01LjMzNyA3LjQzM2MtMS4xNDQgMC0yLjA2My0uOTI2LTIuMDYzLTIuMDY1IDAtMS4xMzguOTItMi4wNjMgMi4wNjMtMi4wNjMgMS4xNCAwIDIuMDY0LjkyNSAyLjA2NCAyLjA2MyAwIDEuMTM5LS45MjUgMi4wNjUtMi4wNjQgMi4wNjV6bTEuNzgyIDEzLjAxOUgzLjU1NVY5aDMuNTY0djExLjQ1MnpNMjIuMjI1IDBIMS43NzFDLjc5MiAwIDAgLjc3NCAwIDEuNzI5djIwLjU0MkMwIDIzLjIyNy43OTIgMjQgMS43NzEgMjRoMjAuNDUxQzIzLjIgMjQgMjQgMjMuMjI3IDI0IDIyLjI3MVYxLjcyOUMyNCAuNzc0IDIzLjIgMCAyMi4yMjIgMGguMDAzeiIvPjwvc3ZnPg==" alt="linkedin"/></a></div></div></div><div id="table-of-contents" class="TableOfContentsstyled__Container-sc-1bqa7f6-0 hahUY"><div><ul>
-<li>
-<p><a href="#%EC%9E%98%EB%AA%BB%EB%90%9C-%EC%A0%95%EB%B3%B4">잘못된 정보</a></p>
-</li>
-<li>
-<p><a href="#%EB%B9%84%EB%8F%99%EA%B8%B0-%EC%B2%98%EB%A6%AC-%EB%B0%A9%EB%B2%95">비동기 처리 방법</a></p>
+<h1 id="참조" style="position:relative;"><a href="#%EC%B0%B8%EC%A1%B0" aria-label="참조 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>참조</h1>
 <ul>
-<li><a href="#%EB%B9%84%EB%8F%99%EA%B8%B0-%EC%9E%91%EC%97%85-%EC%88%9C%EC%B0%A8%EC%B2%98%EB%A6%AC">비동기 작업 순차처리</a></li>
-<li><a href="#%EB%B9%84%EB%8F%99%EA%B8%B0-%EC%9E%91%EC%97%85-%EB%B3%91%EB%A0%AC%EC%B2%98%EB%A6%AC">비동기 작업 병렬처리</a></li>
-<li><a href="#for-await--of%EB%8A%94-%EC%96%B8%EC%A0%9C-%EC%82%AC%EC%9A%A9%ED%95%A0%EA%B9%8C">for await ... of는 언제 사용할까?</a></li>
-</ul>
-</li>
-</ul></div></div></aside></article><footer class="Footerstyled__Footer-sc-d5gfxx-0 iCrcCy">@ designed by <strong>Yenny</strong></footer></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/posts/TECH/[JS] JavaScript 비동기 처리/";window.___webpackCompilationHash="760d892794bf9478da47";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"polyfill":["/polyfill-a512b52161349d1b7698.js"],"app":["/app-3e96fe19a870f3b416cc.js"],"component---src-components-templates-post-index-js":[],"component---src-pages-404-js":["/component---src-pages-404-js-642dfd128305278e0892.js"],"component---src-pages-index-js":["/component---src-pages-index-js-bd1753aa9c46425045b9.js"],"component---src-pages-using-ssr-js":["/component---src-pages-using-ssr-js-8fa025327cb606e04bef.js"]};/*]]>*/</script><script src="/yennylog/polyfill-a512b52161349d1b7698.js" nomodule=""></script><script src="/yennylog/commons-28c1e233404e33770f74.js" async=""></script><script src="/yennylog/app-3e96fe19a870f3b416cc.js" async=""></script><script src="/yennylog/76d8c668-77f1a98ce0b2e436fbce.js" async=""></script><script src="/yennylog/framework-14ea8820be20f166adcd.js" async=""></script><script src="/yennylog/webpack-runtime-5963448ad31dcb6ebef9.js" async=""></script></body></html>
+<li><a href="https://www.gatsbyjs.com/docs/reference/config-files/gatsby-browser/">https://www.gatsbyjs.com/docs/reference/config-files/gatsby-browser/</a></li>
+<li><a href="https://medium.com/swlh/how-to-use-recoil-js-library-in-gatsby-d5212f2cd623">https://medium.com/swlh/how-to-use-recoil-js-library-in-gatsby-d5212f2cd623</a></li>
+</ul></main><div id="disqus_thread"></div></div></main><aside class="Layoutstyled__Panel-sc-4cofie-2 cnvVtG"><div class="Profilestyled__Container-sc-1ym8p9l-0 eZmvvK"><div class="Profilestyled__Profile-sc-1ym8p9l-1 OdiFH"><img src="/yennylog/static/profile-e0f92f3d92dcb600702efc5d572c3e0d.jpg" class="Profilestyled__ProfileImage-sc-1ym8p9l-2 jaNxoU"/><div class="Profilestyled__Title-sc-1ym8p9l-3 qcNGx"><a href="/yennylog/">Yennylog</a></div><div class="Profilestyled__Description-sc-1ym8p9l-4 hIROjv">Front-end Developer</div><div class="Profilestyled__Description-sc-1ym8p9l-4 hIROjv">Simple is Best 😗</div><div class="Profilestyled__Icons-sc-1ym8p9l-5 czEFdA"><a href="https://github.com/yenny-heo" target="_blank" class="Profilestyled__Icon-sc-1ym8p9l-6 eZTnHc"><img src="data:image/svg+xml;base64,PHN2ZyByb2xlPSJpbWciIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48dGl0bGU+R2l0SHViPC90aXRsZT48cGF0aCBkPSJNMTIgLjI5N2MtNi42MyAwLTEyIDUuMzczLTEyIDEyIDAgNS4zMDMgMy40MzggOS44IDguMjA1IDExLjM4NS42LjExMy44Mi0uMjU4LjgyLS41NzcgMC0uMjg1LS4wMS0xLjA0LS4wMTUtMi4wNC0zLjMzOC43MjQtNC4wNDItMS42MS00LjA0Mi0xLjYxQzQuNDIyIDE4LjA3IDMuNjMzIDE3LjcgMy42MzMgMTcuN2MtMS4wODctLjc0NC4wODQtLjcyOS4wODQtLjcyOSAxLjIwNS4wODQgMS44MzggMS4yMzYgMS44MzggMS4yMzYgMS4wNyAxLjgzNSAyLjgwOSAxLjMwNSAzLjQ5NS45OTguMTA4LS43NzYuNDE3LTEuMzA1Ljc2LTEuNjA1LTIuNjY1LS4zLTUuNDY2LTEuMzMyLTUuNDY2LTUuOTMgMC0xLjMxLjQ2NS0yLjM4IDEuMjM1LTMuMjItLjEzNS0uMzAzLS41NC0xLjUyMy4xMDUtMy4xNzYgMCAwIDEuMDA1LS4zMjIgMy4zIDEuMjMuOTYtLjI2NyAxLjk4LS4zOTkgMy0uNDA1IDEuMDIuMDA2IDIuMDQuMTM4IDMgLjQwNSAyLjI4LTEuNTUyIDMuMjg1LTEuMjMgMy4yODUtMS4yMy42NDUgMS42NTMuMjQgMi44NzMuMTIgMy4xNzYuNzY1Ljg0IDEuMjMgMS45MSAxLjIzIDMuMjIgMCA0LjYxLTIuODA1IDUuNjI1LTUuNDc1IDUuOTIuNDIuMzYuODEgMS4wOTYuODEgMi4yMiAwIDEuNjA2LS4wMTUgMi44OTYtLjAxNSAzLjI4NiAwIC4zMTUuMjEuNjkuODI1LjU3QzIwLjU2NSAyMi4wOTIgMjQgMTcuNTkyIDI0IDEyLjI5N2MwLTYuNjI3LTUuMzczLTEyLTEyLTEyIi8+PC9zdmc+" alt="github"/></a><a href="https://www.linkedin.com/in/yeeunheo/" target="_blank" class="Profilestyled__Icon-sc-1ym8p9l-6 eZTnHc"><img src="data:image/svg+xml;base64,PHN2ZyByb2xlPSJpbWciIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48dGl0bGU+TGlua2VkSW48L3RpdGxlPjxwYXRoIGQ9Ik0yMC40NDcgMjAuNDUyaC0zLjU1NHYtNS41NjljMC0xLjMyOC0uMDI3LTMuMDM3LTEuODUyLTMuMDM3LTEuODUzIDAtMi4xMzYgMS40NDUtMi4xMzYgMi45Mzl2NS42NjdIOS4zNTFWOWgzLjQxNHYxLjU2MWguMDQ2Yy40NzctLjkgMS42MzctMS44NSAzLjM3LTEuODUgMy42MDEgMCA0LjI2NyAyLjM3IDQuMjY3IDUuNDU1djYuMjg2ek01LjMzNyA3LjQzM2MtMS4xNDQgMC0yLjA2My0uOTI2LTIuMDYzLTIuMDY1IDAtMS4xMzguOTItMi4wNjMgMi4wNjMtMi4wNjMgMS4xNCAwIDIuMDY0LjkyNSAyLjA2NCAyLjA2MyAwIDEuMTM5LS45MjUgMi4wNjUtMi4wNjQgMi4wNjV6bTEuNzgyIDEzLjAxOUgzLjU1NVY5aDMuNTY0djExLjQ1MnpNMjIuMjI1IDBIMS43NzFDLjc5MiAwIDAgLjc3NCAwIDEuNzI5djIwLjU0MkMwIDIzLjIyNy43OTIgMjQgMS43NzEgMjRoMjAuNDUxQzIzLjIgMjQgMjQgMjMuMjI3IDI0IDIyLjI3MVYxLjcyOUMyNCAuNzc0IDIzLjIgMCAyMi4yMjIgMGguMDAzeiIvPjwvc3ZnPg==" alt="linkedin"/></a></div></div></div><div id="table-of-contents" class="TableOfContentsstyled__Container-sc-1bqa7f6-0 hahUY"><div><ul>
+<li><a href="#%EC%84%A4%EC%B9%98">설치</a></li>
+<li><a href="#%EC%A0%84%EC%97%AD-wrapping">전역 Wrapping</a></li>
+<li><a href="#%EC%83%81%ED%83%9C%EA%B4%80%EB%A6%AC">상태관리</a></li>
+<li><a href="#ssr">SSR</a></li>
+<li><a href="#%EC%B0%B8%EC%A1%B0">참조</a></li>
+</ul></div></div></aside></article><footer class="Footerstyled__Footer-sc-d5gfxx-0 iCrcCy">@ designed by <strong>Yenny</strong></footer></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/posts/TECH/[React] gatsby에서 recoil 사용하기/";window.___webpackCompilationHash="760d892794bf9478da47";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"polyfill":["/polyfill-a512b52161349d1b7698.js"],"app":["/app-3e96fe19a870f3b416cc.js"],"component---src-components-templates-post-index-js":[],"component---src-pages-404-js":["/component---src-pages-404-js-642dfd128305278e0892.js"],"component---src-pages-index-js":["/component---src-pages-index-js-bd1753aa9c46425045b9.js"],"component---src-pages-using-ssr-js":["/component---src-pages-using-ssr-js-8fa025327cb606e04bef.js"]};/*]]>*/</script><script src="/yennylog/polyfill-a512b52161349d1b7698.js" nomodule=""></script><script src="/yennylog/commons-28c1e233404e33770f74.js" async=""></script><script src="/yennylog/app-3e96fe19a870f3b416cc.js" async=""></script><script src="/yennylog/76d8c668-77f1a98ce0b2e436fbce.js" async=""></script><script src="/yennylog/framework-14ea8820be20f166adcd.js" async=""></script><script src="/yennylog/webpack-runtime-5963448ad31dcb6ebef9.js" async=""></script></body></html>

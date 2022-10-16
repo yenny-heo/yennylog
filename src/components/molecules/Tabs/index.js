@@ -7,7 +7,7 @@ const Tabs = ({ tabs, onChangeTab, currentTab }) => {
       {tabs.map(({ tag, totalCount }, index) => (
         <Styled.Tab
           key={tag}
-          active={currentTab === index}
+          active={currentTab === tag}
           role="tab"
           onClick={() => onChangeTab(index)}
         >

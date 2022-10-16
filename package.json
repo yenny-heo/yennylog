@@ -4,6 +4,17 @@
   "description": "Tech blog by yenny",
   "version": "0.1.0",
   "author": "yenny <aldald73@naver.com>",
+  "scripts": {
+    "predevelop": "npm install",
+    "develop": "gatsby develop",
+    "build": "gatsby build",
+    "deploy": "gatsby build --prefix-paths && gh-pages -d public -b deploy",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
+    "start": "gatsby develop",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean",
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+  },
   "dependencies": {
     "babel-plugin-styled-components": "^2.0.2",
     "gatsby": "^4.7.1",
@@ -25,21 +36,11 @@
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-helmet": "^6.1.0",
+    "recoil": "^0.7.6",
     "styled-components": "^5.3.3"
   },
   "devDependencies": {
     "gh-pages": "^3.2.3",
     "prettier": "^2.5.1"
-  },
-  "scripts": {
-    "build": "gatsby build",
-    "predevelop": "npm install",
-    "develop": "gatsby develop",
-    "deploy": "gatsby build --prefix-paths && gh-pages -d public -b deploy",
-    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
-    "start": "gatsby develop",
-    "serve": "gatsby serve",
-    "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   }
 }

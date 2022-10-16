@@ -7,7 +7,7 @@ import "@/css/global.css";
 import { TableOfContents } from "../../atoms";
 
 const Layout = ({ children, tableOfContents, tagsInfo = {} }) => {
-  const { tagObjs, currentTag } = tagsInfo;
+  const { tags, tag } = tagsInfo;
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -18,7 +18,7 @@ const Layout = ({ children, tableOfContents, tagsInfo = {} }) => {
     }
   `);
   const isPost = !!tableOfContents;
-  const isMain = !!tagObjs;
+  const isMain = !!tags;
 
   const { title = "Yennylog" } = data.site.siteMetadata;
 
@@ -31,11 +31,11 @@ const Layout = ({ children, tableOfContents, tagsInfo = {} }) => {
           {isPost && <TableOfContents tableOfContents={tableOfContents} />}
           {isMain && (
             <Styled.Tags>
-              <Tag isActive={!currentTag} name="">
+              <Tag isActive={!tag} name="">
                 전체
               </Tag>
-              {tagObjs.map(({ name, count }) => (
-                <Tag isActive={name === currentTag} key={name} name={name}>
+              {tags.map(({ name, count }) => (
+                <Tag isActive={name === tag} key={name} name={name}>
                   {name} ({count})
                 </Tag>
               ))}

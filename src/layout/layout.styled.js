@@ -38,7 +38,7 @@ const Panel = styled.aside`
 const Tags = styled.div`
   display: flex;
   flex-wrap: wrap;
-  margin-top: 50px;
+  margin: 50px 0 60px;
   button {
     margin: 0 0 5px 5px;
   }

@@ -1,10 +1,9 @@
 import * as React from "react";
 import { useStaticQuery, graphql } from "gatsby";
 import PropTypes from "prop-types";
-import { Profile, Tag, Footer } from "@/components";
+import { Profile, Tag, TableOfContents, Footer } from "@/components";
 import Styled from "./Layout.styled";
 import "@/css/global.css";
-import { TableOfContents } from "../../atoms";
 
 const Layout = ({ children, tableOfContents, tagsInfo = {} }) => {
   const { tags, tag } = tagsInfo;

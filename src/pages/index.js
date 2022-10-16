@@ -1,7 +1,8 @@
 import React from "react";
 import { graphql } from "gatsby";
 
-import { Layout, PostCard, Tabs } from "@/components";
+import Layout from "@/layout";
+import { PostCard, Tabs } from "@/components";
 import Seo from "@/components/seo";
 import TabsHooks from "@/hooks/tabs.hooks";
 import TagsHooks from "@/hooks/tags.hooks";

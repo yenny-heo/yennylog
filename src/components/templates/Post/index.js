@@ -1,7 +1,8 @@
 import React, { useEffect } from "react";
 import { graphql } from "gatsby";
 import Seo from "@/components/seo";
-import { Layout, PostContent } from "@/components";
+import Layout from "@/layout";
+import { PostContent } from "@/components";
 import { useRecoilState } from "recoil";
 import { tabState } from "@/state";
 

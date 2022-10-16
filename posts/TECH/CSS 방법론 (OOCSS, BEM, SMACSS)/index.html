@@ -189,83 +189,215 @@ data-styled.g34[id="Layoutstyled__Panel-sc-c0xsee-2"]{content:"ikKgyM,"}/*!sc*/
 @-webkit-keyframes jBcSpD{from{opacity:0;}to{opacity:1;}}/*!sc*/
 @keyframes jBcSpD{from{opacity:0;}to{opacity:1;}}/*!sc*/
 data-styled.g36[id="sc-keyframes-jBcSpD"]{content:"jBcSpD,"}/*!sc*/
-</style><link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,500,700,900|Pacifico&amp;display=swap" rel="stylesheet"/><link as="script" rel="preload" href="/yennylog/webpack-runtime-a135236b2f07f90790ad.js"/><link as="script" rel="preload" href="/yennylog/framework-14ea8820be20f166adcd.js"/><link as="script" rel="preload" href="/yennylog/76d8c668-77f1a98ce0b2e436fbce.js"/><link as="script" rel="preload" href="/yennylog/app-1f04a3adb55679763724.js"/><link as="script" rel="preload" href="/yennylog/commons-8c58bb0147514a2abf48.js"/><link as="fetch" rel="preload" href="/yennylog/page-data/posts/TECH/[Nuxt] 환경변수로 scss 글로벌 변수 삽입하기/page-data.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/yennylog/page-data/sq/d/3649515864.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/yennylog/page-data/sq/d/63159454.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/yennylog/page-data/app-data.json" crossorigin="anonymous"/></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><article class="Layoutstyled__MainContainer-sc-c0xsee-0 jXdoPp"><main class="Layoutstyled__Content-sc-c0xsee-1 kVYmzB"><div><h1 class="PostContentstyled__Title-sc-1qxszda-0 eATdtX">[Nuxt] 환경변수로 scss 글로벌 변수 삽입하기</h1><div class="PostContentstyled__Desc-sc-1qxszda-1 blzRC"><div class="PostContentstyled__Date-sc-1qxszda-2 cCpNwt">2022-10-12</div><div class="PostTagsstyled__Container-sc-p99ysc-0 djQUuF"><span class="PostTagsstyled__HashTag-sc-p99ysc-1 hkUnpp">#</span><button name="Nuxt" class="Tagstyled__Conatiner-sc-j85x7m-0 eTNAkN">Nuxt</button></div></div><main id="post-content" class="PostContentstyled__Content-sc-1qxszda-3 bpBEvc"><h1 id="목표" style="position:relative;"><a href="#%EB%AA%A9%ED%91%9C" aria-label="목표 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>목표</h1>
-<p><code>nuxt.js</code>로 개발 중인 프로젝트가 있다.</p>
-<p>이 프로젝트는 동일한 템플릿에 색상만 다르게 입혀 사용하는 경우가 많았다.</p>
-<p>테마 색상이 변경될 때, 일일이 변경하지 않고 한번에 변경할 수 있도록 색상 변수들을 전역변수화 하고 싶었다.</p>
-<p>단, 색상들을 각각 정의하지 않고 환경변수에 정의한 모든 변수들이 자동으로 등록되기를 원했다.</p>
-<h1 id="방법" style="position:relative;"><a href="#%EB%B0%A9%EB%B2%95" aria-label="방법 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>방법</h1>
-<p>구글링을 해보니 <code>node-sass-utils</code> 모듈 사용해서 <a href="https://stackoverflow.com/questions/61617011/how-can-i-use-environment-variables-in-node-sass-scss-files">js를 sass로 변환하는 방법</a>도 있었는데, 별도의 모듈 없이 구현하고 싶어서 다른 방법을 시도해보게 되었다.</p>
-<p><code>scss-loader</code>의 옵션인 <code>additionalData</code>를 사용하여 변수를 주입하는 방법을 시도해보게 되었다.</p>
-<h1 id="적용" style="position:relative;"><a href="#%EC%A0%81%EC%9A%A9" aria-label="적용 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>적용</h1>
-<p>우선 환경변수에 색상 변수들을 정의했다.</p>
-<pre><code class="language-jsx">// config/commonEnv.js
-const commonEnv = {
-	...
-  THEME_COLORS: {
-    BACKGROUND_COLOR: '#142314',
-    MAIN_COLOR: '#008c38',
-    SUB_BACKGROUND_COLOR: '#e2e2e2',
-    SUB_COLOR: '#ff7a08',
-  },
+</style><link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,500,700,900|Pacifico&amp;display=swap" rel="stylesheet"/><link as="script" rel="preload" href="/yennylog/webpack-runtime-a135236b2f07f90790ad.js"/><link as="script" rel="preload" href="/yennylog/framework-14ea8820be20f166adcd.js"/><link as="script" rel="preload" href="/yennylog/76d8c668-77f1a98ce0b2e436fbce.js"/><link as="script" rel="preload" href="/yennylog/app-1f04a3adb55679763724.js"/><link as="script" rel="preload" href="/yennylog/commons-8c58bb0147514a2abf48.js"/><link as="fetch" rel="preload" href="/yennylog/page-data/posts/TECH/CSS 방법론 (OOCSS, BEM, SMACSS)/page-data.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/yennylog/page-data/sq/d/3649515864.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/yennylog/page-data/sq/d/63159454.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/yennylog/page-data/app-data.json" crossorigin="anonymous"/></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><article class="Layoutstyled__MainContainer-sc-c0xsee-0 jXdoPp"><main class="Layoutstyled__Content-sc-c0xsee-1 kVYmzB"><div><h1 class="PostContentstyled__Title-sc-1qxszda-0 eATdtX">CSS 방법론 (OOCSS, BEM, SMACSS)</h1><div class="PostContentstyled__Desc-sc-1qxszda-1 blzRC"><div class="PostContentstyled__Date-sc-1qxszda-2 cCpNwt">2022-05-23</div><div class="PostTagsstyled__Container-sc-p99ysc-0 djQUuF"><span class="PostTagsstyled__HashTag-sc-p99ysc-1 hkUnpp">#</span><button name="CSS" class="Tagstyled__Conatiner-sc-j85x7m-0 eTNAkN">CSS</button></div></div><main id="post-content" class="PostContentstyled__Content-sc-1qxszda-3 bpBEvc"><h3 id="1-oocss-object-oriented-css" style="position:relative;"><a href="#1-oocss-object-oriented-css" aria-label="1 oocss object oriented css permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>1. OOCSS (Object Oriented CSS)</h3>
+<p>중복을 최소화, 캡슐화를 원칙으로 하는 방식</p>
+<ol>
+<li>구조와 외형 분리
+<ul>
+<li>구조: width, height, border, padding, margin ...</li>
+<li>외형: color, border-color, font-color, background-color ...</li>
+</ul>
+</li>
+</ol>
+<pre><code class="language-css">&#x3C;div
+  class="btn common-skin tel"
+  > tel&#x3C;/div
+  > &#x3C;div
+  class="btn common-skin email"
+  > email&#x3C;/div
+  > .btn {
 }
-
-export default commonEnv
-</code></pre>
-<p><code>additionalData</code>는 스타일 파일의 앞에 scss 코드를 추가해준다.</p>
-<p>IIFE 함수를 이용하여 scss 코드를 정의해 주었다.</p>
-<pre><code class="language-jsx">//nuxt.config.js
-const environment = process.env.APP_ENV
-const publicConfig = getPublicConfig(environment)
-
-export default {
-
-  // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {
-    ...
-    loaders: {
-      scss: {
-        additionalData: (() => {
-          const colors = []
-          Object.entries(THEME_COLORS).forEach(([name, value]) => {
-            colors.push(`$${name}: ${value}; `)
-          })
-          return colors.join(' ')
-        })(),
-      },
-    },
-  },
-
-  publicRuntimeConfig: {
-    ...publicConfig,
-  },
+.common-skin {
 }
 </code></pre>
-<p>빌드된 결과물을 확인하면, 스타일 파일 앞에 코드가 추가된 것을 확인할 수 있다.</p>
-<p><span
-      class="gatsby-resp-image-wrapper"
-      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 650px; "
-    >
-      <span
-    class="gatsby-resp-image-background-image"
-    style="padding-bottom: 4.294478527607362%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAABCAYAAADeko4lAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAPklEQVQI1wXBQRLAMAgDsf7/qyUkYDzpbSs9isbbqJrMxL6sEOdc9i4iDvZHR6G36bdwDtMml5EuPmLWYJkfGABMiutcdcEAAAAASUVORK5CYII='); background-size: cover; display: block;"
-  ></span>
-  <img
-        class="gatsby-resp-image-image"
-        alt="build_result"
-        title="build_result"
-        src="/yennylog/static/ec28077eabc588d951143792e99e020f/a6d36/build_result.png"
-        srcset="/yennylog/static/ec28077eabc588d951143792e99e020f/222b7/build_result.png 163w,
-/yennylog/static/ec28077eabc588d951143792e99e020f/ff46a/build_result.png 325w,
-/yennylog/static/ec28077eabc588d951143792e99e020f/a6d36/build_result.png 650w,
-/yennylog/static/ec28077eabc588d951143792e99e020f/3fe45/build_result.png 699w"
-        sizes="(max-width: 650px) 100vw, 650px"
-        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
-        loading="lazy"
-        decoding="async"
-      />
-    </span></p></main><div id="disqus_thread"></div></div></main><aside class="Layoutstyled__Panel-sc-c0xsee-2 ikKgyM"><div class="Profilestyled__Container-sc-1ym8p9l-0 eZmvvK"><div class="Profilestyled__Profile-sc-1ym8p9l-1 OdiFH"><img src="/yennylog/static/profile-e0f92f3d92dcb600702efc5d572c3e0d.jpg" class="Profilestyled__ProfileImage-sc-1ym8p9l-2 jaNxoU"/><div class="Profilestyled__Title-sc-1ym8p9l-3 qcNGx"><a href="/yennylog/">Yennylog</a></div><div class="Profilestyled__Description-sc-1ym8p9l-4 hIROjv">Front-end Developer</div><div class="Profilestyled__Description-sc-1ym8p9l-4 hIROjv">Simple is Best 😗</div><div class="Profilestyled__Icons-sc-1ym8p9l-5 czEFdA"><a href="https://github.com/yenny-heo" target="_blank" class="Profilestyled__Icon-sc-1ym8p9l-6 eZTnHc"><img src="data:image/svg+xml;base64,PHN2ZyByb2xlPSJpbWciIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48dGl0bGU+R2l0SHViPC90aXRsZT48cGF0aCBkPSJNMTIgLjI5N2MtNi42MyAwLTEyIDUuMzczLTEyIDEyIDAgNS4zMDMgMy40MzggOS44IDguMjA1IDExLjM4NS42LjExMy44Mi0uMjU4LjgyLS41NzcgMC0uMjg1LS4wMS0xLjA0LS4wMTUtMi4wNC0zLjMzOC43MjQtNC4wNDItMS42MS00LjA0Mi0xLjYxQzQuNDIyIDE4LjA3IDMuNjMzIDE3LjcgMy42MzMgMTcuN2MtMS4wODctLjc0NC4wODQtLjcyOS4wODQtLjcyOSAxLjIwNS4wODQgMS44MzggMS4yMzYgMS44MzggMS4yMzYgMS4wNyAxLjgzNSAyLjgwOSAxLjMwNSAzLjQ5NS45OTguMTA4LS43NzYuNDE3LTEuMzA1Ljc2LTEuNjA1LTIuNjY1LS4zLTUuNDY2LTEuMzMyLTUuNDY2LTUuOTMgMC0xLjMxLjQ2NS0yLjM4IDEuMjM1LTMuMjItLjEzNS0uMzAzLS41NC0xLjUyMy4xMDUtMy4xNzYgMCAwIDEuMDA1LS4zMjIgMy4zIDEuMjMuOTYtLjI2NyAxLjk4LS4zOTkgMy0uNDA1IDEuMDIuMDA2IDIuMDQuMTM4IDMgLjQwNSAyLjI4LTEuNTUyIDMuMjg1LTEuMjMgMy4yODUtMS4yMy42NDUgMS42NTMuMjQgMi44NzMuMTIgMy4xNzYuNzY1Ljg0IDEuMjMgMS45MSAxLjIzIDMuMjIgMCA0LjYxLTIuODA1IDUuNjI1LTUuNDc1IDUuOTIuNDIuMzYuODEgMS4wOTYuODEgMi4yMiAwIDEuNjA2LS4wMTUgMi44OTYtLjAxNSAzLjI4NiAwIC4zMTUuMjEuNjkuODI1LjU3QzIwLjU2NSAyMi4wOTIgMjQgMTcuNTkyIDI0IDEyLjI5N2MwLTYuNjI3LTUuMzczLTEyLTEyLTEyIi8+PC9zdmc+" alt="github"/></a><a href="https://www.linkedin.com/in/yeeunheo/" target="_blank" class="Profilestyled__Icon-sc-1ym8p9l-6 eZTnHc"><img src="data:image/svg+xml;base64,PHN2ZyByb2xlPSJpbWciIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48dGl0bGU+TGlua2VkSW48L3RpdGxlPjxwYXRoIGQ9Ik0yMC40NDcgMjAuNDUyaC0zLjU1NHYtNS41NjljMC0xLjMyOC0uMDI3LTMuMDM3LTEuODUyLTMuMDM3LTEuODUzIDAtMi4xMzYgMS40NDUtMi4xMzYgMi45Mzl2NS42NjdIOS4zNTFWOWgzLjQxNHYxLjU2MWguMDQ2Yy40NzctLjkgMS42MzctMS44NSAzLjM3LTEuODUgMy42MDEgMCA0LjI2NyAyLjM3IDQuMjY3IDUuNDU1djYuMjg2ek01LjMzNyA3LjQzM2MtMS4xNDQgMC0yLjA2My0uOTI2LTIuMDYzLTIuMDY1IDAtMS4xMzguOTItMi4wNjMgMi4wNjMtMi4wNjMgMS4xNCAwIDIuMDY0LjkyNSAyLjA2NCAyLjA2MyAwIDEuMTM5LS45MjUgMi4wNjUtMi4wNjQgMi4wNjV6bTEuNzgyIDEzLjAxOUgzLjU1NVY5aDMuNTY0djExLjQ1MnpNMjIuMjI1IDBIMS43NzFDLjc5MiAwIDAgLjc3NCAwIDEuNzI5djIwLjU0MkMwIDIzLjIyNy43OTIgMjQgMS43NzEgMjRoMjAuNDUxQzIzLjIgMjQgMjQgMjMuMjI3IDI0IDIyLjI3MVYxLjcyOUMyNCAuNzc0IDIzLjIgMCAyMi4yMjIgMGguMDAzeiIvPjwvc3ZnPg==" alt="linkedin"/></a></div></div></div><div id="table-of-contents" class="TableOfContentsstyled__Container-sc-1bqa7f6-0 hahUY"><div><ul>
-<li><a href="#%EB%AA%A9%ED%91%9C">목표</a></li>
-<li><a href="#%EB%B0%A9%EB%B2%95">방법</a></li>
-<li><a href="#%EC%A0%81%EC%9A%A9">적용</a></li>
-</ul></div></div></aside></article><footer class="Footerstyled__Footer-sc-d5gfxx-0 iCrcCy">@ designed by <strong>Yenny</strong></footer></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/posts/TECH/[Nuxt] 환경변수로 scss 글로벌 변수 삽입하기/";window.___webpackCompilationHash="d38fa671a7022de84879";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"polyfill":["/polyfill-a512b52161349d1b7698.js"],"app":["/app-1f04a3adb55679763724.js"],"component---src-components-templates-post-index-js":[],"component---src-pages-404-js":["/component---src-pages-404-js-4b0b205707ebda9d0d50.js"],"component---src-pages-index-js":["/component---src-pages-index-js-efafa656043ec4c2b2f1.js"],"component---src-pages-using-ssr-js":["/component---src-pages-using-ssr-js-efeb7786a1d0b66dc9f0.js"]};/*]]>*/</script><script src="/yennylog/polyfill-a512b52161349d1b7698.js" nomodule=""></script><script src="/yennylog/commons-8c58bb0147514a2abf48.js" async=""></script><script src="/yennylog/app-1f04a3adb55679763724.js" async=""></script><script src="/yennylog/76d8c668-77f1a98ce0b2e436fbce.js" async=""></script><script src="/yennylog/framework-14ea8820be20f166adcd.js" async=""></script><script src="/yennylog/webpack-runtime-a135236b2f07f90790ad.js" async=""></script></body></html>
+<ol>
+<li>컨테이너와 내용 분리
+<ul>
+<li>위치에 의존하지 않는 스타일 정의</li>
+<li>어떤 태그라도 동일한 외형 제공</li>
+<li>어디서나 재사용이 가능한 클래스 기반 구축</li>
+</ul>
+</li>
+</ol>
+<pre><code class="language-css">// Bad
+h3 {
+  font-size: 16px;
+}
+// Good
+.sub-title {
+  font-size: 16px;
+}
+</code></pre>
+<ul>
+<li>장점:
+<ul>
+<li>공통된 부분 정의해서 재사용 가능 ⇒ 코드 양 줄어듦</li>
+<li>동일한 클래스라면 동일한 스타일 기대 가능</li>
+</ul>
+</li>
+<li>단점:
+<ul>
+<li>공통된 클래스가 많아, 수정이 필요할 시 멀티클래스 사용해야함.</li>
+<li>멀티클래스가 많아짐에 따라 유지보수 어려움</li>
+<li>가독성 떨어짐</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-bem-block-element-modifier" style="position:relative;"><a href="#2-bem-block-element-modifier" aria-label="2 bem block element modifier permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2. BEM (Block Element Modifier)</h3>
+<p>Block, Element, Modifier로 나누어서 클래스명을 기술하는 방법</p>
+<ul>
+<li><code>block__element—modifier</code></li>
+<li>ID에는 사용할 수 없고 오직 클래스명에만 사용할 수 있음.</li>
+<li>Selector만으로도 어디에 어떻게 사용되는지 유추 가능하도록 작성</li>
+</ul>
+<ol>
+<li>Block: 재사용 가능한 영역, 하나의 단어를 사용하되 길어질 경우 하이픈(-) 사용</li>
+</ol>
+<pre><code class="language-css">.header {
+  ...;
+}
+.block {
+  ...;
+}
+</code></pre>
+<ol>
+<li>Element: 블록의 내부 구성을 표현, 두 개의 언더스코어(__)로 표기</li>
+</ol>
+<pre><code class="language-css">.header {
+  ...;
+}
+.header__link {
+  ...;
+}
+.header__tap {
+  ...;
+}
+.header__tap__item {
+  ...;
+}
+</code></pre>
+<ol>
+<li>Modifier: 요소의 상태를 표현, 두 개의 하이픈(—)으로 표기</li>
+</ol>
+<pre><code class="language-css">.header--hide {
+  ...;
+}
+.header__tap--big {
+  ...;
+}
+.header__tap--big {
+  ...;
+}
+</code></pre>
+<ul>
+<li>장점:
+<ul>
+<li>직관적인 클래스 명으로 구조파악 쉬움</li>
+</ul>
+</li>
+<li>단점:
+<ul>
+<li>클래스명이 길어질 수 밖에 없어 코드가 길어지고 복잡해짐</li>
+</ul>
+</li>
+</ul>
+<h3 id="3-smacss-scalable-modular-architecture-css" style="position:relative;"><a href="#3-smacss-scalable-modular-architecture-css" aria-label="3 smacss scalable modular architecture css permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3. SMACSS (Scalable Modular Architecture CSS)</h3>
+<p>범주화로 패턴화 하고자 하는 방법론</p>
+<p>기본(base), 레이아웃(layout), 모듈(module), 상태(state), 테마(theme)</p>
+<p>다섯가지의 범주 제시</p>
+<ol>
+<li>base ⇒ 스타일 초기화 (reset.css)</li>
+</ol>
+<pre><code class="language-css">body,
+p,
+table,
+form,
+fieldset,
+legend,
+input,
+button ... {
+  margin: 0;
+  padding: 0;
+}
+</code></pre>
+<ol>
+<li>layout ⇒ 주요 요소(id), 하위 요소(class)로 구분하고 접두사를 사용
+<ol>
+<li>주요 컴포넌트: header, footer, aside, container 등</li>
+<li>하위 컴포넌트: list, item, form 등</li>
+</ol>
+</li>
+</ol>
+<pre><code class="language-css">// 주요 요소 ()
+#header {
+  width: 400px;
+}
+#aside {
+  width: 30px;
+}
+// 하위 요소 (layout => l-)
+.l-width #header {
+  width: 600px;
+  padding: 10px;
+}
+.l-width #aside {
+  width: 100px;
+}
+</code></pre>
+<ol>
+<li>module ⇒ 재사용 가능한 구성요소: 버튼, 배너, 아이콘 등</li>
+</ol>
+<pre><code class="language-css">.stick {
+  ...;
+}
+.stick-name {
+  ...;
+}
+.stick-number {
+  ...;
+}
+</code></pre>
+<ol>
+<li>state ⇒ 요소의 상태변화를 표현하고 접두사를 사용</li>
+</ol>
+<pre><code class="language-css">.is-error {
+  ...;
+}
+.is-hidden {
+  ...;
+}
+.is-disabled {
+  ...;
+}
+</code></pre>
+<ol>
+<li>theme ⇒ 사용자가 선택 가능하도록 스타일을 재선언하여 사용</li>
+</ol>
+<pre><code class="language-css">// base.css
+.header {
+  background-color: green;
+}
+// theme.css
+.header {
+  background-color: red;
+}
+</code></pre>
+<ul>
+<li>장점:
+<ul>
+<li>클래스명을 통한 예측의 용이성</li>
+<li>재사용을 통한 코드의 간결화</li>
+<li>확장의 용이성</li>
+</ul>
+</li>
+<li>단점:
+<ul>
+<li>카테고리를 나누는 기준이 불분명해질 수 있음</li>
+<li>코드를 나눠서 작성해야 해서 CSS 사용하기 번거로움</li>
+</ul>
+</li>
+</ul></main><div id="disqus_thread"></div></div></main><aside class="Layoutstyled__Panel-sc-c0xsee-2 ikKgyM"><div class="Profilestyled__Container-sc-1ym8p9l-0 eZmvvK"><div class="Profilestyled__Profile-sc-1ym8p9l-1 OdiFH"><img src="/yennylog/static/profile-e0f92f3d92dcb600702efc5d572c3e0d.jpg" class="Profilestyled__ProfileImage-sc-1ym8p9l-2 jaNxoU"/><div class="Profilestyled__Title-sc-1ym8p9l-3 qcNGx"><a href="/yennylog/">Yennylog</a></div><div class="Profilestyled__Description-sc-1ym8p9l-4 hIROjv">Front-end Developer</div><div class="Profilestyled__Description-sc-1ym8p9l-4 hIROjv">Simple is Best 😗</div><div class="Profilestyled__Icons-sc-1ym8p9l-5 czEFdA"><a href="https://github.com/yenny-heo" target="_blank" class="Profilestyled__Icon-sc-1ym8p9l-6 eZTnHc"><img src="data:image/svg+xml;base64,PHN2ZyByb2xlPSJpbWciIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48dGl0bGU+R2l0SHViPC90aXRsZT48cGF0aCBkPSJNMTIgLjI5N2MtNi42MyAwLTEyIDUuMzczLTEyIDEyIDAgNS4zMDMgMy40MzggOS44IDguMjA1IDExLjM4NS42LjExMy44Mi0uMjU4LjgyLS41NzcgMC0uMjg1LS4wMS0xLjA0LS4wMTUtMi4wNC0zLjMzOC43MjQtNC4wNDItMS42MS00LjA0Mi0xLjYxQzQuNDIyIDE4LjA3IDMuNjMzIDE3LjcgMy42MzMgMTcuN2MtMS4wODctLjc0NC4wODQtLjcyOS4wODQtLjcyOSAxLjIwNS4wODQgMS44MzggMS4yMzYgMS44MzggMS4yMzYgMS4wNyAxLjgzNSAyLjgwOSAxLjMwNSAzLjQ5NS45OTguMTA4LS43NzYuNDE3LTEuMzA1Ljc2LTEuNjA1LTIuNjY1LS4zLTUuNDY2LTEuMzMyLTUuNDY2LTUuOTMgMC0xLjMxLjQ2NS0yLjM4IDEuMjM1LTMuMjItLjEzNS0uMzAzLS41NC0xLjUyMy4xMDUtMy4xNzYgMCAwIDEuMDA1LS4zMjIgMy4zIDEuMjMuOTYtLjI2NyAxLjk4LS4zOTkgMy0uNDA1IDEuMDIuMDA2IDIuMDQuMTM4IDMgLjQwNSAyLjI4LTEuNTUyIDMuMjg1LTEuMjMgMy4yODUtMS4yMy42NDUgMS42NTMuMjQgMi44NzMuMTIgMy4xNzYuNzY1Ljg0IDEuMjMgMS45MSAxLjIzIDMuMjIgMCA0LjYxLTIuODA1IDUuNjI1LTUuNDc1IDUuOTIuNDIuMzYuODEgMS4wOTYuODEgMi4yMiAwIDEuNjA2LS4wMTUgMi44OTYtLjAxNSAzLjI4NiAwIC4zMTUuMjEuNjkuODI1LjU3QzIwLjU2NSAyMi4wOTIgMjQgMTcuNTkyIDI0IDEyLjI5N2MwLTYuNjI3LTUuMzczLTEyLTEyLTEyIi8+PC9zdmc+" alt="github"/></a><a href="https://www.linkedin.com/in/yeeunheo/" target="_blank" class="Profilestyled__Icon-sc-1ym8p9l-6 eZTnHc"><img src="data:image/svg+xml;base64,PHN2ZyByb2xlPSJpbWciIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48dGl0bGU+TGlua2VkSW48L3RpdGxlPjxwYXRoIGQ9Ik0yMC40NDcgMjAuNDUyaC0zLjU1NHYtNS41NjljMC0xLjMyOC0uMDI3LTMuMDM3LTEuODUyLTMuMDM3LTEuODUzIDAtMi4xMzYgMS40NDUtMi4xMzYgMi45Mzl2NS42NjdIOS4zNTFWOWgzLjQxNHYxLjU2MWguMDQ2Yy40NzctLjkgMS42MzctMS44NSAzLjM3LTEuODUgMy42MDEgMCA0LjI2NyAyLjM3IDQuMjY3IDUuNDU1djYuMjg2ek01LjMzNyA3LjQzM2MtMS4xNDQgMC0yLjA2My0uOTI2LTIuMDYzLTIuMDY1IDAtMS4xMzguOTItMi4wNjMgMi4wNjMtMi4wNjMgMS4xNCAwIDIuMDY0LjkyNSAyLjA2NCAyLjA2MyAwIDEuMTM5LS45MjUgMi4wNjUtMi4wNjQgMi4wNjV6bTEuNzgyIDEzLjAxOUgzLjU1NVY5aDMuNTY0djExLjQ1MnpNMjIuMjI1IDBIMS43NzFDLjc5MiAwIDAgLjc3NCAwIDEuNzI5djIwLjU0MkMwIDIzLjIyNy43OTIgMjQgMS43NzEgMjRoMjAuNDUxQzIzLjIgMjQgMjQgMjMuMjI3IDI0IDIyLjI3MVYxLjcyOUMyNCAuNzc0IDIzLjIgMCAyMi4yMjIgMGguMDAzeiIvPjwvc3ZnPg==" alt="linkedin"/></a></div></div></div><div id="table-of-contents" class="TableOfContentsstyled__Container-sc-1bqa7f6-0 hahUY"><div><ul>
+<li><a href="#1-oocss-object-oriented-css">1. OOCSS (Object Oriented CSS)</a></li>
+<li><a href="#2-bem-block-element-modifier">2. BEM (Block Element Modifier)</a></li>
+<li><a href="#3-smacss-scalable-modular-architecture-css">3. SMACSS (Scalable Modular Architecture CSS)</a></li>
+</ul></div></div></aside></article><footer class="Footerstyled__Footer-sc-d5gfxx-0 iCrcCy">@ designed by <strong>Yenny</strong></footer></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/posts/TECH/CSS 방법론 (OOCSS, BEM, SMACSS)/";window.___webpackCompilationHash="d38fa671a7022de84879";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"polyfill":["/polyfill-a512b52161349d1b7698.js"],"app":["/app-1f04a3adb55679763724.js"],"component---src-components-templates-post-index-js":[],"component---src-pages-404-js":["/component---src-pages-404-js-4b0b205707ebda9d0d50.js"],"component---src-pages-index-js":["/component---src-pages-index-js-efafa656043ec4c2b2f1.js"],"component---src-pages-using-ssr-js":["/component---src-pages-using-ssr-js-efeb7786a1d0b66dc9f0.js"]};/*]]>*/</script><script src="/yennylog/polyfill-a512b52161349d1b7698.js" nomodule=""></script><script src="/yennylog/commons-8c58bb0147514a2abf48.js" async=""></script><script src="/yennylog/app-1f04a3adb55679763724.js" async=""></script><script src="/yennylog/76d8c668-77f1a98ce0b2e436fbce.js" async=""></script><script src="/yennylog/framework-14ea8820be20f166adcd.js" async=""></script><script src="/yennylog/webpack-runtime-a135236b2f07f90790ad.js" async=""></script></body></html>

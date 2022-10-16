@@ -1,7 +1,7 @@
 ---
-title: "[Vue.js] mousedown 이벤트와 click 이벤트의 충돌"
+title: "[Vue] mousedown 이벤트와 click 이벤트의 충돌"
 date: "2022-02-21"
-tags: ["Vue.js", "Bug"]
+tags: ["Vue"]
 type: "TECH"
 description: "Vue.js에서의 Event 발생 순서"
 ---

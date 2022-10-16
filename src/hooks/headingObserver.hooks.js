@@ -24,20 +24,19 @@ const HeadingObserverHook = () => {
     return anchor;
   };
 
-  const onIntersect = async (entries, observer) => {
-    let intersectingHeading = null;
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        intersectingHeading = entry.target;
-      }
-    });
-    if (!intersectingHeading) return;
-    const anchor = getAnchorElement(intersectingHeading.id);
-    if (!anchor) return;
-    anchor.classList.add("active");
-  };
-
   useEffect(() => {
+    const onIntersect = async (entries, observer) => {
+      let intersectingHeading = null;
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          intersectingHeading = entry.target;
+        }
+      });
+      if (!intersectingHeading) return;
+      const anchor = getAnchorElement(intersectingHeading.id);
+      if (!anchor) return;
+      anchor.classList.add("active");
+    };
     const headingElements = getHeadingElements();
     let observer = new IntersectionObserver(onIntersect, {
       rootMargin: "0px 0px -80% 0px",

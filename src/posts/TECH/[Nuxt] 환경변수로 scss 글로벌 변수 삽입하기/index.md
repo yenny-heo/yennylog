@@ -1,7 +1,7 @@
 ---
-title: "[Nuxt.js] 환경변수로 scss 글로벌 변수 삽입하기"
+title: "[Nuxt] 환경변수로 scss 글로벌 변수 삽입하기"
 date: "2022-10-12"
-tags: ["Nuxt.js"]
+tags: ["Nuxt"]
 type: "TECH"
 description: "nuxt.config.js"
 ---
@@ -41,9 +41,9 @@ const commonEnv = {
 export default commonEnv
 ```
 
-`additionalData`는 스타일 파일 앞에
+`additionalData`는 스타일 파일의 앞에 scss 코드를 추가해준다.
 
-IIFE 함수를 이용하여
+IIFE 함수를 이용하여 scss 코드를 정의해 주었다.
 
 ```jsx
 //nuxt.config.js

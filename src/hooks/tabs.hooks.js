@@ -18,7 +18,7 @@ const TabsHooks = ({ group, location }) => {
     const tabParam = params.get("tab");
     if (!tabParam) return;
     setTab(tabParam);
-  }, [location.search]);
+  }, [location.search, setTab]);
 
   const onChangeTab = index => {
     let newTabs = initializeTabs([...tabs]);

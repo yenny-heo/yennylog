@@ -16,7 +16,7 @@ const Post = ({ path, data }) => {
 
   useEffect(() => {
     setTab(type);
-  }, []);
+  }, [setTab, type]);
 
   return (
     <Layout tableOfContents={tableOfContents}>

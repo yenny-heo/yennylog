@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { graphql, navigate } from "gatsby";
+import React from "react";
+import { graphql } from "gatsby";
 
 import { Layout, PostCard, Tabs } from "@/components";
 import Seo from "@/components/seo";

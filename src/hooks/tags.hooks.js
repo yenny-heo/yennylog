@@ -33,7 +33,7 @@ const TagsHooks = ({ edges, tab, location }) => {
     });
     setFilteredEdges(filteredByTag);
     setTags(tagObjs);
-  }, [tab, tag]);
+  }, [edges, tab, tag]);
 
   return { tags, tag, filteredEdges };
 };

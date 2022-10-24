@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkyennylog=self.webpackChunkyennylog||[]).push([[766],{4626:function(e,n,t){t.r(n),t.d(n,{default:function(){return l}});var c=t(7294),a=t(5820),u=t.p+"static/canvas_play-b91bcfc3b5804bfe0ed0239ede3dbdfa.mp4",l=function(){return c.createElement(a.Z,null,c.createElement("video",{src:u,width:700,autoPlay:!0,muted:!0,controls:!0}))}}}]);
+//# sourceMappingURL=component---src-pages-projects-canvas-game-js-4e00347488255de93f89.js.map

@@ -3,10 +3,10 @@ title: "Position과 Stacking Context"
 date: "2022-08-16"
 tags: ["CSS"]
 type: "TECH"
-description: "nuxt.config.js"
+description: "쌓임 맥락"
 ---
 
-# 1) 문제: position:sticky 내부요소의 z-index가 먹히지 않는다
+# 문제: position:sticky 내부요소의 z-index가 먹히지 않는다
 
 ![코드](./images/code.png)
 
@@ -16,7 +16,7 @@ description: "nuxt.config.js"
 
 `position: sticky` 를 제거하니 잘 동작해서 이것이 문제임을 알고 찾아보았다.
 
-# 2) 이유: position
+# 이유: position
 
 [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/position)에는 position 속성이 다음과 같이 정의되어 있다.
 
@@ -40,7 +40,7 @@ poisition: sticky와 position: fixed 속성은 항상 새로운 Stacking Context
 
 Sibling Component와 부모 요소는 다른 Stacking Context를 가지기 때문에 Sibling이 부모요소 위에 쌓이게 된 것이다.
 
-# 3) 해결 방법
+# 해결 방법
 
 ## 1. 부모의 Stacking Context에서 꺼내기
 
@@ -54,12 +54,12 @@ Sibling Component와 부모 요소는 다른 Stacking Context를 가지기 때�
 
 ## 3. position 속성 제거 또는 position: sticky / fixed 말고 다른 속성 사용
 
-# 4) 요약
+# 요약
 
 1. position: sticky는 항상 새로운 Stacking Context를 생성한다.
 2. 자식 요소는 부모 요소의 Stacking Context에 제한된다.
 
-# 5) 참고: 그 외에도 Stacking Context가 생겨나는 요소들
+# 참고: 그 외에도 Stacking Context가 생겨나는 요소들
 
 - 문서의 루트 요소. (`<html>`)
 - [position](https://developer.mozilla.org/ko/docs/Web/CSS/position)이 `absolute` 또는 `relative`이고, [z-index](https://developer.mozilla.org/ko/docs/Web/CSS/z-index)가 `auto`가 아닌 요소.

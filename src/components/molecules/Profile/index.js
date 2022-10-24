@@ -1,7 +1,7 @@
 import * as React from "react";
 import Styled from "./Profile.styled";
-import profileImage from "@/images/profile.jpg";
-import { githubImage, linkedinImage } from "@/images/icons";
+import profileImage from "@/assets/images/profile.jpg";
+import { githubImage, linkedinImage } from "@/assets/images/icons";
 import { Link } from "gatsby";
 
 const links = [

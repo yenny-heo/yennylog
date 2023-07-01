@@ -5,6 +5,10 @@ import { Profile, Tag, TableOfContents, Footer } from "@/components";
 import Styled from "./Layout.styled";
 import "@/css/global.css";
 
+// code highlighting
+import { defineCustomElements as deckDeckGoHighlightElement } from "@deckdeckgo/highlight-code/dist/loader";
+deckDeckGoHighlightElement();
+
 const Layout = ({ children, tableOfContents, tagsInfo = {} }) => {
   const { tags, tag } = tagsInfo;
   const data = useStaticQuery(graphql`

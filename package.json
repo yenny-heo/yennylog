@@ -16,6 +16,7 @@
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   },
   "dependencies": {
+    "@deckdeckgo/highlight-code": "^3.6.0",
     "babel-plugin-styled-components": "^2.0.2",
     "gatsby": "^4.7.1",
     "gatsby-plugin-disqus": "^1.2.3",
@@ -28,9 +29,10 @@
     "gatsby-plugin-sharp": "^4.7.0",
     "gatsby-plugin-styled-components": "^5.7.0",
     "gatsby-remark-autolink-headers": "^5.7.0",
+    "gatsby-remark-highlight-code": "^3.3.0",
     "gatsby-remark-images": "^6.9.1",
     "gatsby-source-filesystem": "^4.7.0",
-    "gatsby-transformer-remark": "^5.7.0",
+    "gatsby-transformer-remark": "^5.25.1",
     "gatsby-transformer-sharp": "^4.7.0",
     "prop-types": "^15.8.0",
     "react": "^17.0.1",

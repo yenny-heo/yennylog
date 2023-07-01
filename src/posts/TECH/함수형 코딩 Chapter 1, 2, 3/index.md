@@ -91,6 +91,8 @@ string_length(str)
 
 변경 가능성에 따라 코드를 나눔
 
+![layer](./images/layer.png)
+
 자주 바뀌는것 (위) ←——————→ 자주 바뀌지 않는 것 (아래)
 
 각 계층은 그 아래에 있는 계층을 기반으로 만들어 진다.
@@ -106,6 +108,8 @@ string_length(str)
 ## 파트 2 미리보기: 일급 추상
 
 ### 타임라인 다이어그램
+
+![timeline-diagram](./images/timeline-diagram.png)
 
 - 액션이 시간 순서에 따라 어떻게 실행되는지 도식화
 - 액션은 실행 시점에 의존하기 때문에, 실행 순서가 중요함

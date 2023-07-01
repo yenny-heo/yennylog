@@ -4,6 +4,24 @@ const Container = styled.div`
   position: sticky;
   top: 100px;
   height: auto;
+  ul:nth-child(1) {
+    max-height: calc(100vh - 100px);
+    overflow-y: auto;
+    &::-webkit-scrollbar {
+      width: 8px; /* 스크롤바의 너비 */
+    }
+
+    &::-webkit-scrollbar-thumb {
+      height: 30%; /* 스크롤바의 길이 */
+      background: #ddd; /* 스크롤바의 색상 */
+
+      border-radius: 10px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: rgba(221, 214, 243, 0.3); /*스크롤바 뒷 배경 색상*/
+    }
+  }
   ul {
     list-style: none;
     padding-left: 15px;

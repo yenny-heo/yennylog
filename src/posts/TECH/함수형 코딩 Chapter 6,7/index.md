@@ -158,7 +158,7 @@ function setPrice(item, new_price) {
 
 ⇒ 중첩된 데이터에 **얕은 복사**를 함으로써, **구조적 공유**가 되었음
 
-![copy.jpeg](./images/shallow_copy.jpeg)
+![copy](./images/shallow_copy.jpeg)
 
 1. 배열 복사 ⇒ 배열을 복사해도, 내부의 객체는 기존 값을 **참조**하고 있음
 2. 객체 복사 ⇒ 해당 객체만 복제

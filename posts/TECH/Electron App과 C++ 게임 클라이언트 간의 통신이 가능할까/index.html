@@ -198,52 +198,54 @@ data-styled.g36[id="sc-keyframes-jBcSpD"]{content:"jBcSpD,"}/*!sc*/
 <h2 id="electron---server" style="position:relative;"><a href="#electron---server" aria-label="electron   server permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Electron - Server</h2>
 <p>일렉트론은 <code>node</code> 기반이기 때문에, <code>node</code>의 <code>net</code> 모듈로 서버를 열어보기로 했다.</p>
 <p>7777번 host에 서버를 열었다. 서버는 클라이언트로부터 데이터를 받고, 그 데이터를 그대로 보내준다.</p>
-<pre><code class="language-jsx">var server = net.createServer(function (client) {
-    client.setEncoding("utf8");
+<deckgo-highlight-code language="jsx"  >
+          <code slot="code">var server = net.createServer(function (client) {
+    client.setEncoding(&quot;utf8&quot;);
     client.setTimeout(500);
-    client.on("data", function (data) {
-      for (var i = 0; i &#x3C; sockets.length; i++) {
-        sockets[i].write(`Hi, I'm server and received "${data}"`);
+    client.on(&quot;data&quot;, function (data) {
+      for (var i = 0; i &lt; sockets.length; i++) {
+        sockets[i].write(`Hi, I&#39;m server and received &quot;${data}&quot;`);
       }
     });
-    client.on("error", function () {
-      console.log("error");
+    client.on(&quot;error&quot;, function () {
+      console.log(&quot;error&quot;);
     });
-    client.on("close", function () {
+    client.on(&quot;close&quot;, function () {
       sockets.pop();
-      console.log("client close");
+      console.log(&quot;client close&quot;);
     });
-    client.on("timeout", function () {});
+    client.on(&quot;timeout&quot;, function () {});
     sockets.push(client);
   });
 
-  server.on("error", function (error) {});
+  server.on(&quot;error&quot;, function (error) {});
   server.listen(7777, function () {
     var serverInfo = server.address();
     var serverInfoJson = JSON.stringify(serverInfo);
-    console.log("listen server : " + serverInfoJson);
-    server.on("close", function () {
-      console.log("server closed.");
+    console.log(&quot;listen server : &quot; + serverInfoJson);
+    server.on(&quot;close&quot;, function () {
+      console.log(&quot;server closed.&quot;);
     });
-    server.on("connection", function () {
-      console.log("connected!!!");
+    server.on(&quot;connection&quot;, function () {
+      console.log(&quot;connected!!!&quot;);
     });
   });
-});
-</code></pre>
+});</code>
+        </deckgo-highlight-code>
 <h2 id="c---client" style="position:relative;"><a href="#c---client" aria-label="c   client permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>C++ - Client</h2>
 <p>C++에서는 소켓 프로그래밍을 위한 헤더 winsock2.h를 추가하여 클라이언트를 생성하였다.</p>
 <p>IP: 127.0.0.1, port: 7777로 소켓을 연결하여 메시지를 입력해서 서버에 전송하고, 서버로부터 데이터를 받아 출력해준다.</p>
-<pre><code class="language-jsx">#define _WINSOCK_DEPRECATED_NO_WARNINGS
-#include&#x3C;iostream>
-#include&#x3C;string>
-#include&#x3C;winsock2.h>
+<deckgo-highlight-code language="jsx"  >
+          <code slot="code">#define _WINSOCK_DEPRECATED_NO_WARNINGS
+#include&lt;iostream&gt;
+#include&lt;string&gt;
+#include&lt;winsock2.h&gt;
 
 using namespace std;
 void ShowErrorMessage(string message)
 {
-	cout &#x3C;&#x3C; "[오류발생]: " &#x3C;&#x3C; message &#x3C;&#x3C; '\n';
-	system("pause");
+	cout &lt;&lt; &quot;[오류발생]: &quot; &lt;&lt; message &lt;&lt; &#39;\n&#39;;
+	system(&quot;pause&quot;);
 	exit(1);
 }
 
@@ -255,38 +257,38 @@ int main()
 	int serverPort = 7777;
 	char received[256];
 	string sent;
-	if (WSAStartup(MAKEWORD(2, 2), &#x26;wsaData) != 0) // Initialize Winsock
-		ShowErrorMessage("WSAStartup()");
+	if (WSAStartup(MAKEWORD(2, 2), &amp;wsaData) != 0) // Initialize Winsock
+		ShowErrorMessage(&quot;WSAStartup()&quot;);
 	clientSocket = socket(PF_INET, SOCK_STREAM, 0); // Create TCP Client Socket
 	if (clientSocket == INVALID_SOCKET)
-		ShowErrorMessage("socket()");
-	memset(&#x26;serverAddress, 0, sizeof(serverAddress));
+		ShowErrorMessage(&quot;socket()&quot;);
+	memset(&amp;serverAddress, 0, sizeof(serverAddress));
 	serverAddress.sin_family = AF_INET;
-	serverAddress.sin_addr.s_addr = inet_addr("127.0.0.1");
+	serverAddress.sin_addr.s_addr = inet_addr(&quot;127.0.0.1&quot;);
 	serverAddress.sin_port = htons(serverPort);
 
-	if (connect(clientSocket, (SOCKADDR*)&#x26;serverAddress, sizeof(serverAddress)) == SOCKET_ERROR)
-		ShowErrorMessage("connect()");
-	cout &#x3C;&#x3C; "[현재상태] connect()\n";
+	if (connect(clientSocket, (SOCKADDR*)&amp;serverAddress, sizeof(serverAddress)) == SOCKET_ERROR)
+		ShowErrorMessage(&quot;connect()&quot;);
+	cout &lt;&lt; &quot;[현재상태] connect()\n&quot;;
 	while (1) { // Send and receive message from server repeatedly
-		cout &#x3C;&#x3C; "[메시지전송]: ";
+		cout &lt;&lt; &quot;[메시지전송]: &quot;;
 		getline(cin, sent);
-		if (sent == "") continue;
+		if (sent == &quot;&quot;) continue;
 		send(clientSocket, sent.c_str(), sent.length(), 0);
 		int length = recv(clientSocket, received, sizeof(received), 0);
-		received[length] = '\0';
-		if (strcmp(received, "[exit]") == 0) {
-			cout &#x3C;&#x3C; "[서버종료]\n";
+		received[length] = &#39;\0&#39;;
+		if (strcmp(received, &quot;[exit]&quot;) == 0) {
+			cout &lt;&lt; &quot;[서버종료]\n&quot;;
 			break;
 		}
-		cout &#x3C;&#x3C; "[서버메시지]: " &#x3C;&#x3C; received &#x3C;&#x3C; '\n';
+		cout &lt;&lt; &quot;[서버메시지]: &quot; &lt;&lt; received &lt;&lt; &#39;\n&#39;;
 	}
 	closesocket(clientSocket);
 	WSACleanup();
-	system("pause");
+	system(&quot;pause&quot;);
 	return 0;
-}
-</code></pre>
+}</code>
+        </deckgo-highlight-code>
 <h2 id="연결하기" style="position:relative;"><a href="#%EC%97%B0%EA%B2%B0%ED%95%98%EA%B8%B0" aria-label="연결하기 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>연결하기</h2>
 <p>이제 준비는 다 되었다. Server를 먼저 열고, 그다음 Client를 열어 연결해주면 된다.</p>
 <p>Electron App의 모습 (Server)</p>
@@ -304,4 +306,4 @@ int main()
 <li><a href="#c---client">C++ - Client</a></li>
 <li><a href="#%EC%97%B0%EA%B2%B0%ED%95%98%EA%B8%B0">연결하기</a></li>
 <li><a href="#%EC%B0%B8%EC%A1%B0">참조</a></li>
-</ul></div></div></aside></article><footer class="Footerstyled__Footer-sc-d5gfxx-0 MJlAv">@ designed by <strong>Yenny</strong></footer></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/posts/TECH/Electron App과 C++ 게임 클라이언트 간의 통신이 가능할까/";window.___webpackCompilationHash="9f9bd54b1a05b4251efc";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"polyfill":["/polyfill-d332324a73099df3ed5f.js"],"app":["/app-d9332efba5fdbce3db57.js"],"component---src-components-templates-post-index-js":[],"component---src-pages-404-js":["/component---src-pages-404-js-d6d824234c1d81455b32.js"],"component---src-pages-index-js":["/component---src-pages-index-js-a426dad47477401a377e.js"],"component---src-pages-projects-canvas-game-js":["/component---src-pages-projects-canvas-game-js-4e00347488255de93f89.js"],"component---src-pages-using-ssr-js":["/component---src-pages-using-ssr-js-59457fe9b47fc25862fc.js"]};/*]]>*/</script><script src="/yennylog/polyfill-d332324a73099df3ed5f.js" nomodule=""></script><script src="/yennylog/app-d9332efba5fdbce3db57.js" async=""></script><script src="/yennylog/76d8c668-f83839dfdaa421a8fd94.js" async=""></script><script src="/yennylog/framework-055cc268ae2009dd822e.js" async=""></script><script src="/yennylog/webpack-runtime-f45d324900df9ad5bfaf.js" async=""></script></body></html>
+</ul></div></div></aside></article><footer class="Footerstyled__Footer-sc-d5gfxx-0 MJlAv">@ designed by <strong>Yenny</strong></footer></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/posts/TECH/Electron App과 C++ 게임 클라이언트 간의 통신이 가능할까/";window.___webpackCompilationHash="34c77e42b344b4db68b4";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"polyfill":["/polyfill-d332324a73099df3ed5f.js"],"app":["/app-d9332efba5fdbce3db57.js"],"component---src-components-templates-post-index-js":[],"component---src-pages-404-js":["/component---src-pages-404-js-0b2a86d6fec972ca916f.js"],"component---src-pages-index-js":["/component---src-pages-index-js-23dc47043e79c1078f67.js"],"component---src-pages-projects-canvas-game-js":["/component---src-pages-projects-canvas-game-js-3b994012e909b2aecea8.js"],"component---src-pages-using-ssr-js":["/component---src-pages-using-ssr-js-64d5ff5cc7e9b3924e16.js"]};/*]]>*/</script><script src="/yennylog/polyfill-d332324a73099df3ed5f.js" nomodule=""></script><script src="/yennylog/app-d9332efba5fdbce3db57.js" async=""></script><script src="/yennylog/76d8c668-f83839dfdaa421a8fd94.js" async=""></script><script src="/yennylog/framework-055cc268ae2009dd822e.js" async=""></script><script src="/yennylog/webpack-runtime-050c5698ee981ad7d8a0.js" async=""></script></body></html>

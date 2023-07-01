@@ -191,51 +191,55 @@ data-styled.g34[id="Layoutstyled__Panel-sc-c0xsee-2"]{content:"fnjjVN,"}/*!sc*/
 data-styled.g36[id="sc-keyframes-jBcSpD"]{content:"jBcSpD,"}/*!sc*/
 </style><link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,500,700,900|Pacifico&amp;display=swap" rel="stylesheet"/></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><article class="Layoutstyled__MainContainer-sc-c0xsee-0 gPlrjI"><main class="Layoutstyled__Content-sc-c0xsee-1 hnoMFE"><div><h1 class="PostContentstyled__Title-sc-1qxszda-0 hUDbyO">[React] Gatsby에서 Recoil 사용하기</h1><div class="PostContentstyled__Desc-sc-1qxszda-1 dnMqkL"><div class="PostContentstyled__Date-sc-1qxszda-2 cHowCU">2022-10-16</div><div class="PostTagsstyled__Container-sc-p99ysc-0 kTPyZU"><span class="PostTagsstyled__HashTag-sc-p99ysc-1 bcwBZc">#</span><button name="React" class="Tagstyled__Conatiner-sc-j85x7m-0 jArfaA">React</button><button name="Gatsby" class="Tagstyled__Conatiner-sc-j85x7m-0 jArfaA">Gatsby</button></div></div><main id="post-content" class="PostContentstyled__Content-sc-1qxszda-3 dLXSmZ"><h1 id="설치" style="position:relative;"><a href="#%EC%84%A4%EC%B9%98" aria-label="설치 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>설치</h1>
 <p>우선 <a href="https://recoiljs.org/ko/docs/introduction/getting-started/">Recoil</a>을 설치한다.</p>
-<pre><code class="language-html">$ npm install recoil
-</code></pre>
+<deckgo-highlight-code language="html"  >
+          <code slot="code">$ npm install recoil</code>
+        </deckgo-highlight-code>
 <h1 id="전역-wrapping" style="position:relative;"><a href="#%EC%A0%84%EC%97%AD-wrapping" aria-label="전역 wrapping permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>전역 Wrapping</h1>
 <p>Recoil을 사용하려면, 최상위 엘리먼트를 <code>RecoilRoot</code> 로 감싸주어야 한다.</p>
 <p>그런데 Gatsby에서는 React와는 다르게 최상위 루트 컴포넌트인 <code>index.js</code> 파일이 없다.</p>
 <p>Gatsby 문서에 따르면 <code>gatsby-browser.js</code> 파일을 사용하면, <strong>추가 구성 요소로 래핑</strong>할 수 있다고 나와있다.</p>
 <p>모든 페이지들을 래핑하려면, <code>wrapPageElement</code> 함수가 필요하다. 이 함수는 <strong>페이지가 변경되어도 언마운트 되지 않는다</strong>.</p>
-<pre><code class="language-jsx">//gatsby-browser.js
+<deckgo-highlight-code language="jsx"  >
+          <code slot="code">//gatsby-browser.js
 /**
- * Implement Gatsby's Browser APIs in this file.
+ * Implement Gatsby&#39;s Browser APIs in this file.
  *
  * See: https://www.gatsbyjs.com/docs/browser-apis/
  */
 
-// You can delete this file if you're not using it
-import React from "react";
-import { RecoilRoot } from "recoil";
+// You can delete this file if you&#39;re not using it
+import React from &quot;react&quot;;
+import { RecoilRoot } from &quot;recoil&quot;;
 
-export const wrapPageElement = ({ element, props }) => {
-  return &#x3C;RecoilRoot {...props}>{element}&#x3C;/RecoilRoot>;
-};
-</code></pre>
+export const wrapPageElement = ({ element, props }) =&gt; {
+  return &lt;RecoilRoot {...props}&gt;{element}&lt;/RecoilRoot&gt;;
+};</code>
+        </deckgo-highlight-code>
 <h1 id="상태관리" style="position:relative;"><a href="#%EC%83%81%ED%83%9C%EA%B4%80%EB%A6%AC" aria-label="상태관리 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>상태관리</h1>
 <p>래핑해주었다면, 이제 Recoil을 사용할 수 있다!</p>
 <p>나는 간단하게 탭의 상태를 전역적으로 관리하고 싶었기에, Recoil의 <code>selector</code> 는 사용하지 않았다.</p>
-<pre><code class="language-jsx">// state/index.js
-import { atom } from "recoil";
+<deckgo-highlight-code language="jsx"  >
+          <code slot="code">// state/index.js
+import { atom } from &quot;recoil&quot;;
 
 const tabState = atom({
-  key: "tabState",
-  default: "TECH",
+  key: &quot;tabState&quot;,
+  default: &quot;TECH&quot;,
 });
 
-export { tabState };
-</code></pre>
+export { tabState };</code>
+        </deckgo-highlight-code>
 <p>컴포넌트단에서는 <code>useRecoilState</code> 와 정의해 둔 state를 통해 값을 가져오고, 변경시킬 수 있다.</p>
 <p>useState와 사용법이 똑같다.</p>
-<pre><code class="language-jsx">// hooks/tabs.hooks.js
-import { useRecoilState } from "recoil";
-import { tabState } from "@/state";
-const TabsHooks = ({}) => {
+<deckgo-highlight-code language="jsx"  >
+          <code slot="code">// hooks/tabs.hooks.js
+import { useRecoilState } from &quot;recoil&quot;;
+import { tabState } from &quot;@/state&quot;;
+const TabsHooks = ({}) =&gt; {
   const [tab, setTab] = useRecoilState(tabState);
   // ...
-};
-</code></pre>
+};</code>
+        </deckgo-highlight-code>
 <h1 id="ssr" style="position:relative;"><a href="#ssr" aria-label="ssr permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>SSR</h1>
 <p>공식문서에 다음과 같이 나와있다.</p>
 <blockquote>
@@ -244,21 +248,22 @@ SSR을 통해 생성된 페이지가 브라우저에서 Hydrate 된 이후에도
 일반적으로 <code>gatsby-ssr.js</code> 과 <code>gatsby-browser.js</code> 에 동일한 구성요소를 구현해야만 한다.</p>
 </blockquote>
 <p>즉, 서버 사이드 렌더링을 통해 생성된 HTML과, 클라이언트 사이드에서 이 HTML과 번들링 된 JS를 매칭시킬 때 (<strong>Hydrate</strong>) 두 요소가 동일해야 하기 때문에 동일한 코드를 작성해주라는 말인 것 같다.</p>
-<pre><code class="language-jsx">//gatsby-ssr.js
+<deckgo-highlight-code language="jsx"  >
+          <code slot="code">//gatsby-ssr.js
 /**
- * Implement Gatsby's SSR (Server Side Rendering) APIs in this file.
+ * Implement Gatsby&#39;s SSR (Server Side Rendering) APIs in this file.
  *
  * See: https://www.gatsbyjs.com/docs/ssr-apis/
  */
 
-// You can delete this file if you're not using it
-import React from "react";
-import { RecoilRoot } from "recoil";
+// You can delete this file if you&#39;re not using it
+import React from &quot;react&quot;;
+import { RecoilRoot } from &quot;recoil&quot;;
 
-export const wrapPageElement = ({ element, props }) => {
-  return &#x3C;RecoilRoot {...props}>{element}&#x3C;/RecoilRoot>;
-};
-</code></pre>
+export const wrapPageElement = ({ element, props }) =&gt; {
+  return &lt;RecoilRoot {...props}&gt;{element}&lt;/RecoilRoot&gt;;
+};</code>
+        </deckgo-highlight-code>
 <h1 id="참조" style="position:relative;"><a href="#%EC%B0%B8%EC%A1%B0" aria-label="참조 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>참조</h1>
 <ul>
 <li><a href="https://www.gatsbyjs.com/docs/reference/config-files/gatsby-browser/">https://www.gatsbyjs.com/docs/reference/config-files/gatsby-browser/</a></li>
@@ -269,4 +274,4 @@ export const wrapPageElement = ({ element, props }) => {
 <li><a href="#%EC%83%81%ED%83%9C%EA%B4%80%EB%A6%AC">상태관리</a></li>
 <li><a href="#ssr">SSR</a></li>
 <li><a href="#%EC%B0%B8%EC%A1%B0">참조</a></li>
-</ul></div></div></aside></article><footer class="Footerstyled__Footer-sc-d5gfxx-0 MJlAv">@ designed by <strong>Yenny</strong></footer></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/posts/TECH/[React] gatsby에서 recoil 사용하기/";window.___webpackCompilationHash="9f9bd54b1a05b4251efc";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"polyfill":["/polyfill-d332324a73099df3ed5f.js"],"app":["/app-d9332efba5fdbce3db57.js"],"component---src-components-templates-post-index-js":[],"component---src-pages-404-js":["/component---src-pages-404-js-d6d824234c1d81455b32.js"],"component---src-pages-index-js":["/component---src-pages-index-js-a426dad47477401a377e.js"],"component---src-pages-projects-canvas-game-js":["/component---src-pages-projects-canvas-game-js-4e00347488255de93f89.js"],"component---src-pages-using-ssr-js":["/component---src-pages-using-ssr-js-59457fe9b47fc25862fc.js"]};/*]]>*/</script><script src="/yennylog/polyfill-d332324a73099df3ed5f.js" nomodule=""></script><script src="/yennylog/app-d9332efba5fdbce3db57.js" async=""></script><script src="/yennylog/76d8c668-f83839dfdaa421a8fd94.js" async=""></script><script src="/yennylog/framework-055cc268ae2009dd822e.js" async=""></script><script src="/yennylog/webpack-runtime-f45d324900df9ad5bfaf.js" async=""></script></body></html>
+</ul></div></div></aside></article><footer class="Footerstyled__Footer-sc-d5gfxx-0 MJlAv">@ designed by <strong>Yenny</strong></footer></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/posts/TECH/[React] gatsby에서 recoil 사용하기/";window.___webpackCompilationHash="34c77e42b344b4db68b4";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"polyfill":["/polyfill-d332324a73099df3ed5f.js"],"app":["/app-d9332efba5fdbce3db57.js"],"component---src-components-templates-post-index-js":[],"component---src-pages-404-js":["/component---src-pages-404-js-0b2a86d6fec972ca916f.js"],"component---src-pages-index-js":["/component---src-pages-index-js-23dc47043e79c1078f67.js"],"component---src-pages-projects-canvas-game-js":["/component---src-pages-projects-canvas-game-js-3b994012e909b2aecea8.js"],"component---src-pages-using-ssr-js":["/component---src-pages-using-ssr-js-64d5ff5cc7e9b3924e16.js"]};/*]]>*/</script><script src="/yennylog/polyfill-d332324a73099df3ed5f.js" nomodule=""></script><script src="/yennylog/app-d9332efba5fdbce3db57.js" async=""></script><script src="/yennylog/76d8c668-f83839dfdaa421a8fd94.js" async=""></script><script src="/yennylog/framework-055cc268ae2009dd822e.js" async=""></script><script src="/yennylog/webpack-runtime-050c5698ee981ad7d8a0.js" async=""></script></body></html>

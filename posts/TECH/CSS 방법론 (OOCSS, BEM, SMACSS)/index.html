@@ -199,17 +199,18 @@ data-styled.g36[id="sc-keyframes-jBcSpD"]{content:"jBcSpD,"}/*!sc*/
 </ul>
 </li>
 </ol>
-<pre><code class="language-css">&#x3C;div
-  class="btn common-skin tel"
-  > tel&#x3C;/div
-  > &#x3C;div
-  class="btn common-skin email"
-  > email&#x3C;/div
-  > .btn {
+<deckgo-highlight-code language="css"  >
+          <code slot="code">&lt;div
+  class=&quot;btn common-skin tel&quot;
+  &gt; tel&lt;/div
+  &gt; &lt;div
+  class=&quot;btn common-skin email&quot;
+  &gt; email&lt;/div
+  &gt; .btn {
 }
 .common-skin {
-}
-</code></pre>
+}</code>
+        </deckgo-highlight-code>
 <ol>
 <li>컨테이너와 내용 분리
 <ul>
@@ -219,15 +220,16 @@ data-styled.g36[id="sc-keyframes-jBcSpD"]{content:"jBcSpD,"}/*!sc*/
 </ul>
 </li>
 </ol>
-<pre><code class="language-css">// Bad
+<deckgo-highlight-code language="css"  >
+          <code slot="code">// Bad
 h3 {
   font-size: 16px;
 }
 // Good
 .sub-title {
   font-size: 16px;
-}
-</code></pre>
+}</code>
+        </deckgo-highlight-code>
 <ul>
 <li>장점:
 <ul>
@@ -253,17 +255,19 @@ h3 {
 <ol>
 <li>Block: 재사용 가능한 영역, 하나의 단어를 사용하되 길어질 경우 하이픈(-) 사용</li>
 </ol>
-<pre><code class="language-css">.header {
+<deckgo-highlight-code language="css"  >
+          <code slot="code">.header {
   ...;
 }
 .block {
   ...;
-}
-</code></pre>
+}</code>
+        </deckgo-highlight-code>
 <ol>
 <li>Element: 블록의 내부 구성을 표현, 두 개의 언더스코어(__)로 표기</li>
 </ol>
-<pre><code class="language-css">.header {
+<deckgo-highlight-code language="css"  >
+          <code slot="code">.header {
   ...;
 }
 .header__link {
@@ -274,12 +278,13 @@ h3 {
 }
 .header__tap__item {
   ...;
-}
-</code></pre>
+}</code>
+        </deckgo-highlight-code>
 <ol>
 <li>Modifier: 요소의 상태를 표현, 두 개의 하이픈(—)으로 표기</li>
 </ol>
-<pre><code class="language-css">.header--hide {
+<deckgo-highlight-code language="css"  >
+          <code slot="code">.header--hide {
   ...;
 }
 .header__tap--big {
@@ -287,8 +292,8 @@ h3 {
 }
 .header__tap--big {
   ...;
-}
-</code></pre>
+}</code>
+        </deckgo-highlight-code>
 <ul>
 <li>장점:
 <ul>
@@ -308,7 +313,8 @@ h3 {
 <ol>
 <li>base ⇒ 스타일 초기화 (reset.css)</li>
 </ol>
-<pre><code class="language-css">body,
+<deckgo-highlight-code language="css"  >
+          <code slot="code">body,
 p,
 table,
 form,
@@ -318,8 +324,8 @@ input,
 button ... {
   margin: 0;
   padding: 0;
-}
-</code></pre>
+}</code>
+        </deckgo-highlight-code>
 <ol>
 <li>layout ⇒ 주요 요소(id), 하위 요소(class)로 구분하고 접두사를 사용
 <ol>
@@ -328,26 +334,28 @@ button ... {
 </ol>
 </li>
 </ol>
-<pre><code class="language-css">// 주요 요소 ()
+<deckgo-highlight-code language="css"  >
+          <code slot="code">// 주요 요소 ()
 #header {
   width: 400px;
 }
 #aside {
   width: 30px;
 }
-// 하위 요소 (layout => l-)
+// 하위 요소 (layout =&gt; l-)
 .l-width #header {
   width: 600px;
   padding: 10px;
 }
 .l-width #aside {
   width: 100px;
-}
-</code></pre>
+}</code>
+        </deckgo-highlight-code>
 <ol>
 <li>module ⇒ 재사용 가능한 구성요소: 버튼, 배너, 아이콘 등</li>
 </ol>
-<pre><code class="language-css">.stick {
+<deckgo-highlight-code language="css"  >
+          <code slot="code">.stick {
   ...;
 }
 .stick-name {
@@ -355,12 +363,13 @@ button ... {
 }
 .stick-number {
   ...;
-}
-</code></pre>
+}</code>
+        </deckgo-highlight-code>
 <ol>
 <li>state ⇒ 요소의 상태변화를 표현하고 접두사를 사용</li>
 </ol>
-<pre><code class="language-css">.is-error {
+<deckgo-highlight-code language="css"  >
+          <code slot="code">.is-error {
   ...;
 }
 .is-hidden {
@@ -368,20 +377,21 @@ button ... {
 }
 .is-disabled {
   ...;
-}
-</code></pre>
+}</code>
+        </deckgo-highlight-code>
 <ol>
 <li>theme ⇒ 사용자가 선택 가능하도록 스타일을 재선언하여 사용</li>
 </ol>
-<pre><code class="language-css">// base.css
+<deckgo-highlight-code language="css"  >
+          <code slot="code">// base.css
 .header {
   background-color: green;
 }
 // theme.css
 .header {
   background-color: red;
-}
-</code></pre>
+}</code>
+        </deckgo-highlight-code>
 <ul>
 <li>장점:
 <ul>
@@ -400,4 +410,4 @@ button ... {
 <li><a href="#1-oocss-object-oriented-css">1. OOCSS (Object Oriented CSS)</a></li>
 <li><a href="#2-bem-block-element-modifier">2. BEM (Block Element Modifier)</a></li>
 <li><a href="#3-smacss-scalable-modular-architecture-css">3. SMACSS (Scalable Modular Architecture CSS)</a></li>
-</ul></div></div></aside></article><footer class="Footerstyled__Footer-sc-d5gfxx-0 MJlAv">@ designed by <strong>Yenny</strong></footer></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/posts/TECH/CSS 방법론 (OOCSS, BEM, SMACSS)/";window.___webpackCompilationHash="9f9bd54b1a05b4251efc";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"polyfill":["/polyfill-d332324a73099df3ed5f.js"],"app":["/app-d9332efba5fdbce3db57.js"],"component---src-components-templates-post-index-js":[],"component---src-pages-404-js":["/component---src-pages-404-js-d6d824234c1d81455b32.js"],"component---src-pages-index-js":["/component---src-pages-index-js-a426dad47477401a377e.js"],"component---src-pages-projects-canvas-game-js":["/component---src-pages-projects-canvas-game-js-4e00347488255de93f89.js"],"component---src-pages-using-ssr-js":["/component---src-pages-using-ssr-js-59457fe9b47fc25862fc.js"]};/*]]>*/</script><script src="/yennylog/polyfill-d332324a73099df3ed5f.js" nomodule=""></script><script src="/yennylog/app-d9332efba5fdbce3db57.js" async=""></script><script src="/yennylog/76d8c668-f83839dfdaa421a8fd94.js" async=""></script><script src="/yennylog/framework-055cc268ae2009dd822e.js" async=""></script><script src="/yennylog/webpack-runtime-f45d324900df9ad5bfaf.js" async=""></script></body></html>
+</ul></div></div></aside></article><footer class="Footerstyled__Footer-sc-d5gfxx-0 MJlAv">@ designed by <strong>Yenny</strong></footer></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/posts/TECH/CSS 방법론 (OOCSS, BEM, SMACSS)/";window.___webpackCompilationHash="34c77e42b344b4db68b4";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"polyfill":["/polyfill-d332324a73099df3ed5f.js"],"app":["/app-d9332efba5fdbce3db57.js"],"component---src-components-templates-post-index-js":[],"component---src-pages-404-js":["/component---src-pages-404-js-0b2a86d6fec972ca916f.js"],"component---src-pages-index-js":["/component---src-pages-index-js-23dc47043e79c1078f67.js"],"component---src-pages-projects-canvas-game-js":["/component---src-pages-projects-canvas-game-js-3b994012e909b2aecea8.js"],"component---src-pages-using-ssr-js":["/component---src-pages-using-ssr-js-64d5ff5cc7e9b3924e16.js"]};/*]]>*/</script><script src="/yennylog/polyfill-d332324a73099df3ed5f.js" nomodule=""></script><script src="/yennylog/app-d9332efba5fdbce3db57.js" async=""></script><script src="/yennylog/76d8c668-f83839dfdaa421a8fd94.js" async=""></script><script src="/yennylog/framework-055cc268ae2009dd822e.js" async=""></script><script src="/yennylog/webpack-runtime-050c5698ee981ad7d8a0.js" async=""></script></body></html>

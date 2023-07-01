@@ -197,7 +197,8 @@ data-styled.g36[id="sc-keyframes-jBcSpD"]{content:"jBcSpD,"}/*!sc*/
 <li><strong>CSS 유효성</strong>: 유효한 CSS를 사용한다. (W3C CSS 유효성 검사기 같은 도구로 테스트)</li>
 <li><strong>클래스 이름</strong>: 클래스 이름은 최대한 구체적이고, 요소의 목적을 반영할 수 있도록 짓는다.</li>
 </ol>
-<pre><code class="language-scss">/* 권장하지 않음: 의미가 없음 */
+<deckgo-highlight-code language="scss"  >
+          <code slot="code">/* 권장하지 않음: 의미가 없음 */
 .yee-1901 {
 }
 
@@ -219,12 +220,13 @@ data-styled.g36[id="sc-keyframes-jBcSpD"]{content:"jBcSpD,"}/*!sc*/
 .aux {
 }
 .alt {
-}
-</code></pre>
+}</code>
+        </deckgo-highlight-code>
 <ol start="3">
 <li><strong>클래스 이름 스타일</strong>: 클래스 이름은 가능한 짧게, 필요하다면 길게 짓는다.</li>
 </ol>
-<pre><code class="language-scss">/* 권장하지 않음 */
+<deckgo-highlight-code language="scss"  >
+          <code slot="code">/* 권장하지 않음 */
 .navigation {
 }
 .atr {
@@ -234,12 +236,13 @@ data-styled.g36[id="sc-keyframes-jBcSpD"]{content:"jBcSpD,"}/*!sc*/
 .nav {
 }
 .author {
-}
-</code></pre>
+}</code>
+        </deckgo-highlight-code>
 <ol start="4">
 <li><strong>클래스 이름 구분자</strong>: 클래스 이름은 하이픈(-)으로 구분한다. (kebab-case)</li>
 </ol>
-<pre><code class="language-scss">/* 권장하지 않음: “demo” 와 “image”가 구분되어있지 않음. */
+<deckgo-highlight-code language="scss"  >
+          <code slot="code">/* 권장하지 않음: “demo” 와 “image”가 구분되어있지 않음. */
 .demoimage {
 }
 
@@ -251,20 +254,22 @@ data-styled.g36[id="sc-keyframes-jBcSpD"]{content:"jBcSpD,"}/*!sc*/
 .video-id {
 }
 .ads-sample {
-}
-</code></pre>
+}</code>
+        </deckgo-highlight-code>
 <ol start="5">
 <li><strong>접두사</strong>: 대규모 프로젝트나 다른 프로젝트에 임베드된 코드는 클래스 이름에 네임스페이스 처럼 접두사를 사용한다. 대쉬(-)로 구분되는 짧고, 고유한 식별자를 사용한다. 네임스페이스를 사용하는 것은 네이밍 충돌을 막고, 유지보수를 용이하게한다.</li>
 </ol>
-<pre><code class="language-scss">.adw-help {
+<deckgo-highlight-code language="scss"  >
+          <code slot="code">.adw-help {
 } /* AdWords */
 .maia-note {
-} /* Maia */
-</code></pre>
+} /* Maia */</code>
+        </deckgo-highlight-code>
 <ol start="6">
 <li><strong>CSS 선택자 단순화</strong>: 타입 선택자로 클래스 이름을 한정하지 말자. 필요한 경우가 아니라면, 요소 이름을 클래스와 함께 사용하지 않는 것이 좋다. 불필요한 조상 선택자를 피하는 것은 <a href="https://www.stevesouders.com/blog/2009/06/18/simplifying-css-selectors/">성능상의 이유</a>로 유용하다.</li>
 </ol>
-<pre><code class="language-scss">/* 권장하지 않음 */
+<deckgo-highlight-code language="scss"  >
+          <code slot="code">/* 권장하지 않음 */
 ul.example {
 }
 div.error {
@@ -274,23 +279,25 @@ div.error {
 .example {
 }
 .error {
-}
-</code></pre>
+}</code>
+        </deckgo-highlight-code>
 <ol start="7">
 <li><strong>ID 선택자</strong>: ID 선택자는 피하자. ID 속성은 전체 페이지에서 고유해야 하는데, 많은 개발자들에 의해 구현된 많은 컴포넌트를 포함하는 페이지에서 보장되기가 어렵다. 클래스 선택자가 모든 상황에서 선호되어야만 한다.</li>
 </ol>
-<pre><code class="language-scss">/* 권장하지 않음 */
+<deckgo-highlight-code language="scss"  >
+          <code slot="code">/* 권장하지 않음 */
 #example {
 }
 
 /* 권장함 */
 .example {
-}
-</code></pre>
+}</code>
+        </deckgo-highlight-code>
 <ol start="8">
 <li><strong>단축 속성</strong>: 가능한 한 단축 속성을 사용한다. CSS는 다양한 단축속성 (예: <code>font</code>)을 제공하는데, 약식 속성을 사용하면 코드 효율성과 이해도에 유용하다.</li>
 </ol>
-<pre><code class="language-scss">/* 권장하지 않음 */
+<deckgo-highlight-code language="scss"  >
+          <code slot="code">/* 권장하지 않음 */
 border-top-style: none;
 font-family: palatino, georgia, serif;
 font-size: 100%;
@@ -303,42 +310,46 @@ padding-top: 0;
 /* 권장함 */
 border-top: 0;
 font: 100%/1.6 palatino, georgia, serif;
-padding: 0 1em 2em;
-</code></pre>
+padding: 0 1em 2em;</code>
+        </deckgo-highlight-code>
 <ol start="9">
 <li><strong>0과 단위</strong>: 필요하지 않다면, ‘0’ 값 이후 단위를 생략한다.</li>
 </ol>
-<pre><code class="language-scss">flex: 0px; /* 이 플렉스 기반 요소에는 단위가 필요함. */
+<deckgo-highlight-code language="scss"  >
+          <code slot="code">flex: 0px; /* 이 플렉스 기반 요소에는 단위가 필요함. */
 flex: 1 1 0px; /* 단위 없이 모호하지는 않으나, IE11에서는 필요함. */
 margin: 0;
-padding: 0;
-</code></pre>
+padding: 0;</code>
+        </deckgo-highlight-code>
 <ol start="10">
 <li><strong>선행 0</strong>: 값이나 길이가 -1~1 사이인 경우, 앞에 0을 선행한다.</li>
 </ol>
-<pre><code class="language-scss">font-size: 0.8em;
-</code></pre>
+<deckgo-highlight-code language="scss"  >
+          <code slot="code">font-size: 0.8em;</code>
+        </deckgo-highlight-code>
 <ol start="11">
 <li>16진수 표기법: 가능하면 3자리의 16진수 표기법을 사용한다. 더 짧고 간결하기 때문이다.</li>
 </ol>
-<pre><code class="language-scss">/* 권장하지 않음 */
+<deckgo-highlight-code language="scss"  >
+          <code slot="code">/* 권장하지 않음 */
 color: #eebbcc;
 
 /* 권장함 */
-color: #ebc;
-</code></pre>
+color: #ebc;</code>
+        </deckgo-highlight-code>
 <ol start="12">
 <li>*<strong>*중요 선언**</strong>: <code>!important</code> 선언을 사용하지 않는다. 이러한 선언은 css의 자연스러운 종속을 깨고 스타일을 추론하고 구성하기 어렵게 한다. 대신 <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity">특정 선택자</a>를 사용하여 오버라이딩 한다.</li>
 </ol>
-<pre><code class="language-scss">/* 권장하지 않음 */
+<deckgo-highlight-code language="scss"  >
+          <code slot="code">/* 권장하지 않음 */
 .example {
   font-weight: bold !important;
 }
 /* 권장함 */
 .example {
   font-weight: bold;
-}
-</code></pre>
+}</code>
+        </deckgo-highlight-code>
 <ol start="13">
 <li><strong>Hacks</strong>: 사용자 에이전트 브라우저 감지와 CSS Hacks을 사용하지 않는다.</li>
 </ol>
@@ -346,29 +357,32 @@ color: #ebc;
 <ol>
 <li><strong>선언 순서</strong>: 알파벳 순으로 지정한다. CSS 벤더 접두사(예: -webkit0-)가 붙은 경우에는 정렬을 위해 이를 무시한다. 그러나 여러 CSS 벤더 접두사가 있다면 정렬된 상태로 유지해야 한다. (-moz는 -webkit 앞에 옴)</li>
 </ol>
-<pre><code class="language-css">background: fuchsia;
+<deckgo-highlight-code language="css"  >
+          <code slot="code">background: fuchsia;
 border: 1px solid;
 -moz-border-radius: 4px;
 -webkit-border-radius: 4px;
 border-radius: 4px;
 color: black;
 text-align: center;
-text-indent: 2em;
-</code></pre>
+text-indent: 2em;</code>
+        </deckgo-highlight-code>
 <ol start="2">
 <li><strong>블록 컨텐츠 들여쓰기</strong>: 모든 블록 컨텐츠를 들여쓴다. 이는 계층구조를 반영하고 이해도를 향상시킨다.</li>
 </ol>
-<pre><code class="language-css">@media screen, projection {
+<deckgo-highlight-code language="css"  >
+          <code slot="code">@media screen, projection {
   html {
     background: #fff;
     color: #444;
   }
-}
-</code></pre>
+}</code>
+        </deckgo-highlight-code>
 <ol start="3">
 <li><strong>선언 중지</strong>: 모든 선언 뒤에 세미콜론을 사용한다.</li>
 </ol>
-<pre><code class="language-css">/* 권장하지 않음 */
+<deckgo-highlight-code language="css"  >
+          <code slot="code">/* 권장하지 않음 */
 .test {
   display: block;
   height: 100px;
@@ -378,12 +392,13 @@ text-indent: 2em;
 .test {
   display: block;
   height: 100px;
-}
-</code></pre>
+}</code>
+        </deckgo-highlight-code>
 <ol start="4">
 <li><strong>속성 이름 중지</strong>: 모든 속성 이름의 콜론(:) 뒤에 공백을 사용한다.</li>
 </ol>
-<pre><code class="language-css">/* 권장하지 않음 */
+<deckgo-highlight-code language="css"  >
+          <code slot="code">/* 권장하지 않음 */
 h3 {
   font-weight: bold;
 }
@@ -391,12 +406,13 @@ h3 {
 /* 권장함 */
 h3 {
   font-weight: bold;
-}
-</code></pre>
+}</code>
+        </deckgo-highlight-code>
 <ol start="5">
 <li><strong>선언 블록 분리</strong>: 항상 마지막 선택자와 선언 블록이 시작하는 열린 중괄호 사이에는 하나의 공백을 사용한다. 열린 중괄호는 마지막 선택자와 같은 줄에 있어야 한다.</li>
 </ol>
-<pre><code class="language-css">/* 권장하지 않음: 공백 없음 */
+<deckgo-highlight-code language="css"  >
+          <code slot="code">/* 권장하지 않음: 공백 없음 */
 .video {
   margin-top: 1em;
 }
@@ -409,12 +425,13 @@ h3 {
 /* 권장함 */
 .video {
   margin-top: 1em;
-}
-</code></pre>
+}</code>
+        </deckgo-highlight-code>
 <ol start="6">
 <li><strong>선택자와 선언블록 분리</strong>: 선택자들과 선언들을 새로운 라인으로 분리한다. 항상 각각의 선택자와 선언은 새로운 라인에서 시작한다.</li>
 </ol>
-<pre><code class="language-css">/* 권장하지 않음 */
+<deckgo-highlight-code language="css"  >
+          <code slot="code">/* 권장하지 않음 */
 a:focus,
 a:active {
   position: relative;
@@ -427,37 +444,39 @@ h2,
 h3 {
   font-weight: normal;
   line-height: 1.2;
-}
-</code></pre>
+}</code>
+        </deckgo-highlight-code>
 <ol start="7">
 <li><strong>규칙 분리</strong>: 모든 규칙을 새로운 라인으로 분리한다. 규칙 사이에는 하나의 빈 라인(두 번의 줄바꿈)을 추가한다.</li>
 </ol>
-<pre><code class="language-css">html {
+<deckgo-highlight-code language="css"  >
+          <code slot="code">html {
   background: #fff;
 }
 
 body {
   margin: auto;
   width: 50%;
-}
-</code></pre>
+}</code>
+        </deckgo-highlight-code>
 <ol start="8">
 <li><strong>CSS 따옴표</strong>: 속성 선택자 및 속성에 작은 따옴표('') 대신 큰 따옴표("")를 사용한다. URI 값에는 따옴표를 사용하지 않는다. (url()) 예외: 만약 @charset 규칙을 사용해야 한다면, 큰따옴표를 사용한다. <a href="https://www.w3.org/TR/CSS21/syndata.html#charset">작은 따옴표는 허용되지 않는다.</a></li>
 </ol>
-<pre><code class="language-css">/* 권장하지 않음 */
-@import url("https://www.google.com/css/maia.css");
+<deckgo-highlight-code language="css"  >
+          <code slot="code">/* 권장하지 않음 */
+@import url(&quot;https://www.google.com/css/maia.css&quot;);
 
 html {
-  font-family: "open sans", arial, sans-serif;
+  font-family: &quot;open sans&quot;, arial, sans-serif;
 }
 
 /* 권장함 */
 @import url(https://www.google.com/css/maia.css);
 
 html {
-  font-family: "open sans", arial, sans-serif;
-}
-</code></pre></main><div id="disqus_thread"></div></div></main><aside class="Layoutstyled__Panel-sc-c0xsee-2 fnjjVN"><div class="Profilestyled__Container-sc-1ym8p9l-0 fGiZlr"><div class="Profilestyled__Profile-sc-1ym8p9l-1 eeGxIW"><img src="/yennylog/static/profile-e0f92f3d92dcb600702efc5d572c3e0d.jpg" class="Profilestyled__ProfileImage-sc-1ym8p9l-2 jPNMNN"/><div class="Profilestyled__Title-sc-1ym8p9l-3 eTZVFg"><a href="/yennylog/">Yennylog</a></div><div class="Profilestyled__Description-sc-1ym8p9l-4 gEuJge">Front-end Developer</div><div class="Profilestyled__Description-sc-1ym8p9l-4 gEuJge">Simple is Best 😗</div><div class="Profilestyled__Icons-sc-1ym8p9l-5 dvLOYB"><a href="https://github.com/yenny-heo" target="_blank" class="Profilestyled__Icon-sc-1ym8p9l-6 bfVsmt"><img src="data:image/svg+xml;base64,PHN2ZyByb2xlPSJpbWciIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48dGl0bGU+R2l0SHViPC90aXRsZT48cGF0aCBkPSJNMTIgLjI5N2MtNi42MyAwLTEyIDUuMzczLTEyIDEyIDAgNS4zMDMgMy40MzggOS44IDguMjA1IDExLjM4NS42LjExMy44Mi0uMjU4LjgyLS41NzcgMC0uMjg1LS4wMS0xLjA0LS4wMTUtMi4wNC0zLjMzOC43MjQtNC4wNDItMS42MS00LjA0Mi0xLjYxQzQuNDIyIDE4LjA3IDMuNjMzIDE3LjcgMy42MzMgMTcuN2MtMS4wODctLjc0NC4wODQtLjcyOS4wODQtLjcyOSAxLjIwNS4wODQgMS44MzggMS4yMzYgMS44MzggMS4yMzYgMS4wNyAxLjgzNSAyLjgwOSAxLjMwNSAzLjQ5NS45OTguMTA4LS43NzYuNDE3LTEuMzA1Ljc2LTEuNjA1LTIuNjY1LS4zLTUuNDY2LTEuMzMyLTUuNDY2LTUuOTMgMC0xLjMxLjQ2NS0yLjM4IDEuMjM1LTMuMjItLjEzNS0uMzAzLS41NC0xLjUyMy4xMDUtMy4xNzYgMCAwIDEuMDA1LS4zMjIgMy4zIDEuMjMuOTYtLjI2NyAxLjk4LS4zOTkgMy0uNDA1IDEuMDIuMDA2IDIuMDQuMTM4IDMgLjQwNSAyLjI4LTEuNTUyIDMuMjg1LTEuMjMgMy4yODUtMS4yMy42NDUgMS42NTMuMjQgMi44NzMuMTIgMy4xNzYuNzY1Ljg0IDEuMjMgMS45MSAxLjIzIDMuMjIgMCA0LjYxLTIuODA1IDUuNjI1LTUuNDc1IDUuOTIuNDIuMzYuODEgMS4wOTYuODEgMi4yMiAwIDEuNjA2LS4wMTUgMi44OTYtLjAxNSAzLjI4NiAwIC4zMTUuMjEuNjkuODI1LjU3QzIwLjU2NSAyMi4wOTIgMjQgMTcuNTkyIDI0IDEyLjI5N2MwLTYuNjI3LTUuMzczLTEyLTEyLTEyIi8+PC9zdmc+" alt="github"/></a><a href="https://www.linkedin.com/in/yeeunheo/" target="_blank" class="Profilestyled__Icon-sc-1ym8p9l-6 bfVsmt"><img src="data:image/svg+xml;base64,PHN2ZyByb2xlPSJpbWciIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48dGl0bGU+TGlua2VkSW48L3RpdGxlPjxwYXRoIGQ9Ik0yMC40NDcgMjAuNDUyaC0zLjU1NHYtNS41NjljMC0xLjMyOC0uMDI3LTMuMDM3LTEuODUyLTMuMDM3LTEuODUzIDAtMi4xMzYgMS40NDUtMi4xMzYgMi45Mzl2NS42NjdIOS4zNTFWOWgzLjQxNHYxLjU2MWguMDQ2Yy40NzctLjkgMS42MzctMS44NSAzLjM3LTEuODUgMy42MDEgMCA0LjI2NyAyLjM3IDQuMjY3IDUuNDU1djYuMjg2ek01LjMzNyA3LjQzM2MtMS4xNDQgMC0yLjA2My0uOTI2LTIuMDYzLTIuMDY1IDAtMS4xMzguOTItMi4wNjMgMi4wNjMtMi4wNjMgMS4xNCAwIDIuMDY0LjkyNSAyLjA2NCAyLjA2MyAwIDEuMTM5LS45MjUgMi4wNjUtMi4wNjQgMi4wNjV6bTEuNzgyIDEzLjAxOUgzLjU1NVY5aDMuNTY0djExLjQ1MnpNMjIuMjI1IDBIMS43NzFDLjc5MiAwIDAgLjc3NCAwIDEuNzI5djIwLjU0MkMwIDIzLjIyNy43OTIgMjQgMS43NzEgMjRoMjAuNDUxQzIzLjIgMjQgMjQgMjMuMjI3IDI0IDIyLjI3MVYxLjcyOUMyNCAuNzc0IDIzLjIgMCAyMi4yMjIgMGguMDAzeiIvPjwvc3ZnPg==" alt="linkedin"/></a></div></div></div><div id="table-of-contents" class="TableOfContentsstyled__Container-sc-1bqa7f6-0 gTntNJ"><div><ul>
+  font-family: &quot;open sans&quot;, arial, sans-serif;
+}</code>
+        </deckgo-highlight-code></main><div id="disqus_thread"></div></div></main><aside class="Layoutstyled__Panel-sc-c0xsee-2 fnjjVN"><div class="Profilestyled__Container-sc-1ym8p9l-0 fGiZlr"><div class="Profilestyled__Profile-sc-1ym8p9l-1 eeGxIW"><img src="/yennylog/static/profile-e0f92f3d92dcb600702efc5d572c3e0d.jpg" class="Profilestyled__ProfileImage-sc-1ym8p9l-2 jPNMNN"/><div class="Profilestyled__Title-sc-1ym8p9l-3 eTZVFg"><a href="/yennylog/">Yennylog</a></div><div class="Profilestyled__Description-sc-1ym8p9l-4 gEuJge">Front-end Developer</div><div class="Profilestyled__Description-sc-1ym8p9l-4 gEuJge">Simple is Best 😗</div><div class="Profilestyled__Icons-sc-1ym8p9l-5 dvLOYB"><a href="https://github.com/yenny-heo" target="_blank" class="Profilestyled__Icon-sc-1ym8p9l-6 bfVsmt"><img src="data:image/svg+xml;base64,PHN2ZyByb2xlPSJpbWciIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48dGl0bGU+R2l0SHViPC90aXRsZT48cGF0aCBkPSJNMTIgLjI5N2MtNi42MyAwLTEyIDUuMzczLTEyIDEyIDAgNS4zMDMgMy40MzggOS44IDguMjA1IDExLjM4NS42LjExMy44Mi0uMjU4LjgyLS41NzcgMC0uMjg1LS4wMS0xLjA0LS4wMTUtMi4wNC0zLjMzOC43MjQtNC4wNDItMS42MS00LjA0Mi0xLjYxQzQuNDIyIDE4LjA3IDMuNjMzIDE3LjcgMy42MzMgMTcuN2MtMS4wODctLjc0NC4wODQtLjcyOS4wODQtLjcyOSAxLjIwNS4wODQgMS44MzggMS4yMzYgMS44MzggMS4yMzYgMS4wNyAxLjgzNSAyLjgwOSAxLjMwNSAzLjQ5NS45OTguMTA4LS43NzYuNDE3LTEuMzA1Ljc2LTEuNjA1LTIuNjY1LS4zLTUuNDY2LTEuMzMyLTUuNDY2LTUuOTMgMC0xLjMxLjQ2NS0yLjM4IDEuMjM1LTMuMjItLjEzNS0uMzAzLS41NC0xLjUyMy4xMDUtMy4xNzYgMCAwIDEuMDA1LS4zMjIgMy4zIDEuMjMuOTYtLjI2NyAxLjk4LS4zOTkgMy0uNDA1IDEuMDIuMDA2IDIuMDQuMTM4IDMgLjQwNSAyLjI4LTEuNTUyIDMuMjg1LTEuMjMgMy4yODUtMS4yMy42NDUgMS42NTMuMjQgMi44NzMuMTIgMy4xNzYuNzY1Ljg0IDEuMjMgMS45MSAxLjIzIDMuMjIgMCA0LjYxLTIuODA1IDUuNjI1LTUuNDc1IDUuOTIuNDIuMzYuODEgMS4wOTYuODEgMi4yMiAwIDEuNjA2LS4wMTUgMi44OTYtLjAxNSAzLjI4NiAwIC4zMTUuMjEuNjkuODI1LjU3QzIwLjU2NSAyMi4wOTIgMjQgMTcuNTkyIDI0IDEyLjI5N2MwLTYuNjI3LTUuMzczLTEyLTEyLTEyIi8+PC9zdmc+" alt="github"/></a><a href="https://www.linkedin.com/in/yeeunheo/" target="_blank" class="Profilestyled__Icon-sc-1ym8p9l-6 bfVsmt"><img src="data:image/svg+xml;base64,PHN2ZyByb2xlPSJpbWciIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48dGl0bGU+TGlua2VkSW48L3RpdGxlPjxwYXRoIGQ9Ik0yMC40NDcgMjAuNDUyaC0zLjU1NHYtNS41NjljMC0xLjMyOC0uMDI3LTMuMDM3LTEuODUyLTMuMDM3LTEuODUzIDAtMi4xMzYgMS40NDUtMi4xMzYgMi45Mzl2NS42NjdIOS4zNTFWOWgzLjQxNHYxLjU2MWguMDQ2Yy40NzctLjkgMS42MzctMS44NSAzLjM3LTEuODUgMy42MDEgMCA0LjI2NyAyLjM3IDQuMjY3IDUuNDU1djYuMjg2ek01LjMzNyA3LjQzM2MtMS4xNDQgMC0yLjA2My0uOTI2LTIuMDYzLTIuMDY1IDAtMS4xMzguOTItMi4wNjMgMi4wNjMtMi4wNjMgMS4xNCAwIDIuMDY0LjkyNSAyLjA2NCAyLjA2MyAwIDEuMTM5LS45MjUgMi4wNjUtMi4wNjQgMi4wNjV6bTEuNzgyIDEzLjAxOUgzLjU1NVY5aDMuNTY0djExLjQ1MnpNMjIuMjI1IDBIMS43NzFDLjc5MiAwIDAgLjc3NCAwIDEuNzI5djIwLjU0MkMwIDIzLjIyNy43OTIgMjQgMS43NzEgMjRoMjAuNDUxQzIzLjIgMjQgMjQgMjMuMjI3IDI0IDIyLjI3MVYxLjcyOUMyNCAuNzc0IDIzLjIgMCAyMi4yMjIgMGguMDAzeiIvPjwvc3ZnPg==" alt="linkedin"/></a></div></div></div><div id="table-of-contents" class="TableOfContentsstyled__Container-sc-1bqa7f6-0 gTntNJ"><div><ul>
 <li><a href="#1-css-style-rules">1) CSS Style Rules</a></li>
 <li><a href="#2-css-formating-rules">2) CSS Formating Rules</a></li>
-</ul></div></div></aside></article><footer class="Footerstyled__Footer-sc-d5gfxx-0 MJlAv">@ designed by <strong>Yenny</strong></footer></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/posts/TECH/Google CSS 스타일 가이드라인/";window.___webpackCompilationHash="9f9bd54b1a05b4251efc";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"polyfill":["/polyfill-d332324a73099df3ed5f.js"],"app":["/app-d9332efba5fdbce3db57.js"],"component---src-components-templates-post-index-js":[],"component---src-pages-404-js":["/component---src-pages-404-js-d6d824234c1d81455b32.js"],"component---src-pages-index-js":["/component---src-pages-index-js-a426dad47477401a377e.js"],"component---src-pages-projects-canvas-game-js":["/component---src-pages-projects-canvas-game-js-4e00347488255de93f89.js"],"component---src-pages-using-ssr-js":["/component---src-pages-using-ssr-js-59457fe9b47fc25862fc.js"]};/*]]>*/</script><script src="/yennylog/polyfill-d332324a73099df3ed5f.js" nomodule=""></script><script src="/yennylog/app-d9332efba5fdbce3db57.js" async=""></script><script src="/yennylog/76d8c668-f83839dfdaa421a8fd94.js" async=""></script><script src="/yennylog/framework-055cc268ae2009dd822e.js" async=""></script><script src="/yennylog/webpack-runtime-f45d324900df9ad5bfaf.js" async=""></script></body></html>
+</ul></div></div></aside></article><footer class="Footerstyled__Footer-sc-d5gfxx-0 MJlAv">@ designed by <strong>Yenny</strong></footer></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/posts/TECH/Google CSS 스타일 가이드라인/";window.___webpackCompilationHash="34c77e42b344b4db68b4";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"polyfill":["/polyfill-d332324a73099df3ed5f.js"],"app":["/app-d9332efba5fdbce3db57.js"],"component---src-components-templates-post-index-js":[],"component---src-pages-404-js":["/component---src-pages-404-js-0b2a86d6fec972ca916f.js"],"component---src-pages-index-js":["/component---src-pages-index-js-23dc47043e79c1078f67.js"],"component---src-pages-projects-canvas-game-js":["/component---src-pages-projects-canvas-game-js-3b994012e909b2aecea8.js"],"component---src-pages-using-ssr-js":["/component---src-pages-using-ssr-js-64d5ff5cc7e9b3924e16.js"]};/*]]>*/</script><script src="/yennylog/polyfill-d332324a73099df3ed5f.js" nomodule=""></script><script src="/yennylog/app-d9332efba5fdbce3db57.js" async=""></script><script src="/yennylog/76d8c668-f83839dfdaa421a8fd94.js" async=""></script><script src="/yennylog/framework-055cc268ae2009dd822e.js" async=""></script><script src="/yennylog/webpack-runtime-050c5698ee981ad7d8a0.js" async=""></script></body></html>
